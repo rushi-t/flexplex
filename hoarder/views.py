@@ -2,8 +2,13 @@
 from rest_framework import generics
 from hoarder.models import Hoarding
 from hoarder.serializers import HoardingSerializer
+from rest_framework.viewsets import ModelViewSet
 
-class HoardingList(generics.ListCreateAPIView):
+# class CampaignViewSet(ModelViewSet):
+#     queryset = Campaign.objects.all()
+#     serializer_class = CampaignSerializer
+
+class HoardingViewSet(ModelViewSet):
     queryset = Hoarding.objects.all()
     serializer_class = HoardingSerializer
 

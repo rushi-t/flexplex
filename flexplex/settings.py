@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'rest_auth.registration',
 
+    'authentication',
     'common',
     'hoarder',
     'advertiser',
@@ -114,11 +115,11 @@ SITE_ID = 1
 #AUTH_PROFILE_MODULE = 'common.models.UserProfile'
 
 REST_AUTH_SERIALIZERS = {
-    'USER_DETAILS_SERIALIZER': 'common.serializers.UserSerializer',
+    'USER_DETAILS_SERIALIZER': 'authentication.serializers.UserSerializer',
 }
 
 REST_AUTH_REGISTER_SERIALIZERS = {
-        'REGISTER_SERIALIZER': 'common.serializers.RegSerializer',
+        'REGISTER_SERIALIZER': 'authentication.serializers.RegSerializer',
 }
 
 REST_FRAMEWORK = {
