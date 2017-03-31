@@ -2,24 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f9a8fbd-4c32-4ad8-a47c-c08b05f24bb4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hoarder/urls.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/advertiser/migrations/0002_auto_20170331_1511.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/advertiser/migrations/0003_auto_20170331_1631.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/advertiser/migrations/0004_auto_20170331_1635.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/migrations/0002_userprofile.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hoarder/migrations/0002_hoarding_address.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/flexplex.iml" afterPath="$PROJECT_DIR$/.idea/flexplex.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/advertiser/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/advertiser/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/common/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/models.py" afterPath="$PROJECT_DIR$/common/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/quries" afterPath="$PROJECT_DIR$/common/quries" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/serializers.py" afterPath="$PROJECT_DIR$/common/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flexplex/settings.py" afterPath="$PROJECT_DIR$/flexplex/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flexplex/urls.py" afterPath="$PROJECT_DIR$/flexplex/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hoarder/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/hoarder/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hoarder/views.py" afterPath="$PROJECT_DIR$/hoarder/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/quickstart/views.py" afterPath="$PROJECT_DIR$/quickstart/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -518,6 +501,14 @@
       <option name="presentableId" value="Default" />
       <updated>1490535612696</updated>
     </task>
+    <task id="LOCAL-00001" summary="login, registration separated into authentication app">
+      <created>1490973128419</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1490973128419</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -549,6 +540,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="login, registration separated into authentication app" />
+    <option name="LAST_COMMIT_MESSAGE" value="login, registration separated into authentication app" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -858,6 +853,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
