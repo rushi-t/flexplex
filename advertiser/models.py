@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 
 # models.py
 from django.db import models
-from hoarder.models import Hoarding
 
 class Campaign(models.Model):
     user = models.ForeignKey('auth.User')
