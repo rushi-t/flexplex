@@ -1,10 +1,11 @@
 from __future__ import unicode_literals
-
+import uuid
 from django.db import models
 
 # Create your models here.
 
 class Hoarding(models.Model):
+    #uuid = models.UUIDField(default=uuid.uuid4, unique=True)
     user = models.ForeignKey('auth.User')
     address = models.ForeignKey('common.Address', default=None)
     width = models.PositiveIntegerField(default=0)
@@ -23,5 +24,4 @@ class Hoarding(models.Model):
     cost_cycle = models.IntegerField(choices=COST_CYCLE_CHOICES, default=3)
     cost = models.FloatField(default=0)
 
-    created = models.DateTimeField(
-        blank=True, null=True)
+    creation_date = models.DateTimeField(auto_now_add=True)

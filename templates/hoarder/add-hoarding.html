@@ -1,0 +1,307 @@
+{% extends "hoarder/base.html" %}
+{% block content %}
+{% include "hoarder/header.html" %}
+    <script src="../../static/js/jquery.cookie.js"></script>
+    <script type = "text/javascript">
+        //Populate city
+        $.getJSON( "../../common/city", function() {
+          console.log( "success" );
+        }).done(function(json) {
+        $('#city').empty();
+            $('#city').append($('<option>').text("Select"));
+            $.each(json, function(i, obj){
+                    $('#city').append($('<option>').text(obj.name).attr('value', obj.id));
+            });
+          }).fail(function() {
+            console.log( "error" );
+          });
+
+        //Populate State
+        $.getJSON( "../../common/state", function() {
+          console.log( "success" );
+        }).done(function(json) {
+        $('#state').empty();
+            $('#state').append($('<option>').text("Select"));
+            $.each(json, function(i, obj){
+                    $('#state').append($('<option>').text(obj.name).attr('value', obj.id));
+            });
+          }).fail(function() {
+            console.log( "error" );
+          });
+
+        //Populate State
+        $.getJSON( "../../common/country", function() {
+          console.log( "success" );
+        }).done(function(json) {
+        $('#country').empty();
+            $('#country').append($('<option>').text("Select"));
+            $.each(json, function(i, obj){
+                    $('#country').append($('<option>').text(obj.name).attr('value', obj.id));
+            });
+          }).fail(function() {
+            console.log( "error" );
+          });
+
+// {
+//     "address": {
+//         "address": "",
+//         "geo_location": "",
+//         "city": null,
+//         "state": null,
+//         "country": null
+//     },
+//     "width": null,
+//     "height": null,
+//     "display_type": null,
+//     "cost_cycle": null,
+//     "cost": null
+// }
+
+        var csrftoken = $.cookie('csrftoken');
+
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
+        function onSubmit( form ){
+            //jsonObj = [];
+
+            item = {}
+            item ["width"] = $('#width').val();
+            item ["height"] = $('#height').val();
+            item ["display_type"] = $('#display_type').val();
+            item ["cost_cycle"] = $('#cost_cycle').val();
+            item ["cost"] = $('#cost').val();
+
+            addressItem = {}
+            addressItem ["city"] = $('#city').val();
+            addressItem ["state"] = $('#state').val();
+            addressItem ["country"] = $('#country').val();
+            addressItem ["geo_location"] = $('#geo_location').val();
+            addressItem ["address"] = $('#address').val();
+            item ["address"] = addressItem;
+
+            //jsonObj.push(item);
+
+            jsonString = JSON.stringify(item);
+            console.log(jsonString);
+
+            try {
+                $.post("../my/hoardings/", jsonString, function(result){
+                    alert(result);
+                });
+
+                $.ajax({
+                  type: 'POST',
+                  url: "../my/hoardings/",
+                  data: jsonString,
+                  error: function(e) {
+                    console.log(e);
+                  },
+                  dataType: "json",
+                  contentType: "application/json"
+                });
+            }
+            catch(err) {
+                alert(err.message);
+            }
+
+            
+            return false; //don't submit
+        }
+    </script>
+    <style type="text/css">
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+    <form onsubmit='return onSubmit(this)'>
+         {% csrf_token %}
+
+        <br/>
+        
+        <div class="row">            
+            <div class="col-sm-3">
+                <label for="country" class="control-label">Country</label>
+                <select id="country" class="form-control">
+                    <option value="-1">Select</option>                    
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label for="state" class="control-label">State</label>
+                <select id="state" class="form-control">
+                    <option value="-1">Select</option>                    
+                </select>
+            </div>
+        </div> 
+
+        <br/>
+
+        <div class="row">            
+            <div class="col-sm-3">
+                <label for="City" class="control-label">City</label>
+                <select id="city" class="form-control">
+                    <option value="-1">Select</option>                    
+                </select>
+            </div>
+             <div class="col-sm-6">
+                <label for="address" class="control-label">Detail Address</label>
+                <input id="address" class="form-control" type="text">
+            </div>
+        </div> 
+
+        <br/>
+        <div class="row">            
+            <div class="col-sm-3">
+                <label for="geo_location" class="control-label">Geo Location</label>
+                <input id="geo_location" class="form-control" type="text">
+            </div>
+            <div class="col-sm-6" id="map" style="width:400px;height:300px;"></div>
+        </div>         
+
+        <br/>
+        
+        <div class="row">            
+            <div class="col-sm-3">
+                <label for="width" class="control-label">Width</label>
+                <input id="width" class="form-control" type="number">
+            </div>
+            <div class="col-sm-3">
+                <label for="height" class="control-label">Height</label>
+                <input id="height" class="form-control" type="number">
+            </div>
+            <div class="col-sm-3">
+                <label for="Country" class="control-label">Display Type</label>
+                <select class="form-control" id="display_type">                    
+                    <option value="2">OutDoor</option>
+                    <option value="1">Indoor</option>
+                </select>
+            </div>
+        </div>
+
+        <br/>
+        
+        <div class="row">            
+            <div class="col-sm-3">
+                <label for="Country" class="control-label">Billing_Cycle</label>
+                <select class="form-control" id="cost_cycle">
+                    <option value="3">Monthly</option>
+                    <option value="2">Weekly</option>
+                    <option value="1">Daily</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label for="geo_location" class="control-label">Cost</label>
+                <input id="cost" class="form-control" type="text">
+            </div>
+        </div> 
+
+        <br/>        
+       
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </div>
+        </div>
+    </form> <!-- /form -->
+</div> <!-- ./container -->
+
+<script>
+      var map;
+      var markers = [];
+
+      function initMap() {
+        var haightAshbury = {lat: 18.516412, lng: 73.856125};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: haightAshbury,
+        });
+
+        // This event listener will call addMarker() when the map is clicked.
+        map.addListener('click', function(event) {
+          addMarker(event.latLng);
+        });
+
+        // Adds a marker at the center of the map.
+        //addMarker(haightAshbury);
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            //infoWindow.setPosition(pos);
+            //infoWindow.setContent('Location found.');
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+
+      // Adds a marker to the map and push to the array.
+      function addMarker(location) {
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+        clearMarkers();
+        markers.push(marker);
+        $('#geo_location').val(location.lat().toFixed(6)+","+location.lng().toFixed(6));
+        //alert(location);
+      }
+
+      // Sets the map on all markers in the array.
+      function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+      }
+
+      // Removes the markers from the map, but keeps them in the array.
+      function clearMarkers() {
+        setMapOnAll(null);
+      }
+
+      // Shows any markers currently in the array.
+      function showMarkers() {
+        setMapOnAll(map);
+      }
+
+      // Deletes all markers in the array by removing references to them.
+      function deleteMarkers() {
+        clearMarkers();
+        markers = [];
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT10vV8xt9FuH_GNXSN1Xoi-rTEi530fo&callback=initMap">
+    </script>
+{% include "hoarder/footer.html" %}
+{% endblock content %}

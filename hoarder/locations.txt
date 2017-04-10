@@ -1,0 +1,25 @@
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Sarag Baug', '18.499797, 73.853990', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Gajanan Maharaj Chowk', '18.492708, 73.849839', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Abhinav Chowk', '18.505405, 73.853738', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('SP College Chowk', '18.507850, 73.850480', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Alka Chowk', '18.512756, 73.843658', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Alka Chowk', '18.512939, 73.843835', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('NC Fadke Chowk', '18.504406, 73.850727', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Laxmi Road Chowk', '18.514570, 73.853729', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('NMV High School', '18.515705, 73.853746', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Appa Balvant Chowk', '18.5165344,73.8538852', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('City Pride Chowk', '18.489419, 73.857328', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Ganga Dham Chowk', '18.4807558,73.8718506', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Bibwewadi Corner', '18.480685, 73.861415', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('7 loves Chowk', '18.501554,73.8692261', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Goodluck Chowk', '18.517720, 73.841404', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Goodluck Chowk', '18.517695, 73.841454', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Katraj Chowk', '18.448046, 73.858362', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Navle Flyover', '18.4595732,73.8235311', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Shivaji Chowk', '18.591126, 73.739313', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Shivaji Chowk', '18.591317, 73.739342', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Shivaji Chowk', '18.591319, 73.738625', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Nigdi Chowk', '18.659017, 73.777064', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Mankar Chowk, Kaspate Vasti', '18.589939, 73.773336', 75, 15, 1);
+INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Kailash Bhel','18.355030, 73.852403', 75, 15, 1);
+

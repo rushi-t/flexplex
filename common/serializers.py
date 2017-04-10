@@ -21,7 +21,9 @@ class CountrySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class AddressSerializer(serializers.ModelSerializer):
-
+    city = CitySerializer();
+    state = StateSerializer();
+    country = CountrySerializer();
     class Meta:
         model = models.Address
         # fields = "__all__"

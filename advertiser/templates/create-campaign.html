@@ -1,0 +1,282 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="robots" content="noindex">
+
+	<title>Form Wizard - Bootsnipp.com</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<style type="text/css">
+		/*Start Wizard*/
+
+		.bootstrapWizard {
+			display: block;
+			list-style: none;
+			padding: 0;
+			position: relative;
+			width: 100%
+		}
+
+		.bootstrapWizard a:hover,.bootstrapWizard a:active,.bootstrapWizard a:focus {
+			text-decoration: none
+		}
+
+		.bootstrapWizard li {
+			display: block;
+			float: left;
+			width: 25%;
+			text-align: center;
+			padding-left: 0
+		}
+
+		.bootstrapWizard li:before {
+			border-top: 3px solid #55606E;
+			content: "";
+			display: block;
+			font-size: 0;
+			overflow: hidden;
+			position: relative;
+			top: 11px;
+			right: 1px;
+			width: 100%;
+			z-index: 1
+		}
+
+		.bootstrapWizard li:first-child:before {
+			left: 50%;
+			max-width: 50%
+		}
+
+		.bootstrapWizard li:last-child:before {
+			max-width: 50%;
+			width: 50%
+		}
+
+		.bootstrapWizard li.complete .step {
+			background: #0aa66e;
+			padding: 1px 6px;
+			border: 3px solid #55606E
+		}
+
+		.bootstrapWizard li .step i {
+			font-size: 10px;
+			font-weight: 400;
+			position: relative;
+			top: -1.5px
+		}
+
+		.bootstrapWizard li .step {
+			background: #B2B5B9;
+			color: #fff;
+			display: inline;
+			font-size: 15px;
+			font-weight: 700;
+			line-height: 12px;
+			padding: 7px 13px;
+			border: 3px solid transparent;
+			border-radius: 50%;
+			line-height: normal;
+			position: relative;
+			text-align: center;
+			z-index: 2;
+			transition: all .1s linear 0s
+		}
+
+		.bootstrapWizard li.active .step,.bootstrapWizard li.active.complete .step {
+			background: #0091d9;
+			color: #fff;
+			font-weight: 700;
+			padding: 7px 13px;
+			font-size: 15px;
+			border-radius: 50%;
+			border: 3px solid #55606E
+		}
+
+		.bootstrapWizard li.complete .title,.bootstrapWizard li.active .title {
+			color: #2B3D53
+		}
+
+		.bootstrapWizard li .title {
+			color: #bfbfbf;
+			display: block;
+			font-size: 13px;
+			line-height: 15px;
+			max-width: 100%;
+			position: relative;
+			table-layout: fixed;
+			text-align: center;
+			top: 20px;
+			word-wrap: break-word;
+			z-index: 104
+		}
+
+		.wizard-actions {
+			display: block;
+			list-style: none;
+			padding: 0;
+			position: relative;
+			width: 100%
+		}
+
+		.wizard-actions li {
+			display: inline
+		}
+
+		.tab-content.transparent {
+			background-color: transparent
+		}
+
+		/*End Wizard*/
+	</style>
+	<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		window.alert = function(){};
+		var defaultCSS = document.getElementById('bootstrap-css');
+		function changeCSS(css){
+			if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />'); 
+			else $('head > link').filter(':first').replaceWith(defaultCSS); 
+		}
+		$( document ).ready(function() {
+			var iframe_height = parseInt($('html').height()); 
+			window.parent.postMessage( iframe_height, 'http://bootsnipp.com');
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable">
+				<div id="wid-id-0">
+					<header role="heading">
+					<h2>Create Ad Campaign</h2>
+					</header>
+					<!-- widget div-->
+					<div role="content">
+						<!-- widget content -->
+						<div class="widget-body">
+
+							<div class="row">
+								<form id="wizard-1" novalidate="novalidate">
+									<div id="bootstrap-wizard-1" class="col-sm-12">
+										<div class="form-bootstrapWizard">
+											<ul class="bootstrapWizard form-wizard">
+												<li class="active" data-target="#step1">
+													<a href="#tab1" data-toggle="tab" class="active"> <span class="step">1</span> <span class="title">Upload Resource</span> </a>
+												</li>
+												<li data-target="#step2" class="">
+													<a href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">Select Schedule</span> </a>
+												</li>
+												<li data-target="#step3" class="">
+													<a href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">Select Hoardings</span> </a>
+												</li>
+												<li data-target="#step4">
+													<a href="#tab4" data-toggle="tab"> <span class="step">4</span> <span class="title">Payament</span> </a>
+												</li>
+											</ul>
+											<div class="clearfix"></div>
+										</div>
+										<div class="tab-content">
+											<div class="tab-pane active" id="tab1">
+												<br>
+												<h3><strong>Step 1 </strong> - Basic Information</h3>
+
+												<div class="form-actions">
+													<div class="row">
+														<div class="col-sm-12">
+															<ul class="pager wizard no-margin">
+																<li class="previous disabled">
+																	<a href="#" class="btn btn-lg btn-default"> Previous </a>
+																</li>
+																<li class="next">
+																	<a href="#" class="btn btn-lg txt-color-darken"> Next </a>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane" id="tab2">
+												<br>
+												<h3><strong>Step 2</strong> - Billing Information</h3>
+
+												<div class="form-actions">
+													<div class="row">
+														<div class="col-sm-12">
+															<ul class="pager wizard no-margin">
+																<li class="previous">
+																	<a href="#" class="btn btn-lg btn-default"> Previous </a>
+																</li>
+																<li class="next disabled">
+																	<a href="#" class="btn btn-lg txt-color-darken"> Next </a>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane" id="tab3">
+												<br>
+												<h3><strong>Step 3</strong> - Domain Setup</h3>
+												<div class="form-actions">
+													<div class="row">
+														<div class="col-sm-12">
+															<ul class="pager wizard no-margin">
+																<li class="previous">
+																	<a href="#" class="btn btn-lg btn-default"> Previous </a>
+																</li>
+																<li class="next disabled">
+																	<a href="#" class="btn btn-lg txt-color-darken"> Next </a>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="tab-pane" id="tab4">
+												<br>
+												<h3><strong>Step 4</strong> - Save Form</h3>
+												<br>
+												<h1 class="text-center text-success"><strong><i class="fa fa-check fa-lg"></i> Complete</strong></h1>
+												<h4 class="text-center">Click next to finish</h4>
+												<br>
+												<br>
+												<div class="form-actions">
+													<div class="row">
+														<div class="col-sm-12">
+															<ul class="pager wizard no-margin">
+																<li class="previous">
+																	<a href="#" class="btn btn-lg btn-default"> Previous </a>
+																</li>
+																<li class="next disabled">
+																	<a href="#" class="btn btn-lg txt-color-darken"> Next </a>
+																</li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+
+
+										</div>
+									</div>
+								</form>
+							</div>
+
+						</div>
+						<!-- end widget content -->
+
+					</div>
+					<!-- end widget div -->
+
+				</div>
+				<!-- end widget -->
+
+			</article>
+		</div>
+	</div>
+
+</body>
+</html>

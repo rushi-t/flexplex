@@ -8,6 +8,7 @@ from rest_framework import routers
 router = routers.DefaultRouter()
 router.register(r'city', views.CityViewSet)
 router.register(r'state', views.StateViewSet)
+router.register(r'country', views.CountryViewSet)
 router.register(r'address', views.AddressViewSet)
 urlpatterns = router.urls
 urlpatterns = [

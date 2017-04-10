@@ -9,7 +9,7 @@ class HoardingSerializer(serializers.ModelSerializer):
     address = AddressSerializer()
     class Meta:
         model = Hoarding
-        fields = ('address', 'width', 'height', 'display_type', 'cost_cycle', 'cost', 'display_type' )
+        fields = ( 'address', 'width', 'height', 'display_type', 'cost_cycle', 'cost', 'display_type' )
 
     def create(self, validated_data):
         address_data = validated_data.pop('address')
