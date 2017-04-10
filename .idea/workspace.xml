@@ -1,46 +1,265 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f9a8fbd-4c32-4ad8-a47c-c08b05f24bb4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/advertiser/templates/choose-hoarding.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/advertiser/templates/create-campaign.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/authentication/templates/login.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hoarder/locations.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hoarder/templates/choose-location.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hoarder/templates/register-hoarding.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/footer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/header.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/hoarder/add-hoarding.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/hoarder/base.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/hoarder/footer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/hoarder/header.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/hoarder/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="5f9a8fbd-4c32-4ad8-a47c-c08b05f24bb4" name="Default" comment="- Login, Registration, Static website integration(Non Stable)">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/fonts/glyphicons-halflings-regular.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/fonts/FontAwesome.otf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/fonts/fontawesome-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/fonts/fontawesome-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/fonts/fontawesome-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/flat-ui-icons-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/flat-ui-icons-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/flat-ui-icons-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/glyphicons-halflings-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/glyphicons-halflings-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/glyphicons-halflings-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-black.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-black.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-black.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-bold.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-bold.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-bold.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-bolditalic.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-bolditalic.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-bolditalic.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-italic.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-italic.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-italic.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-light.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-light.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-light.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-regular.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/circle.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/cross.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/favicon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/hoarder.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/circle.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/intro/times-square-1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/intro/times-square-2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/intro/times-square.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/logo-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/logo-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/prova1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/status.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/test.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/fonts/FontAwesome.otf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/fonts/fontawesome-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/fonts/fontawesome-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/fonts/fontawesome-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/fonts/fontawesome-webfont.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/ajax-loader.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/bg/1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/blue-marker.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/close-icon-dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/close-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/ico/favicon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/m1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/m2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/m3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/m4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/m5.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/overlay-bg.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/red-marker.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/advertiser/migrations/0002_auto_20170405_1946.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hoarder/migrations/0002_hoarding_uuid.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hoarder/migrations/0003_auto_20170402_1724.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hoarder/migrations/0004_remove_hoarding_uuid.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/hoarder/templates/location.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/css/bootstrap-theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/css/bootstrap-theme.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/css/bootstrap-theme.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/css/bootstrap-theme.min.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/css/bootstrap.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/css/bootstrap.min.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/js/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/bootstrap-3.3.7/js/npm.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/bootstrap-example.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/bootstrap-example.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/storelocator.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/storelocator.css.map" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/storelocator.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/data/locations.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/data/locations.kml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/data/locations.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/css/animate.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/css/bootstrap.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/css/bootstrapTheme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/css/custom.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/css/general.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/css/magnific-popup.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/css/owl.carousel.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/css/owl.theme.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/css/font-awesome.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/css/font-awesome.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/fonts/fontawesome-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/less/bordered-pulled.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/less/core.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/less/fixed-width.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/less/font-awesome.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/less/icons.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/less/larger.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/less/list.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/less/mixins.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/less/path.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/less/rotated-flipped.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/less/spinning.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/less/stacked.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/less/variables.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/scss/_bordered-pulled.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/scss/_core.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/scss/_fixed-width.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/scss/_icons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/scss/_larger.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/scss/_list.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/scss/_mixins.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/scss/_path.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/scss/_rotated-flipped.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/scss/_spinning.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/scss/_stacked.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/scss/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/font-awesome/scss/font-awesome.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/flat-ui-icons-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/glyphicons-halflings-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-black.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-bold.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-bolditalic.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-italic.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-light.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/fonts/lato/lato-regular.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/airplane.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/bank.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/beacon.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/beats.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/bell.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/bicycle.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/book.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/box.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/browser.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/bulb.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/calendar.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/casino.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/chair.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/chat.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/circledown.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/clipboard.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/clocks.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/compas.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/config.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/cup.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/folder.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/football.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/gift-box.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/headphones.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/heart.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/laptop.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/letter.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/like.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/loop.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/mail.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/map.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/medal.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/mic.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/milk.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/paper-bag.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/pencil.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/pencils.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/picture.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/polaroid.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/printer.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/retina.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/search.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/shopping bag.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/speed.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/stopwatch.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/tactics.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/toilet-paper.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/tweet.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/img/icon/watch.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/PIE_IE678.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/PIE_IE9.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/analytics.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/bootstrap.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/classie.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/html5shiv.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/jquery-1.10.2.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/jquery-1.9.1.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/jquery.corner.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/jquery.magnific-popup.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/modernizr-2.8.3.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/modernizr.custom.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/owl.carousel.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/script.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/stickUp.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/uiMorphingButton_inflow.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/flexplex/js/wow.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/HELP-US-OUT.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/css/font-awesome.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/css/font-awesome.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/fonts/fontawesome-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/less/animated.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/less/bordered-pulled.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/less/core.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/less/fixed-width.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/less/font-awesome.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/less/icons.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/less/larger.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/less/list.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/less/mixins.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/less/path.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/less/rotated-flipped.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/less/stacked.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/less/variables.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/scss/_animated.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/scss/_bordered-pulled.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/scss/_core.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/scss/_fixed-width.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/scss/_icons.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/scss/_larger.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/scss/_list.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/scss/_mixins.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/scss/_path.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/scss/_rotated-flipped.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/scss/_stacked.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/scss/_variables.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/font-awesome/scss/font-awesome.scss" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/blue-marker.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/red-marker.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jquery-1.11.1/jquery-1.11.1.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jquery-1.11.1/jquery-1.11.1.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jquery-1.11.1/jquery.backstretch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/jquery-1.11.1/jquery.backstretch.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/geocode.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/jquery.cookie.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/libs/handlebars-v4.0.5.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/libs/handlebars.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/libs/infobubble.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/libs/markerclusterer.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/plugins/storeLocator/jquery.storelocator.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/plugins/storeLocator/jquery.storelocator.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/plugins/storeLocator/templates/infowindow-description.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/plugins/storeLocator/templates/kml-infowindow-description.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/plugins/storeLocator/templates/kml-location-list-description.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/plugins/storeLocator/templates/location-list-description.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/login/css/form-elements.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/login/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/login/js/placeholder.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/login/js/scripts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/auth.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/advertiser/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/advertiser/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/advertiser/models.py" afterPath="$PROJECT_DIR$/advertiser/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/advertiser/serializers.py" afterPath="$PROJECT_DIR$/advertiser/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/advertiser/urls.py" afterPath="$PROJECT_DIR$/advertiser/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/advertiser/views.py" afterPath="$PROJECT_DIR$/advertiser/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/authentication/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/authentication/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/authentication/models.py" afterPath="$PROJECT_DIR$/authentication/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/authentication/serializers.py" afterPath="$PROJECT_DIR$/authentication/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/authentication/urls.py" afterPath="$PROJECT_DIR$/authentication/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/authentication/views.py" afterPath="$PROJECT_DIR$/authentication/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/common/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/serializers.py" afterPath="$PROJECT_DIR$/common/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/urls.py" afterPath="$PROJECT_DIR$/common/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/views.py" afterPath="$PROJECT_DIR$/common/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flexplex/settings.py" afterPath="$PROJECT_DIR$/flexplex/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flexplex/urls.py" afterPath="$PROJECT_DIR$/flexplex/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hoarder/migrations/0001_initial.py" afterPath="$PROJECT_DIR$/hoarder/migrations/0001_initial.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hoarder/models.py" afterPath="$PROJECT_DIR$/hoarder/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hoarder/rough-work.txt" afterPath="$PROJECT_DIR$/hoarder/rough-work.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hoarder/serializers.py" afterPath="$PROJECT_DIR$/hoarder/serializers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hoarder/urls.py" afterPath="$PROJECT_DIR$/hoarder/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hoarder/views.py" afterPath="$PROJECT_DIR$/hoarder/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/quickstart/serializers.py" afterPath="$PROJECT_DIR$/quickstart/serializers.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -753,21 +972,38 @@
       <option name="project" value="LOCAL" />
       <updated>1490973292302</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- Login, Registration, Static website integration(Non Stable)">
+      <created>1491847036729</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1491847036729</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="46" y="-11" width="1321" height="780" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24744697" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.79256964" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3869969" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24744697" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5247678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -776,7 +1012,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -788,7 +1023,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="login, registration separated into authentication app" />
-    <option name="LAST_COMMIT_MESSAGE" value="login, registration separated into authentication app" />
+    <MESSAGE value="- Login, Registration, Static website integration(Non Stable)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Login, Registration, Static website integration(Non Stable)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -965,6 +1201,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="800">
           <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -980,6 +1217,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="4393" column="28" lean-forward="false" selection-start-line="4393" selection-start-column="4" selection-end-line="4393" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
