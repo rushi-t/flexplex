@@ -7,6 +7,7 @@ from django.db import models
 class Campaign(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     user = models.ForeignKey('auth.User')
+    name = models.CharField(default='', max_length=100)
     resource = models.FileField(null=True)
     from_date = models.DateField(null=True)
     to_date = models.DateField(null=True)

@@ -1,0 +1,33 @@
+{% extends "advertiser/base.html" %}
+{% block content %}
+    {% include "advertiser/header.html" %}
+    <div class="container" style="margin-top: 30px">
+        {% for campaign in campaigns %}
+            {#            <a href="../campaign?id={{ campaign.id }}" style="text-decoration: none">#}
+            <div class="row">
+                <div class="panel panel-default col-md-6">
+                    <div class="panel-body">
+                        <div class="col-md-5">
+                            <img src="../../{{ campaign.resource }}" class="img-rounded" width="100%">
+                        </div>
+                        <div class="col-md-7">
+                            <h4>{{ campaign.name }}</h4>
+                            <label>Total Hoardings:</label> {{ campaign.hoardings.count }} <br/>
+                            <label>Schedule:</label> {{ campaign.from_date }} to {{ campaign.to_date }}
+
+{#                            <ul class="list-group" id="hoarding-list">#}
+{#                                {% for hoarding in campaign.hoardings.all %}#}
+{#                                    <li class="list-group-item">#}
+{#                                        {{ hoarding.hoarding.address.address }}#}
+{#                                    </li>#}
+{#                                {% endfor %}#}
+{#                            </ul>#}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {#            </a>#}
+        {% endfor %}
+    </div>
+    {% include "advertiser/footer.html" %}
+{% endblock content %}

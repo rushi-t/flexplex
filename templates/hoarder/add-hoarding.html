@@ -1,61 +1,61 @@
 {% extends "hoarder/base.html" %}
 {% block content %}
-{% include "hoarder/header.html" %}
+    {% include "hoarder/header.html" %}
     <script src="../../static/js/jquery.cookie.js"></script>
     <script type = "text/javascript">
         //Populate city
         $.getJSON( "../../common/city", function() {
-          console.log( "success" );
+            console.log( "success" );
         }).done(function(json) {
-        $('#city').empty();
-            $('#city').append($('<option>').text("Select"));
+            $('#city').empty();
+            $('#city').append($('<option value="" selected disabled>').text("City"));
             $.each(json, function(i, obj){
-                    $('#city').append($('<option>').text(obj.name).attr('value', obj.id));
+                $('#city').append($('<option>').text(obj.name).attr('value', obj.id));
             });
-          }).fail(function() {
+        }).fail(function() {
             console.log( "error" );
-          });
+        });
 
         //Populate State
         $.getJSON( "../../common/state", function() {
-          console.log( "success" );
+            console.log( "success" );
         }).done(function(json) {
-        $('#state').empty();
-            $('#state').append($('<option>').text("Select"));
+            $('#state').empty();
+            $('#state').append($('<option value="" selected disabled>').text("State"));
             $.each(json, function(i, obj){
-                    $('#state').append($('<option>').text(obj.name).attr('value', obj.id));
+                $('#state').append($('<option>').text(obj.name).attr('value', obj.id));
             });
-          }).fail(function() {
+        }).fail(function() {
             console.log( "error" );
-          });
+        });
 
         //Populate State
         $.getJSON( "../../common/country", function() {
-          console.log( "success" );
+            console.log( "success" );
         }).done(function(json) {
-        $('#country').empty();
-            $('#country').append($('<option>').text("Select"));
+            $('#country').empty();
+            $('#country').append($('<option value="" selected disabled>').text("Country"));
             $.each(json, function(i, obj){
-                    $('#country').append($('<option>').text(obj.name).attr('value', obj.id));
+                $('#country').append($('<option>').text(obj.name).attr('value', obj.id));
             });
-          }).fail(function() {
+        }).fail(function() {
             console.log( "error" );
-          });
+        });
 
-// {
-//     "address": {
-//         "address": "",
-//         "geo_location": "",
-//         "city": null,
-//         "state": null,
-//         "country": null
-//     },
-//     "width": null,
-//     "height": null,
-//     "display_type": null,
-//     "cost_cycle": null,
-//     "cost": null
-// }
+        // {
+        //     "address": {
+        //         "address": "",
+        //         "geo_location": "",
+        //         "city": null,
+        //         "state": null,
+        //         "country": null
+        //     },
+        //     "width": null,
+        //     "height": null,
+        //     "display_type": null,
+        //     "cost_cycle": null,
+        //     "cost": null
+        // }
 
         var csrftoken = $.cookie('csrftoken');
 
@@ -96,26 +96,26 @@
             console.log(jsonString);
 
             try {
-                $.post("../my/hoardings/", jsonString, function(result){
-                    alert(result);
-                });
+                {#                $.post("../my/hoardings/", jsonString, function(result){#}
+                {#                    alert(result);#}
+                {#                });#}
 
                 $.ajax({
-                  type: 'POST',
-                  url: "../my/hoardings/",
-                  data: jsonString,
-                  error: function(e) {
-                    console.log(e);
-                  },
-                  dataType: "json",
-                  contentType: "application/json"
+                    type: 'POST',
+                    url: "../my/hoardings/",
+                    data: jsonString,
+                    error: function(e) {
+                        console.log(e);
+                    },
+                    dataType: "json",
+                    contentType: "application/json"
                 });
             }
             catch(err) {
                 alert(err.message);
             }
 
-            
+
             return false; //don't submit
         }
     </script>
@@ -124,184 +124,184 @@
             height: 100%;
         }
     </style>
-</head>
-<body>
-   <div class="container">
-    <form onsubmit='return onSubmit(this)'>
-         {% csrf_token %}
+    </head>
+    <body>
+    <div class="container">
 
-        <br/>
-        
-        <div class="row">            
-            <div class="col-sm-3">
-                <label for="country" class="control-label">Country</label>
-                <select id="country" class="form-control">
-                    <option value="-1">Select</option>                    
-                </select>
+        <form onsubmit='return onSubmit(this)' style="padding-bottom: 100px">
+            {% csrf_token %}
+
+            <div class="panel panel-default col-md-9" style="margin-top: 50px">
+                <div class="panel-body">
+                    <h3>Specifications</h3>
+                    <hr style="margin-top: 0px"/>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <input id="width" class="form-control" type="number" placeholder="Width">
+                        </div>
+                        <div class="col-sm-3">
+                            <input id="height" class="form-control" type="number" placeholder="Height">
+                        </div>
+                        <div class="col-sm-3">
+                            <select class="form-control" id="display_type">
+                                <option value="" selected disabled>Display Type</option>
+                                <option value="2">OutDoor</option>
+                                <option value="1">Indoor</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h3>Address</h3>
+                    <hr style="margin-top: 0px"/>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <select id="country" class="form-control">
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <select id="state" class="form-control">
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <select id="city" class="form-control">
+                            </select>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <input id="address" class="form-control" type="text" placeholder="Area">
+                        </div>
+                        <div class="col-sm-3"  style="display: none">
+                            <input id="geo_location" class="form-control" type="text"/>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="geo_location" class="control-label">Select Location</label>
+                            <div  id="map" style="width:400px;height:300px;"></div>
+                        </div>
+                    </div>
+
+                    <br/>
+
+
+                    <h3>Billing</h3>
+                    <hr style="margin-top: 0px"/>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <select class="form-control" id="cost_cycle">
+                                <option value="" selected disabled>Billing Cycle</option>
+                                <option value="3">Monthly</option>
+                                <option value="2">Weekly</option>
+                                <option value="1">Daily</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3">
+                            <input id="cost" class="form-control" type="text" placeholder="Cost">
+                        </div>
+                    </div>
+
+                    <br/>
+                    <br/>
+                    <div class="form-group" >
+                        <div class="col-sm-5 col-sm-offset-4">
+                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-sm-3">
-                <label for="state" class="control-label">State</label>
-                <select id="state" class="form-control">
-                    <option value="-1">Select</option>                    
-                </select>
-            </div>
-        </div> 
+        </form> <!-- /form -->
 
-        <br/>
 
-        <div class="row">            
-            <div class="col-sm-3">
-                <label for="City" class="control-label">City</label>
-                <select id="city" class="form-control">
-                    <option value="-1">Select</option>                    
-                </select>
-            </div>
-             <div class="col-sm-6">
-                <label for="address" class="control-label">Detail Address</label>
-                <input id="address" class="form-control" type="text">
-            </div>
-        </div> 
 
-        <br/>
-        <div class="row">            
-            <div class="col-sm-3">
-                <label for="geo_location" class="control-label">Geo Location</label>
-                <input id="geo_location" class="form-control" type="text">
-            </div>
-            <div class="col-sm-6" id="map" style="width:400px;height:300px;"></div>
-        </div>         
+    </div> <!-- ./container -->
 
-        <br/>
-        
-        <div class="row">            
-            <div class="col-sm-3">
-                <label for="width" class="control-label">Width</label>
-                <input id="width" class="form-control" type="number">
-            </div>
-            <div class="col-sm-3">
-                <label for="height" class="control-label">Height</label>
-                <input id="height" class="form-control" type="number">
-            </div>
-            <div class="col-sm-3">
-                <label for="Country" class="control-label">Display Type</label>
-                <select class="form-control" id="display_type">                    
-                    <option value="2">OutDoor</option>
-                    <option value="1">Indoor</option>
-                </select>
-            </div>
-        </div>
+    <script>
+        var map;
+        var markers = [];
 
-        <br/>
-        
-        <div class="row">            
-            <div class="col-sm-3">
-                <label for="Country" class="control-label">Billing_Cycle</label>
-                <select class="form-control" id="cost_cycle">
-                    <option value="3">Monthly</option>
-                    <option value="2">Weekly</option>
-                    <option value="1">Daily</option>
-                </select>
-            </div>
-            <div class="col-sm-3">
-                <label for="geo_location" class="control-label">Cost</label>
-                <input id="cost" class="form-control" type="text">
-            </div>
-        </div> 
+        function initMap() {
+            var haightAshbury = {lat: 18.516412, lng: 73.856125};
 
-        <br/>        
-       
-        <div class="form-group">
-            <div class="col-sm-9 col-sm-offset-3">
-                <button type="submit" class="btn btn-primary btn-block">Register</button>
-            </div>
-        </div>
-    </form> <!-- /form -->
-</div> <!-- ./container -->
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: haightAshbury,
+            });
 
-<script>
-      var map;
-      var markers = [];
+            // This event listener will call addMarker() when the map is clicked.
+            map.addListener('click', function(event) {
+                addMarker(event.latLng);
+            });
 
-      function initMap() {
-        var haightAshbury = {lat: 18.516412, lng: 73.856125};
+            // Adds a marker at the center of the map.
+            //addMarker(haightAshbury);
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
 
-        map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 12,
-          center: haightAshbury,
-        });
+                    //infoWindow.setPosition(pos);
+                    //infoWindow.setContent('Location found.');
+                    map.setCenter(pos);
+                }, function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
 
-        // This event listener will call addMarker() when the map is clicked.
-        map.addListener('click', function(event) {
-          addMarker(event.latLng);
-        });
-
-        // Adds a marker at the center of the map.
-        //addMarker(haightAshbury);
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            //infoWindow.setPosition(pos);
-            //infoWindow.setContent('Location found.');
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
         }
 
-      }
-
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-      }
-
-      // Adds a marker to the map and push to the array.
-      function addMarker(location) {
-        var marker = new google.maps.Marker({
-          position: location,
-          map: map
-        });
-        clearMarkers();
-        markers.push(marker);
-        $('#geo_location').val(location.lat().toFixed(6)+","+location.lng().toFixed(6));
-        //alert(location);
-      }
-
-      // Sets the map on all markers in the array.
-      function setMapOnAll(map) {
-        for (var i = 0; i < markers.length; i++) {
-          markers[i].setMap(map);
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
         }
-      }
 
-      // Removes the markers from the map, but keeps them in the array.
-      function clearMarkers() {
-        setMapOnAll(null);
-      }
+        // Adds a marker to the map and push to the array.
+        function addMarker(location) {
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+            clearMarkers();
+            markers.push(marker);
+            $('#geo_location').val(location.lat().toFixed(6)+","+location.lng().toFixed(6));
+            //alert(location);
+        }
 
-      // Shows any markers currently in the array.
-      function showMarkers() {
-        setMapOnAll(map);
-      }
+        // Sets the map on all markers in the array.
+        function setMapOnAll(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
 
-      // Deletes all markers in the array by removing references to them.
-      function deleteMarkers() {
-        clearMarkers();
-        markers = [];
-      }
+        // Removes the markers from the map, but keeps them in the array.
+        function clearMarkers() {
+            setMapOnAll(null);
+        }
+
+        // Shows any markers currently in the array.
+        function showMarkers() {
+            setMapOnAll(map);
+        }
+
+        // Deletes all markers in the array by removing references to them.
+        function deleteMarkers() {
+            clearMarkers();
+            markers = [];
+        }
     </script>
     <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT10vV8xt9FuH_GNXSN1Xoi-rTEi530fo&callback=initMap">
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT10vV8xt9FuH_GNXSN1Xoi-rTEi530fo&callback=initMap">
     </script>
-{% include "hoarder/footer.html" %}
+    {% include "hoarder/footer.html" %}
 {% endblock content %}

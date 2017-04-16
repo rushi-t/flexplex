@@ -17,15 +17,13 @@ from rest_auth.views import LoginView
 
 class SigninView(LoginView):
 
-
     def get(self,request):
         return render(request,'auth.html')
-
 
     def post(self, request, *args, **kwargs):
         response = super(SigninView, self).post(request, *args, **kwargs)
         user = request.user
         if user.groups.filter(name='advertiser').exists():
-            return HttpResponseRedirect("../advertiser/create-campaign")
+            return HttpResponseRedirect("../advertiser")
         else:
-            return HttpResponseRedirect("../hoarder/register")
+            return HttpResponseRedirect("../hoarder")

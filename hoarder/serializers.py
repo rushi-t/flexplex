@@ -4,12 +4,12 @@ from django.contrib.auth.models import User
 from common.serializers import AddressSerializer
 from common.models import Address
 
-class HoardingSerializer(serializers.ModelSerializer):
+class HoardingSerializer(serializers.HyperlinkedModelSerializer):
     #user = serializers.PrimaryKeyRelatedField(read_only=True, default=serializers.CurrentUserDefault())
     address = AddressSerializer()
     class Meta:
         model = Hoarding
-        fields = ( 'address', 'width', 'height', 'display_type', 'cost_cycle', 'cost', 'display_type' )
+        fields = ('id', 'width', 'height', 'display_type', 'cost_cycle', 'cost', 'display_type', 'address' )
 
     def create(self, validated_data):
         address_data = validated_data.pop('address')

@@ -5,7 +5,7 @@ from hoarder.models import Hoarding
 from  hoarder.serializers import HoardingSerializer
 
 class CampaignHoardingsSerializer(serializers.ModelSerializer):
-    #hoarding = HoardingSerializer()
+    hoarding = HoardingSerializer()
     class Meta:
         model = CampaignHoardings
         fields = ('hoarding',)
@@ -15,7 +15,7 @@ class CampaignSerializer(serializers.ModelSerializer):
     hoardings = CampaignHoardingsSerializer(many=True)
     class Meta:
         model = Campaign
-        fields = ('resource', 'from_date', 'to_date', 'creation_date', 'hoardings')
+        fields = ('name', 'resource', 'from_date', 'to_date', 'creation_date', 'hoardings')
 
     def create(self, validated_data):
         hoardings_data = validated_data.pop('hoardings')

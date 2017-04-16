@@ -1,6 +1,21 @@
 {% extends "hoarder/base.html" %}
 {% block content %}
-{% include "hoarder/header.html" %}
-
-{% include "hoarder/footer.html" %}
+    {% include "hoarder/header.html" %}
+    <div class="container">
+        {% for hoarding in hoardings %}
+            <a href="../hoarding?id={{ hoarding.id }}" style="text-decoration: none">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                {{ hoarding.address.address }}<br/>
+                                cost: {{ hoarding.cost }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+    {% include "hoarder/footer.html" %}
 {% endblock content %}
