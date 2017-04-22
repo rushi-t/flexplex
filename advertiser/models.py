@@ -11,9 +11,21 @@ class Campaign(models.Model):
     resource = models.FileField(null=True)
     from_date = models.DateField(null=True)
     to_date = models.DateField(null=True)
+    CONTENT_STATUS_TYPE_CHOICES = (
+        (0, 'Pending'),
+        (1, 'Approved'),
+        (2, 'Rejected'),
+    )
+    content_status = models.IntegerField(choices=CONTENT_STATUS_TYPE_CHOICES, default=0)
     creation_date = models.DateTimeField(auto_now_add=True)
 
 
 class CampaignHoardings(models.Model):
     campaign = models.ForeignKey('Campaign', related_name='hoardings', on_delete=models.CASCADE)
     hoarding = models.ForeignKey('hoarder.Hoarding')
+    STATUS_TYPE_CHOICES = (
+        (0, 'Pending'),
+        (1, 'Accepted'),
+        (2, 'Rejected'),
+    )
+    status = models.IntegerField(choices=STATUS_TYPE_CHOICES, default=0)

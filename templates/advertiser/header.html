@@ -9,14 +9,14 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="/advertiser">
-                <img src="../../static/flexplex/img/logo-1.png" alt="" height="40" style="margin-left: 15px;margin-top: 7px"/>
+                <img src="/static/flexplex/img/logo-1.png" alt="" height="40" style="margin-left: 15px;margin-top: 7px"/>
             </a>
         </div>
 
         <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                 <li class="menuItem"><a href="/advertiser">My Campaigns</a></li>
-                <li class="menuItem"><a href="./create/campaign">Create Campaign</a></li>
+                <li class="menuItem"><a href="/advertiser/create/campaign">Create Campaign</a></li>
 
                 {% if user.is_authenticated %}
                     <li class="menuItem"><a href="{% url 'logout' %}?next=/">Logout</a></li>

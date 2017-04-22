@@ -1,0 +1,136 @@
+{% extends "hoarder/base.html" %}
+{% block content %}
+    {% include "hoarder/header.html" %}
+    <style>
+        .table > tbody > tr > td {
+            vertical-align: middle;
+        }
+    </style>
+    {% csrf_token %}
+    <script>
+        var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
+        function acceptAdRequest(id) {
+            $.post("{{ request.path }}",
+                {
+                    accept: id,
+                },
+                function(data, status){
+                    location.reload();
+                });
+        }
+
+        function rejectAdRequest(id) {
+            $.post("{{ request.path }}",
+                {
+                    reject: id,
+                },
+                function(data, status){
+                    location.reload();
+                });
+        }
+    </script>
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-default col-md-8">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+                                    {% for campaign in campaigns %}
+                                    <div class="item {% if forloop.counter == 1 %}active {% endif %}">
+                                        <img src="/{{ campaign.campaign.resource }}" alt="..." style="height: 180px; width: 100%">
+
+                                    </div>
+                                    {% endfor %}
+
+                                </div>
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+                            </div> <!-- Carousel -->
+{#                            <img src="/static/img/hoarding.jpg" class="img-rounded" width="100%">#}
+                        </div>
+                        <div class="col-md-7">
+                            <h4>{{ hoarding.address.address }}</h4>
+                            <label>Cost:</label> {{ hoarding.cost }} <br/>
+                            <label>Billing Cycle:</label> {{ hoarding.get_cost_cycle_display }}<br/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>Campaign</th>
+                                <th>Content</th>
+                                <th>Schedule</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for campaign in campaigns %}
+                                <tr>
+                                    <td align="center"> <img src="/{{ campaign.campaign.resource }}" style="width: 80px"/> <br/>
+
+                                    </td>
+                                    <td> {{ campaign.campaign.name }}</td>
+                                    <td>
+                                        <a href="/{{ campaign.campaign.resource }}">
+                                            <i class="fa fa-eye fa-lg" title="view"></i>
+                                        </a>
+                                        <a href="/{{ campaign.campaign.resource }}" download style="margin-left: 5px">
+                                            <i class="fa fa-download fa-lg" title="download"></i>
+                                        </a>
+                                    </td>
+                                    <td> {{ campaign.campaign.from_date }} to {{ campaign.campaign.to_date }}</td>
+                                    {% if campaign.status == 2 %}
+                                        <td><span class="label label-danger">{{ campaign.get_status_display }}</span></td>
+                                    {% elif campaign.status == 1 %}
+                                        <td><span class="label label-success">{{ campaign.get_status_display }}</span></td>
+                                    {% else %}
+                                        <td><span class="label label-warning">{{ campaign.get_status_display }}</span></td>
+                                    {% endif %}
+                                    <td>
+                                        {% if campaign.status == 0 %}
+                                            <a href="javascript:acceptAdRequest({{ campaign.id }});" >Accept</a> |
+                                            <a href="javascript:rejectAdRequest({{ campaign.id }})">Reject</a>
+                                        {% else %}
+
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    {% include "hoarder/footer.html" %}
+{% endblock content %}

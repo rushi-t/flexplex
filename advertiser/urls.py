@@ -5,7 +5,7 @@ from django.conf.urls import include
 from rest_framework import routers
 from django.views.generic import TemplateView
 from views import CampaignViewSet, CampaignResourceViewSet,\
-    CampaignHoardingsViewSet, AdvertiserHome, CreateCampaignView
+    CampaignHoardingsViewSet, AdvertiserHome, CreateCampaignView, CampaignDetail
 from models import Campaign, CampaignHoardings
 
 router = routers.DefaultRouter()
@@ -16,9 +16,10 @@ urlpatterns = router.urls
 
 urlpatterns = [
 
-    url(r'create/campaign$', CreateCampaignView.as_view()),
-    url(r'api/', include(router.urls)),
-    url(r'', AdvertiserHome.as_view()),
+    url(r'/create/campaign$', CreateCampaignView.as_view()),
+    url(r'/campaign/(?P<id>\d+)/$', CampaignDetail.as_view()),
+    url(r'/api/', include(router.urls)),
+    url(r'/$', AdvertiserHome.as_view()),
     # url(r'ad-upload/', TemplateView.as_view(template_name='file-upload.html')),
     # url(r'create-campaign/', TemplateView.as_view(template_name='create-campaign.html')),
     # url(r'choose-hoarding/', TemplateView.as_view(template_name='choose-hoarding.html')),

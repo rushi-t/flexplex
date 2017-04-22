@@ -87,3 +87,8 @@ class CreateCampaignView(View):
             hoarding = Hoarding.objects.get(id=hoarding_id)
             CampaignHoardings.objects.create(campaign=campaign, hoarding=hoarding)
         return HttpResponseRedirect('../')
+
+class CampaignDetail(View):
+    def get(self, request, id):
+        campaign = Campaign.objects.get(id=id)
+        return render(request, 'advertiser/campaign-detail.html', {'campaign': campaign})

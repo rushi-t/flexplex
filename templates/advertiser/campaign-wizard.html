@@ -1,12 +1,6 @@
 {% extends "advertiser/base.html" %}
 {% block content %}
-    {% include "advertiser/header.html" %}
-    <link href="../../static/css/dropzone.css" rel="stylesheet">
-    <script src="../../static/js/dropzone.js"></script>
-
-    <div class="container">
-
-        <style type="text/css">
+       <style type="text/css">
             /*Start Wizard*/
 
             .bootstrapWizard {
@@ -126,7 +120,17 @@
                 background-color: transparent
             }
 
-            /*End Wizard*/
+            .pager li>a {
+                display: inline-block;
+                padding: 5px 14px;
+                background-color: #337ab7;
+                border: 1px solid #ddd;
+                border-radius: 15px;
+            }
+            .pager li>a:hover {
+                text-decoration: none;
+                background-color: #286090;
+            }
         </style>
 
         <script type="text/javascript">
@@ -141,24 +145,29 @@
             {#                window.parent.postMessage( iframe_height, 'http://bootsnipp.com');#}
             {#            });#}
 
-            $(document).ready(function(){
-                $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){
-                    var currentTab = $(e.target).text(); // get current tab
-                    var LastTab = $(e.relatedTarget).text(); // get last tab
-                    $(".current-tab span").html(currentTab);
-                    $(".last-tab span").html(LastTab);
-                });
-            });
+{#            $(document).ready(function(){#}
+{#                $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){#}
+{#                    var currentTab = $(e.target).text(); // get current tab#}
+{#                    var LastTab = $(e.relatedTarget).text(); // get last tab#}
+{#                    $(".current-tab span").html(currentTab);#}
+{#                    $(".last-tab span").html(LastTab);#}
+{#                });#}
+{#            });#}
         </script>
+    {% include "advertiser/header.html" %}
+    <link href="../../static/css/dropzone.css" rel="stylesheet">
+    <script src="../../static/js/dropzone.js"></script>
+
+    <div class="container">
         <div class="widget-body">
             <div class="row">
                 <form id="wizard-1" novalidate="novalidate" action="" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div id="bootstrap-wizard-1" class="col-sm-12">
-                        <div class="form-bootstrapWizard">
+                        <div class="form-bootstrapWizard col-sm-offset-2">
                             <ul class="bootstrapWizard form-wizard">
                                 <li class="active" data-target="#step1">
-                                    <a href="#tab1" data-toggle="tab" class="active"> <span class="step">1</span> <span class="title">Select Hoardings</span> </a>
+                                    <a href="#tab1"  data-toggle="tab" class="active"> <span class="step">1</span> <span class="title">Select Hoardings</span> </a>
                                 </li>
                                 <li data-target="#step2" class="">
                                     <a href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">Upload Resource</span> </a>
@@ -177,8 +186,8 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <ul class="pager wizard no-margin" style="margin-top: 0px">
-                                                <li class="next">
-                                                    <a href="#tab2" class="btn btn-lg txt-color-darken"> Next </a>
+                                                <li class="next" data-target="#step1">
+                                                    <a href="#tab2" data-toggle="tab" class="btn btn-primary txt-color-darken"> Next </a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -193,10 +202,10 @@
                                         <div class="col-sm-12">
                                             <ul class="pager wizard no-margin" style="margin-top: 0px">
                                                 <li class="previous">
-                                                    <a href="#" class="btn btn-lg btn-default"> Previous </a>
+                                                    <a href="#" class="btn btn-primary"> Previous </a>
                                                 </li>
-                                                <li class="next disabled">
-                                                    <a href="#" class="btn btn-lg txt-color-darken"> Next </a>
+                                                <li class="next">
+                                                    <a href="#" class="btn btn-primary"> Next </a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -205,7 +214,7 @@
                             </div>
                             <div class="tab-pane" id="tab3">
                                 <div style="margin-top: 30px;height: 480px">
-                                    <button type="submit" class="btn btn-primary btn-lg col-sm-offset-5" style="margin-top: 150px;">
+                                    <button type="submit" class="btn btn-primary btn-primary col-sm-offset-5" style="margin-top: 150px;">
                                         Publish Ad
                                     </button>
                                 </div>
@@ -214,7 +223,7 @@
                                         <div class="col-sm-12">
                                             <ul class="pager wizard no-margin" style="margin-top: 0px">
                                                 <li class="previous">
-                                                    <a href="#" class="btn btn-lg btn-default"> Previous </a>
+                                                    <a href="#" class="btn btn-primary btn-default"> Previous </a>
                                                 </li>
                                             </ul>
                                         </div>

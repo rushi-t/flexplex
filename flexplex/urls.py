@@ -19,8 +19,8 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 
     url(r'^common/', include('common.urls')),
-    url(r'advertiser/', include('advertiser.urls')),
-    url(r'hoarder/', include('hoarder.urls')),
+    url(r'advertiser', include('advertiser.urls')),
+    url(r'hoarder', include('hoarder.urls')),
     url(r'', include('authentication.urls')),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

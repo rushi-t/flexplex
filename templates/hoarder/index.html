@@ -1,21 +1,26 @@
 {% extends "hoarder/base.html" %}
 {% block content %}
     {% include "hoarder/header.html" %}
-    <div class="container">
+    <div class="container" style="margin-top: 30px">
         {% for hoarding in hoardings %}
-            <a href="../hoarding?id={{ hoarding.id }}" style="text-decoration: none">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                {{ hoarding.address.address }}<br/>
-                                cost: {{ hoarding.cost }}
+{#            <a href="/hoarder/hoarding/{{ hoarding.id }}" style="text-decoration: none">#}
+                <div class="row " >
+                    <div onclick="location.href='/hoarder/hoarding/{{ hoarding.id }}';" style="cursor: pointer;">
+                        <div >
+                            <div class="col-md-3">
+                                <img src="/static/img/hoarding.jpg" class="img-rounded" height="150px">
+                            </div>
+                            <div class="col-md-7">
+                                <h4>{{ hoarding.address.address }}</h4>
+                                <label>Cost:</label> {{ hoarding.cost }} <br/>
                             </div>
                         </div>
                     </div>
                 </div>
-            </a>
+                <br/>
+{#            </a>#}
         {% endfor %}
     </div>
+
     {% include "hoarder/footer.html" %}
 {% endblock content %}

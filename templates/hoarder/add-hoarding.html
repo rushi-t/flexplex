@@ -124,11 +124,9 @@
             height: 100%;
         }
     </style>
-    </head>
-    <body>
     <div class="container">
 
-        <form onsubmit='return onSubmit(this)' style="padding-bottom: 100px">
+        <form action="" method="post" style="padding-bottom: 100px">
             {% csrf_token %}
 
             <div class="panel panel-default col-md-9" style="margin-top: 50px">
@@ -137,13 +135,13 @@
                     <hr style="margin-top: 0px"/>
                     <div class="row">
                         <div class="col-sm-3">
-                            <input id="width" class="form-control" type="number" placeholder="Width">
+                            <input name="width" class="form-control" type="number" placeholder="Width">
                         </div>
                         <div class="col-sm-3">
-                            <input id="height" class="form-control" type="number" placeholder="Height">
+                            <input name="height" class="form-control" type="number" placeholder="Height">
                         </div>
                         <div class="col-sm-3">
-                            <select class="form-control" id="display_type">
+                            <select class="form-control" name="display_type">
                                 <option value="" selected disabled>Display Type</option>
                                 <option value="2">OutDoor</option>
                                 <option value="1">Indoor</option>
@@ -155,15 +153,15 @@
                     <hr style="margin-top: 0px"/>
                     <div class="row">
                         <div class="col-sm-3">
-                            <select id="country" class="form-control">
+                            <select id="country" name="country" class="form-control">
                             </select>
                         </div>
                         <div class="col-sm-3">
-                            <select id="state" class="form-control">
+                            <select id="state" name="state" class="form-control">
                             </select>
                         </div>
                         <div class="col-sm-3">
-                            <select id="city" class="form-control">
+                            <select id="city" name="city" class="form-control">
                             </select>
                         </div>
                     </div>
@@ -172,14 +170,14 @@
 
                     <div class="row">
                         <div class="col-sm-4">
-                            <input id="address" class="form-control" type="text" placeholder="Area">
+                            <input name="address" class="form-control" type="text" placeholder="Area">
                         </div>
                         <div class="col-sm-3"  style="display: none">
-                            <input id="geo_location" class="form-control" type="text"/>
+                            <input id="geo_location" name="geo_location" class="form-control" type="text"/>
                         </div>
                         <div class="col-sm-6">
                             <label for="geo_location" class="control-label">Select Location</label>
-                            <div  id="map" style="width:400px;height:300px;"></div>
+                            <div id="map" style="width:400px;height:300px;"></div>
                         </div>
                     </div>
 
@@ -191,7 +189,7 @@
 
                     <div class="row">
                         <div class="col-sm-3">
-                            <select class="form-control" id="cost_cycle">
+                            <select class="form-control" name="cost_cycle">
                                 <option value="" selected disabled>Billing Cycle</option>
                                 <option value="3">Monthly</option>
                                 <option value="2">Weekly</option>
@@ -199,7 +197,7 @@
                             </select>
                         </div>
                         <div class="col-sm-3">
-                            <input id="cost" class="form-control" type="text" placeholder="Cost">
+                            <input name="cost" class="form-control" type="text" placeholder="Cost">
                         </div>
                     </div>
 

@@ -2,7 +2,7 @@
 from rest_framework import serializers
 from advertiser.models import Campaign, CampaignHoardings
 from hoarder.models import Hoarding
-from  hoarder.serializers import HoardingSerializer
+from hoarder.serializers import HoardingSerializer
 
 class CampaignHoardingsSerializer(serializers.ModelSerializer):
     hoarding = HoardingSerializer()
@@ -15,7 +15,7 @@ class CampaignSerializer(serializers.ModelSerializer):
     hoardings = CampaignHoardingsSerializer(many=True)
     class Meta:
         model = Campaign
-        fields = ('name', 'resource', 'from_date', 'to_date', 'creation_date', 'hoardings')
+        fields = ('name', 'resource', 'from_date', 'to_date', 'content_status', 'creation_date', 'hoardings')
 
     def create(self, validated_data):
         hoardings_data = validated_data.pop('hoardings')
