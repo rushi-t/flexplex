@@ -95,3 +95,4 @@ class AddHoardingView(View):
 
         hoarding.save()
         return HttpResponseRedirect('../')
+

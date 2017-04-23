@@ -4,7 +4,8 @@ from common import views
 from django.conf.urls import include
 from rest_framework import routers
 from django.views.generic import TemplateView
-from views import AllHoardingViewSet,MyHoardingViewSet, HoarderHome, HoardingDetail, AddHoardingView
+from views import AllHoardingViewSet,MyHoardingViewSet, \
+    HoarderHome, HoardingDetail, AddHoardingView
 
 router = routers.DefaultRouter()
 router.register(r'all/hoardings', AllHoardingViewSet, base_name="Hoarding")

@@ -101,10 +101,26 @@
             {% for hoarding in hoardings %}
                 <li class="list-group-item" id="list-{{ hoarding.id }}" value="{{ hoarding.id }}"
                     onClick="handleListItemClicked(this.value)">
-                    <span class="badge">{{ hoarding.cost }}</span>
-                    <div class="">
-                        <label><input type="checkbox" name="hoardings"
-                                      value="{{ hoarding.id }}">{{ hoarding.address.address }}</label>
+                    {#                    <span class="badge">{{ hoarding.cost }}</span>#}
+                    <div class="row">
+                        <input type="checkbox" name="hoardings"
+                               value="{{ hoarding.id }}" class="col-md-1">
+                        <div class="col-md-8">
+                            <strong>
+                                {{ hoarding.address.address }}
+                            </strong><br/>
+                                <small>
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    {{ hoarding.address.city.name }}, {{ hoarding.address.state.name }}, {{ hoarding.address.country.name }}
+                                    <br/>Dimension: {{ hoarding.width }}x{{ hoarding.height }}&Prime;
+                                </small>
+                        </div>
+                        <div class="col-md-3">
+                            <span class="label label-success">
+                                &#8377; {{ hoarding.cost }}
+                            </span>
+                            <h6 style="margin-top: 0px"><small>per 10 sec</small></h6>
+                        </div>
                     </div>
                 </li>
             {% endfor %}

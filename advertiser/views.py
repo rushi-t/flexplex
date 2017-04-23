@@ -92,3 +92,8 @@ class CampaignDetail(View):
     def get(self, request, id):
         campaign = Campaign.objects.get(id=id)
         return render(request, 'advertiser/campaign-detail.html', {'campaign': campaign})
+
+class Inventory(GenericAPIView):
+    def get(self, request):
+        queryset = Hoarding.objects.all()
+        return render(request, 'advertiser/inventory.html', {'hoardings': queryset})

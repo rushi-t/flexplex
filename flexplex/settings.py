@@ -26,7 +26,7 @@ SECRET_KEY = '!2#s4z6!m%v^o0ggnvseqt1m3f%^zyxvm0(k3xbh#0mho-t6i='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['148.72.245.147', 'localhost']
 
 
 # Application definition
@@ -105,8 +105,11 @@ DATABASES = {
         'NAME': 'flexplex',
         'USER': 'root',
         'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        # 'PASSWORD': 'Rushi_123',
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '3306',
     }
 }
 #Admin: rtalokar
