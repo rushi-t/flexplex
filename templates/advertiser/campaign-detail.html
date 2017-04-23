@@ -4,11 +4,17 @@
     <div class="container" style="margin-top: 30px">
         {#            <a href="../campaign?id={{ campaign.id }}" style="text-decoration: none">#}
         <div class="row">
-            <div class="panel panel-default col-md-8">
+            <div class="panel panel-default col-md-12">
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-5">
-                            <img src="/{{ campaign.resource }}" class="img-rounded" width="100%">
+                            {% if campaign.isVideo %}
+                                <video width="100%" controls>
+                                    <source src="/{{ campaign.resource }}" type="video/mp4">
+                                </video>
+                            {% else %}
+                                <img src="/{{ campaign.resource }}" class="img-rounded" width="100%">
+                            {% endif %}
                         </div>
                         <div class="col-md-7">
                             <h4>{{ campaign.name }}</h4>
@@ -56,5 +62,15 @@
         </div>
         {#            </a>#}
     </div>
+    <link rel="stylesheet" href="https://cdn.plyr.io/2.0.12/plyr.css">
+    <script src="https://cdn.plyr.io/2.0.12/plyr.js"></script>
+    <script>plyr.setup();</script>
+    <style>
+        .plyr--stopped .plyr__controls {
+
+            opacity: 0;
+
+        }
+    </style>
     {% include "advertiser/footer.html" %}
 {% endblock content %}

@@ -3,31 +3,45 @@
     {% include "advertiser/header.html" %}
     <div class="container" style="margin-top: 30px">
         {% for campaign in campaigns %}
-                        <a href="/advertiser/campaign/{{ campaign.id }}" style="text-decoration: none">
-            <div class="row">
-                <div class="panel panel-default col-md-6">
-                    <div class="panel-body">
-                        <div class="col-md-5">
-                            <img src="/{{ campaign.resource }}" class="img-rounded" width="100%">
-                        </div>
-                        <div class="col-md-7">
-                            <h4>{{ campaign.name }}</h4>
-                            <label>Total Hoardings:</label> {{ campaign.hoardings.count }} <br/>
-                            <label>Schedule:</label> {{ campaign.from_date }} to {{ campaign.to_date }}
+                <div class="row" >
+                    <div class="panel panel-default col-md-6">
+                        <div class="panel-body">
+                            <div class="col-md-5">
+                                {% if campaign.isVideo %}
+                                    <video width="100%" controls>
+                                        <source src="/{{ campaign.resource }}" type="video/mp4">
+                                    </video>
+                                {% else %}
+                                    <img src="/{{ campaign.resource }}" class="img-rounded" width="100%">
+                                {% endif %}
+                            </div>
+                            <div class="col-md-7" onclick="location.href='/advertiser/campaign/{{ campaign.id }}';" style="cursor: pointer;">
+                                <h4>{{ campaign.name }}</h4>
+                                <label>Total Hoardings:</label> {{ campaign.hoardings.count }} <br/>
+                                <label>Schedule:</label> {{ campaign.from_date }} to {{ campaign.to_date }}
 
-{#                            <ul class="list-group" id="hoarding-list">#}
-{#                                {% for hoarding in campaign.hoardings.all %}#}
-{#                                    <li class="list-group-item">#}
-{#                                        {{ hoarding.hoarding.address.address }}#}
-{#                                    </li>#}
-{#                                {% endfor %}#}
-{#                            </ul>#}
+                                {#                            <ul class="list-group" id="hoarding-list">#}
+                                {#                                {% for hoarding in campaign.hoardings.all %}#}
+                                {#                                    <li class="list-group-item">#}
+                                {#                                        {{ hoarding.hoarding.address.address }}#}
+                                {#                                    </li>#}
+                                {#                                {% endfor %}#}
+                                {#                            </ul>#}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-                        </a>
         {% endfor %}
     </div>
+    <link rel="stylesheet" href="https://cdn.plyr.io/2.0.12/plyr.css">
+    <script src="https://cdn.plyr.io/2.0.12/plyr.js"></script>
+    <script>plyr.setup();</script>
+    <style>
+    .plyr--stopped .plyr__controls {
+
+        opacity: 0;
+
+    }
+    </style>
     {% include "advertiser/footer.html" %}
 {% endblock content %}

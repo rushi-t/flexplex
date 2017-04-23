@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 # models.py
 import uuid
 from django.db import models
+import os
 
 class Campaign(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
@@ -18,6 +19,13 @@ class Campaign(models.Model):
     )
     content_status = models.IntegerField(choices=CONTENT_STATUS_TYPE_CHOICES, default=0)
     creation_date = models.DateTimeField(auto_now_add=True)
+
+    def isVideo(self):
+        name, extension = os.path.splitext(self.resource.name)
+        if extension == '.mp4':
+            return True
+        else:
+            return False
 
 
 class CampaignHoardings(models.Model):

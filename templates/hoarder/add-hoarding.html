@@ -4,7 +4,7 @@
     <script src="../../static/js/jquery.cookie.js"></script>
     <script type = "text/javascript">
         //Populate city
-        $.getJSON( "../../common/city", function() {
+        $.getJSON( "/common/city", function() {
             console.log( "success" );
         }).done(function(json) {
             $('#city').empty();
@@ -17,7 +17,7 @@
         });
 
         //Populate State
-        $.getJSON( "../../common/state", function() {
+        $.getJSON( "/common/state", function() {
             console.log( "success" );
         }).done(function(json) {
             $('#state').empty();
@@ -30,7 +30,7 @@
         });
 
         //Populate State
-        $.getJSON( "../../common/country", function() {
+        $.getJSON( "/common/country", function() {
             console.log( "success" );
         }).done(function(json) {
             $('#country').empty();
@@ -129,9 +129,9 @@
         <form action="" method="post" style="padding-bottom: 100px">
             {% csrf_token %}
 
-            <div class="panel panel-default col-md-9" style="margin-top: 50px">
+            <div class="panel panel-default col-md-9" style="margin-top: 20px">
                 <div class="panel-body">
-                    <h3>Specifications</h3>
+                    <h5>Specifications</h5>
                     <hr style="margin-top: 0px"/>
                     <div class="row">
                         <div class="col-sm-3">
@@ -148,8 +148,8 @@
                             </select>
                         </div>
                     </div>
-
-                    <h3>Address</h3>
+                    <br/>
+                    <h5>Address</h5>
                     <hr style="margin-top: 0px"/>
                     <div class="row">
                         <div class="col-sm-3">
@@ -184,7 +184,7 @@
                     <br/>
 
 
-                    <h3>Billing</h3>
+                    <h5>Billing</h5>
                     <hr style="margin-top: 0px"/>
 
                     <div class="row">

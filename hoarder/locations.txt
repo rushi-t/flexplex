@@ -23,3 +23,27 @@ INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VAL
 INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Mankar Chowk, Kaspate Vasti', '18.589939, 73.773336', 75, 15, 1);
 INSERT INTO common_address (address,geo_location,city_id,state_id,country_id)VALUES ('Kailash Bhel','18.355030, 73.852403', 75, 15, 1);
 
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',1,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',2,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',3,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',4,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',5,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',6,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',7,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',8,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',9,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',10,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',11,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',12,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',13,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',14,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',15,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',16,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',17,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',18,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',19,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',20,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',21,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',22,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',23,1);
+INSERT INTO hoarder_hoarding ( width, height, display_type, cost_cycle, cost, creation_date,address_id,user_id) Values(12,10,2,3,20000,'2017-04-02 11:35:07.228389',24,1);
