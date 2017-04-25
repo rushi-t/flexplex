@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f9a8fbd-4c32-4ad8-a47c-c08b05f24bb4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/flexplex.iml" afterPath="$PROJECT_DIR$/.idea/flexplex.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/advertiser/models.py" afterPath="$PROJECT_DIR$/advertiser/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/advertiser/urls.py" afterPath="$PROJECT_DIR$/advertiser/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/advertiser/views.py" afterPath="$PROJECT_DIR$/advertiser/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hoarder/models.py" afterPath="$PROJECT_DIR$/hoarder/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/campaign-detail.html" afterPath="$PROJECT_DIR$/templates/advertiser/campaign-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/choose-hoarding.html" afterPath="$PROJECT_DIR$/templates/advertiser/choose-hoarding.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/header.html" afterPath="$PROJECT_DIR$/templates/advertiser/header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/index.html" afterPath="$PROJECT_DIR$/templates/advertiser/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/inventory.html" afterPath="$PROJECT_DIR$/templates/advertiser/inventory.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -619,7 +609,14 @@
       <option name="project" value="LOCAL" />
       <updated>1492963082820</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="- added campaign status">
+      <created>1493142437129</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1493142437129</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -693,7 +690,8 @@
     <MESSAGE value="- Production Support&#10;- Bootstrap 4 integration into Hoarder module" />
     <MESSAGE value="- Inventory added" />
     <MESSAGE value="- Inventory layout changed to fluid" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Inventory layout changed to fluid" />
+    <MESSAGE value="- added campaign status" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added campaign status" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
