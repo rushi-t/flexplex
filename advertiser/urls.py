@@ -18,7 +18,7 @@ urlpatterns = [
 
     url(r'/create/campaign$', CreateCampaignView.as_view()),
     url(r'/campaign/(?P<id>\d+)/$', CampaignDetail.as_view()),
-    url(r'/inventory/', Inventory.as_view()),
+    url(r'/inventory/$', Inventory.as_view()),
     url(r'/api/', include(router.urls)),
     url(r'/$', AdvertiserHome.as_view()),
     # url(r'ad-upload/', TemplateView.as_view(template_name='file-upload.html')),

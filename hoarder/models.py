@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 import uuid
 from django.db import models
-
+from datetime import datetime
 # Create your models here.
 
 class Hoarding(models.Model):
@@ -25,3 +25,4 @@ class Hoarding(models.Model):
     cost = models.FloatField(default=0)
 
     creation_date = models.DateTimeField(auto_now_add=True)
+    last_update = models.DateTimeField(default=datetime.now())

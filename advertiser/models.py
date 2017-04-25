@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 import uuid
 from django.db import models
 import os
+from datetime import date
 
 class Campaign(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
@@ -26,6 +27,14 @@ class Campaign(models.Model):
             return True
         else:
             return False
+
+    def getStatus(self):
+        if self.to_date < date.today():
+            return 'Expired'
+        elif self.from_date <= date.today() and self.to_date >= date.today():
+            return 'Running'
+        else:
+            return 'Scheduled'
 
 
 class CampaignHoardings(models.Model):

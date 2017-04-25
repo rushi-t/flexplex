@@ -12,6 +12,7 @@ from django.views import View
 from django.utils.dateparse import parse_datetime
 from django.core.files.storage import FileSystemStorage
 from rest_auth.views import APIView
+from datetime import datetime
 
 
 class CampaignResourceViewSet(ModelViewSet):
@@ -57,7 +58,7 @@ class CampaignHoardingsViewSet(ModelViewSet):
 class AdvertiserHome(APIView):
     def get(self, request):
 
-        campaigns = Campaign.objects.filter(user=self.request.user)
+        campaigns = Campaign.objects.filter(user=self.request.user).order_by('-to_date')
         # for campaign in campaigns:
         #     hoardings = CampaignHoardings.objects.filter(campaign=campaign)
         #     campaign.hoardings['hoardings'] = hoardings
@@ -86,6 +87,8 @@ class CreateCampaignView(View):
         for hoarding_id in request.POST.getlist('hoardings'):
             hoarding = Hoarding.objects.get(id=hoarding_id)
             CampaignHoardings.objects.create(campaign=campaign, hoarding=hoarding)
+            hoarding.last_update = datetime.now()
+            hoarding.save()
         return HttpResponseRedirect('../')
 
 class CampaignDetail(View):

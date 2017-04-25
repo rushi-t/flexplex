@@ -7,7 +7,7 @@
             <div class="panel panel-default col-md-12">
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-md-5" style="padding: 0px">
                             {% if campaign.isVideo %}
                                 <video width="100%" controls>
                                     <source src="/{{ campaign.resource }}" type="video/mp4">
@@ -36,6 +36,8 @@
                             <thead>
                             <tr>
                                 <th>Hoarding</th>
+                                <th>Cost</th>
+                                <th>Dimension</th>
                                 <th>Status</th>
                             </tr>
                             </thead>
@@ -43,6 +45,8 @@
                             {% for hoarding in campaign.hoardings.all %}
                                 <tr>
                                     <td>{{ hoarding.hoarding.address.address }}, {{ hoarding.hoarding.address.city.name }}</td>
+                                    <td>{{ hoarding.hoarding.cost }}</td>
+                                    <td>{{ hoarding.hoarding.width }} x {{ hoarding.hoarding.height }} ft.</td>
                                     {% if hoarding.status == 2 %}
                                         <td><span class="label label-danger">{{ hoarding.get_status_display }}</span></td>
                                     {% elif hoarding.status == 1 %}
