@@ -1,12 +1,17 @@
 from rest_framework import serializers
-from hoarder.models import Hoarding
+from hoarder.models import Hoarding, HoardingResource
 from django.contrib.auth.models import User
 from common.serializers import AddressSerializer
 from common.models import Address
 
+class HoardingResourceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HoardingResource
+
 class HoardingSerializer(serializers.HyperlinkedModelSerializer):
     #user = serializers.PrimaryKeyRelatedField(read_only=True, default=serializers.CurrentUserDefault())
     address = AddressSerializer()
+
     class Meta:
         model = Hoarding
         fields = ('id', 'width', 'height', 'display_type', 'cost_cycle', 'cost', 'display_type', 'address' )
@@ -26,4 +31,6 @@ class HoardingSerializer(serializers.HyperlinkedModelSerializer):
         instance.address.save()
         # instance.save(ddress=instance.address)
         return instance
+
+
 

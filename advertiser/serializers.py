@@ -28,4 +28,4 @@ class CampaignSerializer(serializers.ModelSerializer):
 class CampaignResourceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Campaign
-        fields = ('resource',)
+        fields = ('hoarding',)

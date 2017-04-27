@@ -12,8 +12,7 @@ router = routers.DefaultRouter()
 #router.register(r'signin', SigninView, UserProfile)
 urlpatterns = router.urls
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='index.html'),
-        name='home'),
+    url(r'^$', views.HomeView.as_view()),
     url(r'^', include(router.urls)),
     url(r'^', include('django.contrib.auth.urls')),
     url(r'^auth/', include('rest_auth.urls')),

@@ -26,3 +26,11 @@ class Hoarding(models.Model):
 
     creation_date = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(default=datetime.now())
+
+    def get_resources(self):
+        resources = HoardingResource.objects.filter(hoarding=self)
+        return resources
+
+class HoardingResource(models.Model):
+    hoarding = models.ForeignKey('Hoarding', default=None)
+    resource = models.FileField(null=True)

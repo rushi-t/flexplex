@@ -154,12 +154,13 @@
         {#                    $(".last-tab span").html(LastTab);#}
         {#                });#}
         {#            });#}
+
     </script>
     {% include "advertiser/header.html" %}
     <link href="../../static/css/dropzone.css" rel="stylesheet">
     <script src="../../static/js/dropzone.js"></script>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="widget-body">
             <div class="row">
                 <form id="wizard-1" novalidate="novalidate" action="" method="post" enctype="multipart/form-data">
@@ -183,6 +184,7 @@
                             <div class="tab-pane active" id="tab1">
                                 {#                                <h3><strong>Step 1 </strong> - Select Hoardings</h3>#}
                                 {% include "advertiser/choose-hoarding.html" %}
+{#                                {% include "advertiser/file-upload.html" %}#}
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -196,8 +198,8 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab2">
+{#                                {% include "advertiser/choose-hoarding.html" %}#}
                                 {% include "advertiser/file-upload.html" %}
-
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -231,7 +233,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </form>

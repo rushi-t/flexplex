@@ -65,31 +65,31 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-5">
-                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner" role="listbox">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
                                     {% for campaign in campaigns %}
-                                        <div class="carousel-item {% if forloop.counter == 1 %}active {% endif %}" style="height: 280px; width: 100%">
+                                        <div class="item {% if forloop.counter == 1 %}active {% endif %}" style="height: 250px; width: 100%">
                                             {% if campaign.campaign.isVideo %}
-                                                <video controls>
+                                                <video width="100%" controls>
                                                     <source src="/{{ campaign.campaign.resource }}" type="video/mp4">
                                                 </video>
                                             {% else %}
                                                 <img src="/{{ campaign.campaign.resource }}" class="img-rounded" width="100%">
                                             {% endif %}
-                                            {#                                            <img class="d-block img-fluid" src="/{{ campaign.campaign.resource }}" alt="..."#}
-                                            {#                                                 style="height: 180px; width: 100%">#}
+
                                         </div>
                                     {% endfor %}
+
                                 </div>
-                                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
                                 </a>
-                                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
+                                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
                                 </a>
-                            </div>
+                            </div> <!-- Carousel -->
                             {#                            <img src="/static/img/hoarding.jpg" class="img-rounded" width="100%">#}
                         </div>
                         <div class="col-md-7">
@@ -115,21 +115,21 @@
                             {% for campaign in campaigns %}
                                 <tr>
                                     <td align="center" style="width: 80px">
-                                        <a onclick="showModal({{ campaign.campaign.isVideo|yesno:"1,0" }},'/{{ campaign.campaign.resource }}');" href="/{{ campaign.campaign.resource }}" data-toggle="modal" data-target="#flipFlop">
-                                        {% if campaign.campaign.isVideo %}
-                                            <video style="width: 100%">
-                                                <source src="/{{ campaign.campaign.resource }}" type="video/mp4">
-                                            </video>
-                                        {% else %}
-                                            <img src="/{{ campaign.campaign.resource }}" class="img-rounded"  style="width: 100%">
-                                        {% endif %}
-                                        {#                                        <img src="/{{ campaign.campaign.resource }}"#}
-                                        {#                                                            style="width: 80px"/> <br/>#}
+                                        <a onclick="showModal({{ campaign.campaign.isVideo|yesno:"1,0" }},'/{{ campaign.campaign.resource }}');"  data-toggle="modal" data-target="#flipFlop">
+                                            {% if campaign.campaign.isVideo %}
+                                                <video style="width: 100%">
+                                                    <source src="/{{ campaign.campaign.resource }}" type="video/mp4">
+                                                </video>
+                                            {% else %}
+                                                <img src="/{{ campaign.campaign.resource }}" class="img-rounded"  style="width: 100%">
+                                            {% endif %}
+                                            {#                                        <img src="/{{ campaign.campaign.resource }}"#}
+                                            {#                                                            style="width: 80px"/> <br/>#}
                                         </a>
                                     </td>
                                     <td> {{ campaign.campaign.name }}</td>
                                     <td>
-                                        <a onclick="showModal({{ campaign.campaign.isVideo|yesno:"1,0" }},'/{{ campaign.campaign.resource }}');" href="/{{ campaign.campaign.resource }}" data-toggle="modal" data-target="#flipFlop">
+                                        <a onclick="showModal({{ campaign.campaign.isVideo|yesno:"1,0" }},'/{{ campaign.campaign.resource }}');"  data-toggle="modal" data-target="#flipFlop">
                                             <i class="fa fa-eye fa-lg" title="view"></i>
                                         </a>
                                         <a href="/{{ campaign.campaign.resource }}" download style="margin-left: 5px">
@@ -138,14 +138,11 @@
                                     </td>
                                     <td> {{ campaign.campaign.from_date }} to {{ campaign.campaign.to_date }}</td>
                                     {% if campaign.status == 2 %}
-                                        <td><span class="label label-danger">{{ campaign.get_status_display }}</span>
-                                        </td>
+                                        <td><span class="label label-danger">{{ campaign.get_status_display }}</span></td>
                                     {% elif campaign.status == 1 %}
-                                        <td><span class="label label-success">{{ campaign.get_status_display }}</span>
-                                        </td>
+                                        <td><span class="label label-success">{{ campaign.get_status_display }}</span></td>
                                     {% else %}
-                                        <td><span class="label label-warning">{{ campaign.get_status_display }}</span>
-                                        </td>
+                                        <td><span class="label label-warning">{{ campaign.get_status_display }}</span></td>
                                     {% endif %}
                                     <td>
                                         {% if campaign.status == 0 %}
@@ -172,10 +169,10 @@
 
                 <div class="modal-body" >
                     <div id="modal-video">
-                    <video style="width: 100%" controls>
-                        <source id="modal-video-src" src="" type="video/mp4">
-                    </video>
-                        </div>
+                        <video style="width: 100%" controls>
+                            <source id="modal-video-src" src="" type="video/mp4">
+                        </video>
+                    </div>
                     <img id="modal-image" src="/static/img/hoarding.jpg" class="img-rounded"  style="width: 100%; ">
                 </div>
                 <div class="modal-footer">
@@ -190,31 +187,31 @@
                 $('#modal-image').hide();
                 $('#modal-video').show();
                 $("#modal-video-src").attr('src', url);
-{#                $("#modal-video").load();#}
-{#                 $("#modal-video").play();#}
-              $("#modal-video video")[0].load();
-              $("#modal-video video")[0].play();
+{#                                $("#modal-video").load();#}
+{#                                 $("#modal-video").play();#}
+                $("#modal-video video")[0].load();
+                $("#modal-video video")[0].play();
             }
             else{
-                 $('#modal-image').show();
-                 $("#modal-image").attr('src', url);
+                $('#modal-image').show();
+                $("#modal-image").attr('src', url);
                 $('#modal-video').hide();
             }
-             $('#flipFlop').on('hidden.bs.modal', function (e) {
-            $("#modal video")[0].pause();
-        });
+            $('#flipFlop').on('hidden.bs.modal', function (e) {
+                $("#modal video")[0].pause();
+            });
         }
 
     </script>
-    {#    <link rel="stylesheet" href="https://cdn.plyr.io/2.0.12/plyr.css">#}
-    {#    <script src="https://cdn.plyr.io/2.0.12/plyr.js"></script>#}
-    {#    <script>plyr.setup();</script>#}
-    {#    <style>#}
-    {#        .plyr--stopped .plyr__controls {#}
-    {##}
-    {#            opacity: 0;#}
-    {##}
-    {#        }#}
-    {#    </style>#}
+{#    <link rel="stylesheet" href="https://cdn.plyr.io/2.0.12/plyr.css">#}
+{#    <script src="https://cdn.plyr.io/2.0.12/plyr.js"></script>#}
+{#    <script>plyr.setup();</script>#}
+{#    <style>#}
+{#        .plyr--stopped .plyr__controls {#}
+{##}
+{#            opacity: 0;#}
+{##}
+{#        }#}
+{#    </style>#}
     {% include "hoarder/footer.html" %}
 {% endblock content %}

@@ -20,8 +20,17 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/advertiser/inventory">Inventory</a>
                     </li>
+
                     {% if user.is_authenticated %}
-                        <li class="menuItem"><a href="{% url 'logout' %}?next=/">Logout</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">{{ user.first_name }}
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">Profile</a></li>
+                                <hr style="margin: 0px"/>
+                                <li><a href="{% url 'logout' %}?next=/">Logout</a></li>
+                            </ul>
+                        </li>
                     {% else %}
                         <li class="menuItem"><a href="/signin">Login</a></li>
                     {% endif %}

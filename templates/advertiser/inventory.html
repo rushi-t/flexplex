@@ -22,6 +22,7 @@
             var arrMarkers = [];
             var infowindow = new google.maps.InfoWindow();
             var locations;
+            var center = new google.maps.LatLng(18.5164222, 73.8539146);
             /* google maps -----------------------------------------------------*/
             google.maps.event.addDomListener(window, 'load', initialize);
 
@@ -30,13 +31,13 @@
                 locations = [
                     //['Sarag Baug', 18.499797, 73.853990, 4],
                     {% for hoarding in hoardings %}
-                        ['{{ hoarding.address.address }}', {{ hoarding.address.geo_location }}, {{ hoarding.id }}],
+                        ['{{ hoarding.address.address }}', {{ hoarding.address.geo_location }}, {{ forloop.counter0 }}],
                     {% endfor %}
                 ];
 
                 map = new google.maps.Map(document.getElementById('map-canvas'), {
                     zoom: 12,
-                    center: new google.maps.LatLng(18.5164222, 73.8539146),
+                    center: center,
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
                     scrollwheel: false,
                 });
@@ -64,9 +65,9 @@
 
                     google.maps.event.addListener(marker, 'click', (function (marker, i) {
                         return function () {
-                            infowindow.setContent(locations[i][0]);
-                            infowindow.open(map, marker);
-                            handleMarkerClick(locations[i][3])
+
+                            document.getElementById("list-" + i).scrollIntoView();
+                            handleListItemClicked(locations[i][3])
                         }
                     })(marker, i));
                 }
@@ -74,26 +75,27 @@
             };
 
             function handleListItemClicked(id) {
-                for (i = 0; i < arrMarkers.length; i++) {
-                    if (arrMarkers[i].id == id) {
-                        infowindow.setContent(locations[i][0]);
-                        infowindow.open(map, arrMarkers[i]);
-                    }
-                    $('li').removeClass('active');
-                    $("#list-" + id).addClass('active');
-                }
-            }
-
-            function handleMarkerClick(id) {
-                document.getElementById("list-" + id).scrollIntoView();
+                var content = $("#hoarding-"+id).clone().html();
+                infowindow.setContent(content);
+                infowindow.open(map, arrMarkers[id]);
                 $('li').removeClass('active');
                 $("#list-" + id).addClass('active');
+            }
+
+            function resizeMap() {
+                //google.maps.event.trigger(map, 'resize');
+                setTimeout(function(){
+                    google.maps.event.trigger(map, 'resize');
+                    map.setCenter(center);
+                }, 50);
             }
             $(document).ready(function(){
                 $('#hoarding-list').height($(window).height());
                 $('#map-canvas').height($(window).height());
             });
         </script>
+        <link href="/static/hoarder/css/map-style.css" rel="stylesheet">
+        <script src="/static/hoarder/js/map.js"></script>
         <div id="map-canvas"></div>
         <div class="row">
             <div class="col-md-4">
@@ -127,7 +129,51 @@
                 </ul>
             </div>
             <div class="col-md-8"></div>
+            <div id="inventory-list" style="display: none">
+                {% for hoarding in hoardings %}
+                    <div id="hoarding-{{ forloop.counter0 }}">
 
+                        <div class="" style="padding: 0px" >
+                            <div class="col-md-5" style="padding: 0px; height: 220px">
+                                {% if hoarding.get_resources.count > 0 %}
+                                    <img src="/{{ hoarding.get_resources.0.resource }}" width="100%" height="100%">
+                                {% else %}
+                                    <img src="/static/img/hoarding.png" width="100%" height="100%">
+                                {% endif %}
+                            </div>
+                            <div class="col-md-7" style="cursor: pointer;">
+                                <h4>{{ hoarding.address.address }}</h4>
+                                <hr style="margin-left: -15px; margin-right: -15px; margin-top: 0px; margin-bottom: 10px"/>
+                                <table data-toggle="table" data-striped="true">
+                                    <thead>
+                                    <tr>
+                                        <td style="width: 100px"></td>
+                                        <td></td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td> <label>Dimension:</label></td>
+                                        <td>{{ hoarding.width }} x {{ hoarding.height }} ft.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Rate:</label></td>
+                                        <td> &#8377; {{ hoarding.cost }} </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label>Billing Cycle:</label></td>
+                                        <td>{{ hoarding.get_cost_cycle_display }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                {#                        <label>Dimension:</label> {{ hoarding.width }} x {{ hoarding.height }} ft. <br/>#}
+                                {#                        <label>Rate:</label> &#8377; {{ hoarding.cost }} <br/>#}
+                                {#                        <label>Billing Cycle:</label>{{ hoarding.get_cost_cycle_display }} <br/>#}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
     {% include "advertiser/footer.html" %}

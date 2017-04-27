@@ -15,6 +15,17 @@ from django.shortcuts import render
 
 from rest_auth.views import LoginView
 
+class HomeView(View):
+    def get(self, request):
+        user = request.user
+        if request.user.is_authenticated:
+            if user.groups.filter(name='advertiser').exists():
+                return HttpResponseRedirect("../advertiser")
+            else:
+                return HttpResponseRedirect("../hoarder")
+        else:
+            return render(request, 'index.html')
+
 class SigninView(LoginView):
 
     def get(self,request):

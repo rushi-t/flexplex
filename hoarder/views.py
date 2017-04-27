@@ -1,5 +1,5 @@
 from rest_framework import generics
-from hoarder.models import Hoarding
+from hoarder.models import Hoarding, HoardingResource
 from hoarder.serializers import HoardingSerializer
 from rest_framework.viewsets import ModelViewSet,ReadOnlyModelViewSet
 from rest_framework.permissions import IsAuthenticated
@@ -48,8 +48,10 @@ class MyHoardingViewSet(ModelViewSet):
 
 class HoarderHome(GenericAPIView):
     def get(self, request):
-        queryset = Hoarding.objects.filter(user=self.request.user)
-        return render(request, 'hoarder/index.html', {'hoardings': queryset})
+        hoardings = Hoarding.objects.filter(user=self.request.user)
+        return render(request, 'hoarder/index.html', {'hoardings': hoardings})
+
+
 
 class HoardingDetail(View):
     def get(self, request, id):
