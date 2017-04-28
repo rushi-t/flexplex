@@ -1,0 +1,26 @@
+INSERT INTO advertiser_campaign (`id`,`uuid`,`resource` ,`from_date`,`to_date`,`creation_date`,`user_id`,`name`,`content_status`) values (1,'ed5af65ee63b4e029d58a7da309599ab','static/uploads/samsung1.jpg','2017-04-15','2017-04-30','2017-04-16 16:18:43.137774',1,'Samsung',0);
+INSERT INTO advertiser_campaign (`id`,`uuid`,`resource` ,`from_date`,`to_date`,`creation_date`,`user_id`,`name`,`content_status`) values (2,'5f8ae84514c5427ba64de03cd185dd98','static/uploads/rado.jpg','2017-04-01','2017-04-23','2017-04-16 16:4:55.765188',1,'Rado',1);
+INSERT INTO advertiser_campaign (`id`,`uuid`,`resource` ,`from_date`,`to_date`,`creation_date`,`user_id`,`name`,`content_status`) values (3,'8e8ae58505d44c5ab858ded26788ed95','static/uploads/xuv500.png','2017-04-14','2017-04-28','2017-04-16 16:23:20.749148',1,'XUV-500',0);
+INSERT INTO advertiser_campaign (`id`,`uuid`,`resource` ,`from_date`,`to_date`,`creation_date`,`user_id`,`name`,`content_status`) values (4,'5397f9ec8a6f45c1bc4e308a89c2fe05','static/uploads/hyundai-creta-low.mp4','2017-05-01','2017-05-31','2017-04-22 15:23:46.974204',1,'Hyundai-Creta',0);
+INSERT INTO advertiser_campaign (`id`,`uuid`,`resource` ,`from_date`,`to_date`,`creation_date`,`user_id`,`name`,`content_status`) values (5,'fcec1cb2831042cbb767366b5215f089','static/uploads/pulsar.jpg','2017-05-01','2017-05-31','2017-04-24 16:01:55.997032',1,'Pulsar',0);
+
+
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (1,1,1,2);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (2,1,2,1);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (3,2,1,0);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (4,2,2,1);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (5,2,3,2);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (6,2,4,0);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (7,3,1,1);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (8,3,2,0);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (9,3,3,0);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (10,4,1,0);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (11,4,2,0);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (12,4,3,0);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (13,4,4,0);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (14,4,5,0);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (15,4,6,0);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (16,4,7,0);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (17,5,1,0);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (18,5,2,0);
+INSERT INTO advertiser_campaignhoardings (`id`, `campaign_id`,`hoarding_id`,`status`) VALUES (19,5,3,1);

@@ -9,10 +9,10 @@
                         <div class="col-md-4" style="padding: 0px;">
                             {% if campaign.isVideo %}
                                 <video width="100%" height="150px" controls>
-                                    <source src="/{{ campaign.resource }}" type="video/mp4">
+                                    <source src="{{ campaign.resource }}" type="video/mp4">
                                 </video>
                             {% else %}
-                                <img  src="/{{ campaign.resource }}" class="img" width="100%" height="150px">
+                                <img  src="{{ campaign.resource }}" class="img" width="100%" height="150px">
                             {% endif %}
                         </div>
                         <div class="col-md-8" style="cursor: pointer;">

@@ -75,7 +75,7 @@ class CreateCampaignView(View):
     def post(self, request, *args, **kwargs):
         myfile = request.FILES['resource']
         fs = FileSystemStorage()
-        filename = fs.save('static/uploads/' + myfile.name, myfile)
+        filename = fs.save('uploads/' + myfile.name, myfile)
         uploaded_file_url = fs.url(filename)
 
         campaign = Campaign(user=self.request.user,

@@ -10,10 +10,10 @@
                         <div class="col-md-5" style="padding: 0px">
                             {% if campaign.isVideo %}
                                 <video width="100%" controls>
-                                    <source src="/{{ campaign.resource }}" type="video/mp4">
+                                    <source src="{{ campaign.resource }}" type="video/mp4">
                                 </video>
                             {% else %}
-                                <img src="/{{ campaign.resource }}" class="img-rounded" width="100%">
+                                <img src="{{ campaign.resource }}" class="img-rounded" width="100%">
                             {% endif %}
                         </div>
                         <div class="col-md-7">
