@@ -157,8 +157,8 @@
 
     </script>
     {% include "advertiser/header.html" %}
-    <link href="../../static/css/dropzone.css" rel="stylesheet">
-    <script src="../../static/js/dropzone.js"></script>
+    <link href="/static/css/dropzone.css" rel="stylesheet">
+    <script src="/static/js/dropzone.js"></script>
 
     <div class="container-fluid">
         <div class="widget-body">
@@ -171,7 +171,7 @@
                                 <li class="active" data-target="#step1" >
                                     <a id="tab-link1" href="#tab1"  data-toggle="tab" class="active"> <span class="step">1</span> <span class="title">Select Hoardings</span> </a>
                                 </li>
-                                <li data-target="#step2" class="" >
+                                <li data-target="#step2" class="" onclick="resizeMap();">
                                     <a id="tab-link2" href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">Upload Resource</span> </a>
                                 </li>
                                 <li data-target="#step3" class="">
@@ -183,8 +183,8 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab1">
                                 {#                                <h3><strong>Step 1 </strong> - Select Hoardings</h3>#}
-                                {% include "advertiser/choose-hoarding.html" %}
-{#                                {% include "advertiser/file-upload.html" %}#}
+                                {#                                {% include "advertiser/choose-hoarding.html" %}#}
+                                {% include "advertiser/file-upload.html" %}
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -198,8 +198,8 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab2">
-{#                                {% include "advertiser/choose-hoarding.html" %}#}
-                                {% include "advertiser/file-upload.html" %}
+                                {% include "advertiser/choose-hoarding.html" %}
+                                {#                                {% include "advertiser/file-upload.html" %}#}
                                 <div class="form-actions">
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -216,9 +216,9 @@
                                 </div>
                             </div>
                             <div class="tab-pane" id="tab3">
-                                <div style="margin-top: 30px;height: 480px">
-                                    <button type="submit" class="btn btn-primary btn-primary col-sm-offset-5" style="margin-top: 150px;">
-                                        Publish Ad
+                                <div style="margin-top: 180px;height: 330px; text-align: center">
+                                    <button type="submit" class="btn btn-primary" style="width: 150px">
+                                        <i class="fa fa-cloud-upload fa-4x" aria-hidden="true"></i> <br/>Publish
                                     </button>
                                 </div>
                                 <div class="form-actions">

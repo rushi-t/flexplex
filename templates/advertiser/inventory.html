@@ -136,7 +136,7 @@
                         <div class="" style="padding: 0px" >
                             <div class="col-md-5" style="padding: 0px; height: 220px">
                                 {% if hoarding.get_resources.count > 0 %}
-                                    <img src="/{{ hoarding.get_resources.0.resource }}" width="100%" height="100%">
+                                    <img src="{{ hoarding.get_resources.0.resource }}" width="100%" height="100%">
                                 {% else %}
                                     <img src="/static/img/hoarding.png" width="100%" height="100%">
                                 {% endif %}

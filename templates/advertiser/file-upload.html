@@ -1,50 +1,148 @@
-<script>
-    {#    $(document).ready(function () {#}
-    {#        Dropzone.autoDiscover = false;#}
-    {#        $("#dZUpload").dropzone({#}
-    {#            url: "hn_SimpeFileUploader.ashx",#}
-    {#            addRemoveLinks: true,#}
-    {#            success: function (file, response) {#}
-    {#                var imgName = response;#}
-    {#                //file.previewElement.classList.add("dz-success");#}
-    {#                console.log("Successfully uploaded :" + imgName);#}
-    {#            },#}
-    {#            error: function (file, response) {#}
-    {#                file.previewElement.classList.add("dz-error");#}
-    {#            }#}
-    {#        });#}
-    {#    });#}
-</script>
 <style>
     #content {
         height: 480px;
         margin-top: 30px;
     }
+    .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+    .box {
+    {#        background-color: #dfc8ca;#}
+        text-align: center;
+        border: 5px dashed #ccc;
+        padding: 4.25rem 1.25rem;
+    }
+    .inputfile-4 + label {
+        color: #d3394c;
+    }
+
+    .inputfile + label {
+        max-width: 80%;
+        font-size: 1.25rem;
+        font-weight: 700;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        display: inline-block;
+        overflow: hidden;
+        padding: 0.625rem 1.25rem;
+    }
+    .inputfile-4 + label figure {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: #d3394c;
+        display: block;
+        padding: 20px;
+        margin: 0 auto 10px;
+    }
+    .inputfile-4 + label svg {
+        width: 100%;
+        height: 100%;
+        fill: #f1e5e6;
+    }
+    #close{
+        display:block;
+        float:right;
+        position: absolute;
+        top: -6px;
+        right: 6px;
+        z-index: 100;
+    {#    background:url(http://digitalsbykobke.com/images/close.png) no-repeat center center;#}
+    }
 </style>
-<div class="row" id="content">
-    <div class="col-md-5 col-sm-offset-3" style="padding-top: 100px">
-        {#        <div id="dZUpload" class="dropzone">#}
-        {#            <div class="fallback">#}
-        {#                <input name="resource" type="file" multiple />#}
-        {#            </div>#}
-        {#        </div>#}
+<script>
+    $("document").ready(function(){
+
+        $("#resource").change(function() {
+            if (this.files && this.files[0]) {
+
+                handlePreview(this.files[0]);
+
+            }
+            //alert(filename);
+        });
+
+        $("#close").click(function(){
+            $('#media').hide();
+            $("#drop-label").show();
+        });
+    });
+
+    function handlePreview(input) {
+        var fileName = $('#resource').val();
+        var ext = fileName.split('.').pop();
+        if(ext =='mp4'){
+            var fileInput = document.getElementById('#resource');
+            var fileUrl = window.URL.createObjectURL(input);
+            $("#preview-video-src").attr('src', fileUrl);
+            $("#media video")[0].load();
+            $('#preview-video').show();
+            $('#preview-img').hide();
+
+        }
+        else{
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#preview-img').attr('src', e.target.result);
+                $('#preview-img').show();
+
+            }
+            reader.readAsDataURL(input);
+            $('#preview-video').hide();
+        }
+
+        $('#media').show();
+        $("#drop-label").hide();
+
+    }
+
+</script>
+
+<div class="row" id="content" style="padding-top: 80px">
+    <div class="col-md-1" ></div>
+    <div class="col-md-4" >
+        <div class="form-group" >
+            <h4 >Campaign Name</h4>
+            <input id="name" name="name" type="text" class="form-control" >
+        </div>
+
 
         <div class="form-group" style="margin-top: 30px">
-            <label >Campaign Name</label>
-            <input name="name" type="text" class="form-control">
-        </div>
-
-        <div class="form-group">
-            <label >Choose Media</label>
-            <input name="resource" type="file" class="form-control">
+            <h4 >From Date</h4>
+            <input name="from_date" class="form-control" type="date" value="Campaign Name">
         </div>
         <div class="form-group" style="margin-top: 30px">
-            <label >From Date</label>
-            <input name="from_date" class="form-control" type="date" >
-        </div>
-        <div class="form-group" style="margin-top: 30px">
-            <label >To Date</label>
+            <h4 >To Date</h4>
             <input name="to_date" class="form-control" type="date" placeholder="to date">
         </div>
     </div>
+    <div class="col-md-1" >
+        <div style="border-left:1px solid #000;height:100%"></div>
+    </div>
+    <div class="col-md-5" style="padding-top: 10px">
+        <div class="box">
+            <input type="file" name="resource" id="resource" class="inputfile inputfile-4">
+            <label id="drop-label" for="resource"><figure><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path></svg></figure> <span>Choose Image or Video</span></label>
+            <div id="media" style="display: none;">
+                <img id="preview-img" src="" width="100%" style="display: none; margin: -3.25rem" />
+                <video id="preview-video" width="100%" style="display: none; margin: -3.25rem" controls>
+                    <source id="preview-video-src" type="video/mp4">
+                </video>
+                <i id="close" class="fa fa-times-circle fa-3x" aria-hidden="true"></i>
+            </div>
+
+        </div>
+        <div class="form-group">
+            {#            <label >Choose Media</label>#}
+            {#            <input id="resource" type="file" >#}
+
+        </div>
+    </div>
+    <div class="col-md-1" ></div>
 </div>

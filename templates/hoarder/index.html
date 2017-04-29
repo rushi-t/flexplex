@@ -8,7 +8,7 @@
                     <div class="panel-body" style="padding: 0px" >
                         <div class="col-md-4" style="padding: 0px;">
                             {% if hoarding.get_resources.count > 0 %}
-                                <img src="/{{ hoarding.get_resources.0.resource }}" width="100%" height="150px">
+                                <img src="{{ hoarding.get_resources.0.resource }}" width="100%" height="150px">
                             {% else %}
                                 <img src="/static/img/hoarding.png" width="100%"  height="150px">
                             {% endif %}

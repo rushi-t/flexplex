@@ -72,10 +72,10 @@
                                         <div class="item {% if forloop.counter == 1 %}active {% endif %}" style="height: 250px; width: 100%">
                                             {% if campaign.campaign.isVideo %}
                                                 <video width="100%" controls>
-                                                    <source src="/{{ campaign.campaign.resource }}" type="video/mp4">
+                                                    <source src="{{ campaign.campaign.resource }}" type="video/mp4">
                                                 </video>
                                             {% else %}
-                                                <img src="/{{ campaign.campaign.resource }}" class="img-rounded" width="100%">
+                                                <img src="{{ campaign.campaign.resource }}" class="img-rounded" width="100%">
                                             {% endif %}
 
                                         </div>
@@ -118,10 +118,10 @@
                                         <a onclick="showModal({{ campaign.campaign.isVideo|yesno:"1,0" }},'/{{ campaign.campaign.resource }}');"  data-toggle="modal" data-target="#flipFlop">
                                             {% if campaign.campaign.isVideo %}
                                                 <video style="width: 100%">
-                                                    <source src="/{{ campaign.campaign.resource }}" type="video/mp4">
+                                                    <source src="{{ campaign.campaign.resource }}" type="video/mp4">
                                                 </video>
                                             {% else %}
-                                                <img src="/{{ campaign.campaign.resource }}" class="img-rounded"  style="width: 100%">
+                                                <img src="{{ campaign.campaign.resource }}" class="img-rounded"  style="width: 100%">
                                             {% endif %}
                                             {#                                        <img src="/{{ campaign.campaign.resource }}"#}
                                             {#                                                            style="width: 80px"/> <br/>#}
