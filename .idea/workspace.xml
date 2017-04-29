@@ -4,11 +4,6 @@
     <list default="true" id="5f9a8fbd-4c32-4ad8-a47c-c08b05f24bb4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/campaign-wizard.html" afterPath="$PROJECT_DIR$/templates/advertiser/campaign-wizard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/choose-hoarding.html" afterPath="$PROJECT_DIR$/templates/advertiser/choose-hoarding.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/file-upload.html" afterPath="$PROJECT_DIR$/templates/advertiser/file-upload.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/inventory.html" afterPath="$PROJECT_DIR$/templates/advertiser/inventory.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/hoarder/hoarding-detail.html" afterPath="$PROJECT_DIR$/templates/hoarder/hoarding-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/hoarder/index.html" afterPath="$PROJECT_DIR$/templates/hoarder/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="file-upload.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="file-upload.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/advertiser/file-upload.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="137" column="18" lean-forward="true" selection-start-line="137" selection-start-column="18" selection-end-line="137" selection-end-column="18" />
+            <state relative-caret-position="622">
+              <caret line="134" column="57" lean-forward="true" selection-start-line="134" selection-start-column="57" selection-end-line="134" selection-end-column="57" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -75,13 +70,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="campaign-wizard.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="campaign-wizard.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/advertiser/campaign-wizard.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="218" column="73" lean-forward="false" selection-start-line="218" selection-start-column="73" selection-end-line="218" selection-end-column="73" />
+            <state relative-caret-position="203">
+              <caret line="177" column="141" lean-forward="false" selection-start-line="177" selection-start-column="141" selection-end-line="177" selection-end-column="141" />
               <folding>
-                <element signature="e#9021#9041#0#HTML" expanded="true" />
+                <element signature="e#8875#8934#0#HTML" expanded="true" />
+                <element signature="e#9018#9038#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -219,8 +215,8 @@
         <option value="$PROJECT_DIR$/templates/advertiser/inventory.html" />
         <option value="$PROJECT_DIR$/templates/advertiser/choose-hoarding.html" />
         <option value="$USER_HOME$/Downloads/file-upload-with-style-and-pure-css/index.html" />
-        <option value="$PROJECT_DIR$/templates/advertiser/campaign-wizard.html" />
         <option value="$PROJECT_DIR$/templates/advertiser/file-upload.html" />
+        <option value="$PROJECT_DIR$/templates/advertiser/campaign-wizard.html" />
       </list>
     </option>
   </component>
@@ -790,7 +786,14 @@
       <option name="project" value="LOCAL" />
       <updated>1493378301961</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="-  File upload widget in create campaign.">
+      <created>1493447624576</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1493447624576</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TodoView">
@@ -810,7 +813,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2647059" sideWeight="0.5027494" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.55572754" sideWeight="0.4941084" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.54953563" sideWeight="0.4941084" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40402478" sideWeight="0.4941084" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3869969" sideWeight="0.4972506" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -846,7 +849,8 @@
     <MESSAGE value="- added campaign status" />
     <MESSAGE value="- infowindow on marker click&#10;- user name in navbar after login&#10;- reverted bootstrap-4" />
     <MESSAGE value="- Media root added" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Media root added" />
+    <MESSAGE value="-  File upload widget in create campaign." />
+    <option name="LAST_COMMIT_MESSAGE" value="-  File upload widget in create campaign." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1257,29 +1261,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/hoarder/add-hoarding.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="137" column="102" lean-forward="false" selection-start-line="137" selection-start-column="83" selection-end-line="137" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/advertiser/choose-hoarding.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-467">
           <caret line="84" column="22" lean-forward="false" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="22" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/advertiser/campaign-wizard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="218" column="73" lean-forward="false" selection-start-line="218" selection-start-column="73" selection-end-line="218" selection-end-column="73" />
-          <folding>
-            <element signature="e#9021#9041#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1293,8 +1279,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/advertiser/file-upload.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="137" column="18" lean-forward="true" selection-start-line="137" selection-start-column="18" selection-end-line="137" selection-end-column="18" />
+        <state relative-caret-position="622">
+          <caret line="134" column="57" lean-forward="true" selection-start-line="134" selection-start-column="57" selection-end-line="134" selection-end-column="57" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
@@ -1304,6 +1290,25 @@
             <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#video#0;n#div#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/hoarder/add-hoarding.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="137" column="102" lean-forward="false" selection-start-line="137" selection-start-column="83" selection-end-line="137" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/advertiser/campaign-wizard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="177" column="141" lean-forward="false" selection-start-line="177" selection-start-column="141" selection-end-line="177" selection-end-column="141" />
+          <folding>
+            <element signature="e#8875#8934#0#HTML" expanded="true" />
+            <element signature="e#9018#9038#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
