@@ -10,7 +10,7 @@ from django.http import HttpResponseRedirect
 from common.models import *
 from advertiser.models import CampaignHoardings
 from advertiser.serializers import CampaignHoardingsSerializer, CampaignSerializer
-import django_filters
+
 from datetime import datetime
 
 
