@@ -36,11 +36,11 @@ class MyHoardingViewSet(ModelViewSet):
         queryset = Hoarding.objects.filter(user=self.request.user)
         return queryset
 
-
-class CampaignHoardingFilter(django_filters.rest_framework.FilterSet):
-    class Meta:
-        model = CampaignHoardings
-        fields = ['campaign']
+#
+# class CampaignHoardingFilter(django_filters.rest_framework.FilterSet):
+#     class Meta:
+#         model = CampaignHoardings
+#         fields = ['campaign']
 
 
 class CampaignHoardingsView(generics.ListAPIView):
