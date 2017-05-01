@@ -115,7 +115,7 @@
                             {% for campaign in campaigns %}
                                 <tr>
                                     <td align="center" style="width: 80px">
-                                        <a onclick="showModal({{ campaign.campaign.isVideo|yesno:"1,0" }},'/{{ campaign.campaign.resource }}');"  data-toggle="modal" data-target="#flipFlop">
+                                        <a onclick="showModal({{ campaign.campaign.isVideo|yesno:"1,0" }},'{{ campaign.campaign.resource }}');"  data-toggle="modal" data-target="#flipFlop">
                                             {% if campaign.campaign.isVideo %}
                                                 <video style="width: 100%">
                                                     <source src="{{ campaign.campaign.resource }}" type="video/mp4">
@@ -129,10 +129,10 @@
                                     </td>
                                     <td> {{ campaign.campaign.name }}</td>
                                     <td>
-                                        <a onclick="showModal({{ campaign.campaign.isVideo|yesno:"1,0" }},'/{{ campaign.campaign.resource }}');"  data-toggle="modal" data-target="#flipFlop">
+                                        <a onclick="showModal({{ campaign.campaign.isVideo|yesno:"1,0" }},'{{ campaign.campaign.resource }}');"  data-toggle="modal" data-target="#flipFlop">
                                             <i class="fa fa-eye fa-lg" title="view"></i>
                                         </a>
-                                        <a href="/{{ campaign.campaign.resource }}" download style="margin-left: 5px">
+                                        <a href="{{ campaign.campaign.resource }}" download style="margin-left: 5px">
                                             <i class="fa fa-download fa-lg" title="download"></i>
                                         </a>
                                     </td>

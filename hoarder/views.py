@@ -1,7 +1,7 @@
 from rest_framework import generics
 from hoarder.models import Hoarding, HoardingResource
 from hoarder.serializers import HoardingSerializer
-from rest_framework.viewsets import ModelViewSet,ReadOnlyModelViewSet
+from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import render
 from rest_framework.generics import GenericAPIView
@@ -9,6 +9,11 @@ from django.views import View
 from django.http import HttpResponseRedirect
 from common.models import *
 from advertiser.models import CampaignHoardings
+from advertiser.serializers import CampaignHoardingsSerializer, CampaignSerializer
+import django_filters
+from datetime import datetime
+
+
 # class CampaignViewSet(ModelViewSet):
 #     queryset = Campaign.objects.all()
 #     serializer_class = CampaignSerializer
@@ -17,11 +22,10 @@ class AllHoardingViewSet(ReadOnlyModelViewSet):
     queryset = Hoarding.objects.all()
     serializer_class = HoardingSerializer
 
-    def pre_save(self, obj):
-        obj.user = self.request.user
+
 
 class MyHoardingViewSet(ModelViewSet):
-    #queryset = Hoarding.objects.all()
+    # queryset = Hoarding.objects.all()
     serializer_class = HoardingSerializer
     permission_classes = (IsAuthenticated,)
 
@@ -31,6 +35,29 @@ class MyHoardingViewSet(ModelViewSet):
     def get_queryset(self):
         queryset = Hoarding.objects.filter(user=self.request.user)
         return queryset
+
+
+class CampaignHoardingFilter(django_filters.rest_framework.FilterSet):
+    class Meta:
+        model = CampaignHoardings
+        fields = ['campaign']
+
+
+class CampaignHoardingsView(generics.ListAPIView):
+    # queryset = CampaignHoardings.objects.filter(hoarding=1).only('hoarding')
+    serializer_class = CampaignHoardingsSerializer
+    # filter_backends = (django_filters.rest_framework.DjangoFilterBackend,)
+    # filter_class = CampaignHoardingFilter
+
+    def get_queryset(self):
+        id = self.kwargs['id']
+        queryset = CampaignHoardings.objects.filter(hoarding=id)
+        # update heartbeat
+        hoarding = Hoarding.objects.get(id=id)
+        hoarding.last_heartbeat = datetime.now()
+        hoarding.save()
+        return queryset
+
 
 # class HoardingDetail(generics.RetrieveUpdateDestroyAPIView):
 #     """
@@ -52,12 +79,11 @@ class HoarderHome(GenericAPIView):
         return render(request, 'hoarder/index.html', {'hoardings': hoardings})
 
 
-
 class HoardingDetail(View):
     def get(self, request, id):
         hoarding = Hoarding.objects.get(user=self.request.user, id=id)
         campaigns = CampaignHoardings.objects.filter(hoarding=hoarding)
-        return render(request, 'hoarder/hoarding-detail.html', {'hoarding': hoarding, 'campaigns':campaigns})
+        return render(request, 'hoarder/hoarding-detail.html', {'hoarding': hoarding, 'campaigns': campaigns})
 
     def post(self, request, id):
         if request.POST.get('accept', False):
@@ -72,6 +98,7 @@ class HoardingDetail(View):
             campaign.status = 2
             campaign.save()
         return render(request, 'hoarder/hoarding-detail.html')
+
 
 class AddHoardingView(View):
     def get(self, request):
@@ -93,8 +120,7 @@ class AddHoardingView(View):
                             height=request.POST['height'],
                             display_type=request.POST['display_type'],
                             cost_cycle=request.POST['cost_cycle'],
-                            cost=request.POST['cost'],)
+                            cost=request.POST['cost'], )
 
         hoarding.save()
         return HttpResponseRedirect('../')
-

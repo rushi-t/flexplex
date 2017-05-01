@@ -26,10 +26,18 @@ class Hoarding(models.Model):
 
     creation_date = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(default=datetime.now())
+    last_heartbeat = models.DateTimeField(default=datetime.now())
 
     def get_resources(self):
         resources = HoardingResource.objects.filter(hoarding=self)
         return resources
+
+    def get_hardware_status(self):
+        diff = (datetime.now() - self.last_heartbeat.replace(tzinfo=None)).total_seconds() / 60.0
+        if diff > 5:
+            return 0
+        else:
+            return 1
 
 class HoardingResource(models.Model):
     hoarding = models.ForeignKey('Hoarding', default=None)
