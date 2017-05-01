@@ -101,7 +101,7 @@
             <div class="col-md-4">
                 <ul class="list-group" id="hoarding-list">
                     {% for hoarding in hoardings %}
-                        <li class="list-group-item" id="list-{{ hoarding.id }}" value="{{ hoarding.id }}"
+                        <li class="list-group-item"id="list-{{ forloop.counter0 }}" value="{{ forloop.counter0 }}"
                             onClick="handleListItemClicked(this.value)">
                             {#                    <span class="badge">{{ hoarding.cost }}</span>#}
                             <div class="row">
