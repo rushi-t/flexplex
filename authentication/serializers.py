@@ -14,7 +14,7 @@ class RegSerializer(RegisterSerializer):
     phone = serializers.CharField(source="userprofile.phone")
     # password2 = serializers.CharField(source="password1")
     first_name = serializers.CharField()
-    username = serializers.CharField(default=uuid.uuid4().hex[:8].upper())
+    username = serializers.CharField()  # default=uuid.uuid4().hex[:8].upper())
     USER_TYPE_CHOICES = (
         (1, 'Advertiser'),
         (2, 'Hoarder'),
@@ -34,7 +34,7 @@ class RegSerializer(RegisterSerializer):
         profile_data = self.validated_data['userprofile']
         profile = UserProfile.objects.create(user=user, **profile_data)
         profile.save()
-
+        request.user=user
         if user_type == 1:
             group = Group.objects.get(name='advertiser')
             user.groups.add(group)
@@ -47,6 +47,11 @@ class RegSerializer(RegisterSerializer):
         self._kwargs['data']._mutable=True
         self._kwargs['data']['password2'] = self._kwargs['data']['password1']
         return super(RegSerializer, self).validate_password1(password)
+
+    def __init__(self, *args, **kwargs):
+        self._kwargs['data']._mutable = True
+        self._kwargs['data']['username'] = self._kwargs['data']['email']
+        super(RegSerializer, self).__init__(*args, **kwargs)
 
 class UserSerializer(UserDetailsSerializer):
 

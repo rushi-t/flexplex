@@ -19,9 +19,18 @@ from datetime import datetime
 #     serializer_class = CampaignSerializer
 
 class AllHoardingViewSet(ReadOnlyModelViewSet):
-    queryset = Hoarding.objects.all()
+    #queryset = Hoarding.objects.all()
     serializer_class = HoardingSerializer
 
+    def get_queryset(self):
+        id = self.kwargs['pk']
+        queryset = Hoarding.objects.all()
+        if id != None:
+            # update heartbeat
+            hoarding = Hoarding.objects.get(id=id)
+            hoarding.last_heartbeat = datetime.now()
+            hoarding.save()
+        return queryset
 
 
 class MyHoardingViewSet(ModelViewSet):
@@ -53,9 +62,9 @@ class CampaignHoardingsView(generics.ListAPIView):
         id = self.kwargs['id']
         queryset = CampaignHoardings.objects.filter(hoarding=id)
         # update heartbeat
-        hoarding = Hoarding.objects.get(id=id)
-        hoarding.last_heartbeat = datetime.now()
-        hoarding.save()
+        # hoarding = Hoarding.objects.get(id=id)
+        # hoarding.last_heartbeat = datetime.now()
+        # hoarding.save()
         return queryset
 
 
@@ -124,3 +133,4 @@ class AddHoardingView(View):
 
         hoarding.save()
         return HttpResponseRedirect('../')
+

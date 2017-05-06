@@ -4,6 +4,9 @@ from pprint import pprint
 import wget
 import urllib
 import shutil
+import time
+
+POLL_TIME = 1 * 60 #5 mins
 
 def pollHoarding():
     response = urllib2.urlopen('http://localhost:8000/hoarder/api/all/hoardings/1/')
@@ -27,7 +30,7 @@ def saveHoarding(jsonData):
             file.truncate()
 
 def downloadResources():
-    shutil.rmtree('resources/*')
+    # shutil.rmtree('resources/*')
     response = urllib2.urlopen('http://localhost:8000/hoarder/api/hoarding/1/campaigns/')
     data = json.load(response)
     for item in data:
@@ -37,4 +40,9 @@ def downloadResources():
         # urllib.urlretrieve(item['campaign']['resource'])
     print len(data)
 
-pollHoarding()
+# pollHoarding()
+
+while True:
+    print "Getting resources"
+    pollHoarding()
+    time.sleep(POLL_TIME)  # Delay for 1 minute (60 seconds)

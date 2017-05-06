@@ -1,7 +1,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 300;
     color: #888;
     line-height: 30px;
@@ -39,11 +39,11 @@ img { max-width: 100%; }
 
 .btn-link-1 {
 	display: inline-block;
-	height: 50px;
+	height: 40px;
 	margin: 5px;
-	padding: 16px 20px 0 20px;
+	padding: 10px 20px 0 20px;
 	background: #19b9e7;
-	font-size: 16px;
+	font-size: 14px;
     font-weight: 300;
     line-height: 16px;
     color: #fff;
@@ -109,7 +109,7 @@ img { max-width: 100%; }
 
 .form-top {
 	overflow: hidden;
-	padding: 0 25px 15px 25px;
+	padding: 0 25px 0px 25px;
 	background: #fff;
 	-moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; border-radius: 4px 4px 0 0;
 	text-align: left;
@@ -127,7 +127,7 @@ img { max-width: 100%; }
 	float: left;
 	width: 25%;
 	padding-top: 5px;
-	font-size: 66px;
+	font-size: 35px;
 	color: #ddd;
 	line-height: 100px;
 	text-align: right;

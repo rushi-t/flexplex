@@ -306,7 +306,7 @@ h4,
   font-size: 20px;
 }
 p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.72222;
   margin: 0 0 15px;
 }
@@ -1154,7 +1154,7 @@ label {
   border: 1px solid #bdc3c7;
   color: #34495e;
   font-family: "Lato", Helvetica, Arial, sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.467;
   padding: 8px 12px;
   height: 42px;
@@ -1993,9 +1993,9 @@ fieldset[disabled] .input-group-btn .btn-default.active {
   margin: 0;
 }
 .navbar-nav > li > a {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 23px;
-  font-weight: 700;
+  font-weight: 600;
 }
 .navbar-nav .dropdown-toggle .caret {
   border-top-color: #16a085;
@@ -2268,17 +2268,17 @@ select[multiple].navbar-form .btn {
   border-width: 2px;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #34495e;
+  color: rgba(95, 95, 95, 0.8);
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #2baefd;
+  color: #2baefc;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #2baefd;
+  color: #2baefc;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .disabled > a,
