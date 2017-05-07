@@ -12,7 +12,7 @@ from advertiser.models import CampaignHoardings
 from advertiser.serializers import CampaignHoardingsSerializer, CampaignSerializer
 
 from datetime import datetime
-
+from django.core.files.storage import FileSystemStorage
 
 # class CampaignViewSet(ModelViewSet):
 #     queryset = Campaign.objects.all()
@@ -115,6 +115,7 @@ class AddHoardingView(View):
         return render(request, 'hoarder/add-hoarding.html', {'hoardings': queryset})
 
     def post(self, request, *args, **kwargs):
+
         address = Address(city=City.objects.get(id=request.POST['city']),
                           state=State.objects.get(id=request.POST['state']),
                           country=Country.objects.get(id=request.POST['country']),
@@ -132,5 +133,17 @@ class AddHoardingView(View):
                             cost=request.POST['cost'], )
 
         hoarding.save()
+
+
+        myfile = request.FILES['resource']
+
+        if myfile != None:
+            fs = FileSystemStorage()
+            filename = fs.save(myfile.name, myfile)
+            uploaded_file_url = fs.url(filename)
+
+            hoardingResource = HoardingResource(hoarding=hoarding, resource=uploaded_file_url)
+            hoardingResource.save()
+
         return HttpResponseRedirect('../')
 

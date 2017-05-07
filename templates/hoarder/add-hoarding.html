@@ -118,77 +118,137 @@
 
             return false; //don't submit
         }
+
+        // File Input
+        $("document").ready(function(){
+
+            $("#resource").change(function() {
+                if (this.files && this.files[0]) {
+
+                    handlePreview(this.files[0]);
+
+                }
+                //alert(filename);
+            });
+
+            $("#close").click(function(){
+                $('#media').hide();
+                $("#drop-label").show();
+            });
+        });
+
+        function handlePreview(input) {
+            var fileName = $('#resource').val();
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#preview-img').attr('src', e.target.result);
+                $('#preview-img').show();
+
+            }
+            reader.readAsDataURL(input);
+            $('#media').show();
+            $("#drop-label").hide();
+
+        }
     </script>
+
     <style type="text/css">
         #map {
             height: 100%;
         }
-    </style>
-    <div class="container">
+        .form-control{
+            margin-bottom: 10px;
+        }
+        .inputfile {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+        .box {
+        {#        background-color: #dfc8ca;#}
+            text-align: center;
+            border: 5px dashed #ccc;
+            padding: 4.25rem 1.25rem;
+        }
+        .inputfile-4 + label {
+            color: #d3394c;
+        }
 
-        <form action="" method="post" style="padding-bottom: 100px">
+        .inputfile + label {
+            max-width: 80%;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+            display: inline-block;
+            overflow: hidden;
+            padding: 0.625rem 1.25rem;
+        }
+        .inputfile-4 + label figure {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #d3394c;
+            display: block;
+            padding: 20px;
+            margin: 0 auto 10px;
+        }
+        .inputfile-4 + label svg {
+            width: 100%;
+            height: 100%;
+            fill: #f1e5e6;
+        }
+        {#        #close{#}
+        {#            display:block;#}
+        {#            float:right;#}
+        {#            position: absolute;#}
+        {#            top: -6px;#}
+        {#            right: 6px;#}
+        {#            z-index: 100;#}
+        {#    background:url(http://digitalsbykobke.com/images/close.png) no-repeat center center;#}
+        {#        }#}
+        .img-wrap {
+            position: relative;
+        ...
+        }
+        .img-wrap .close {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            z-index: 100;
+            margin: -5.0rem -1.8rem;
+            display:block;
+            position: absolute;
+            z-index: 100;
+            opacity: 0.8;
+        }
+    </style>
+    <div class="container-fluid" style="padding: 0px 30px 0px 40px">
+
+        <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
 
-            <div class="panel panel-default col-md-9" style="margin-top: 20px">
-                <div class="panel-body">
-                    <h5>Specifications</h5>
-                    <hr style="margin-top: 0px"/>
+            <div class="" style="margin-top: 20px">
+                <div class="">
                     <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-md-4" style="padding-right: 80px">
+                            <h4>Specifications</h4>
                             <input name="width" class="form-control" type="number" placeholder="Width">
-                        </div>
-                        <div class="col-sm-3">
                             <input name="height" class="form-control" type="number" placeholder="Height">
-                        </div>
-                        <div class="col-sm-3">
                             <select class="form-control" name="display_type">
                                 <option value="" selected disabled>Display Type</option>
                                 <option value="2">OutDoor</option>
                                 <option value="1">Indoor</option>
                             </select>
-                        </div>
-                    </div>
-                    <br/>
-                    <h5>Address</h5>
-                    <hr style="margin-top: 0px"/>
-                    <div class="row">
-                        <div class="col-sm-3">
-                            <select id="country" name="country" class="form-control">
-                            </select>
-                        </div>
-                        <div class="col-sm-3">
-                            <select id="state" name="state" class="form-control">
-                            </select>
-                        </div>
-                        <div class="col-sm-3">
-                            <select id="city" name="city" class="form-control">
-                            </select>
-                        </div>
-                    </div>
-
-                    <br/>
-
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <input name="address" class="form-control" type="text" placeholder="Area">
-                        </div>
-                        <div class="col-sm-3"  style="display: none">
-                            <input id="geo_location" name="geo_location" class="form-control" type="text"/>
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="geo_location" class="control-label">Select Location</label>
-                            <div id="map" style="width:400px;height:300px;"></div>
-                        </div>
-                    </div>
-
-                    <br/>
-
-
-                    <h5>Billing</h5>
-                    <hr style="margin-top: 0px"/>
-
-                    <div class="row">
-                        <div class="col-sm-3">
+                            <br/>
+                            <br/>
+                            <h4>Billing</h4>
+                            <input name="cost" class="form-control" type="text" placeholder="Rate">
                             <select class="form-control" name="cost_cycle">
                                 <option value="" selected disabled>Billing Cycle</option>
                                 <option value="3">Monthly</option>
@@ -196,18 +256,52 @@
                                 <option value="1">Daily</option>
                             </select>
                         </div>
-                        <div class="col-sm-3">
-                            <input name="cost" class="form-control" type="text" placeholder="Cost">
-                        </div>
-                    </div>
 
-                    <br/>
-                    <br/>
-                    <div class="form-group" >
-                        <div class="col-sm-5 col-sm-offset-4">
-                            <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        <div class="col-md-4" style="padding-right: 80px">
+                            <h4>Address</h4>
+                            <select id="country" name="country" class="form-control"></select>
+                            <select id="state" name="state" class="form-control"></select>
+                            <select id="city" name="city" class="form-control"></select>
+                            <textarea rows="3" name="address" class="form-control" type="text" placeholder="Address"></textarea>
+
+                            <div class="box" >
+                                <input type="file" name="resource" id="resource" class="inputfile inputfile-4">
+                                <label id="drop-label" for="resource">
+                                    <figure>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                                            <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
+                                        </svg>
+                                    </figure>
+                                    <span>
+                                        Choose Hoarding Image
+                                    </span>
+                                </label>
+                                <div id="media" class="img-wrap" style="display: none; overflow: visible">
+
+                                    <img id="preview-img" src="" width="100%" style="display: none; margin: -3.25rem" />
+                                     <i id="close" class="close fa fa-times-circle fa-2x " aria-hidden="true"></i>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-4">
+                            <h4>Select Location</h4>
+                            <div id="map" style="width:400px;height:300px;"></div>
+                            <input id="geo_location" name="geo_location" class="form-control" type="hidden"/>
                         </div>
                     </div>
+                    <br/>
+
+                </div>
+            </div>
+
+            <div class="form-group" >
+                <hr style="height:1px; margin-top: 0px"/>
+                <div class="col-md-2 col-md-offset-10">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Register
+                        <i class="fa fa-arrow-right" aria-hidden="true" style="margin-left: 10px"></i>
+                    </button>
                 </div>
             </div>
         </form> <!-- /form -->
