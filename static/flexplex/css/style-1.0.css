@@ -2145,7 +2145,7 @@ select[multiple].navbar-form .btn {
 }
 .navbar-nav > li > .dropdown-menu {
   min-width: 100%;
-  border-radius: 4px;
+  border-radius: 0px;
 }
 @media (max-width: 767px) {
   .navbar-nav > li > .dropdown-menu {
@@ -3272,7 +3272,7 @@ fieldset[disabled] .twitter-typeahead .tt-hint {
   transition: 0.25s;
 }
 .open > .dropdown-menu {
-  margin-top: 18px !important;
+  margin-top: 0px !important;
   opacity: 1;
   visibility: visible;
 }
