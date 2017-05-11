@@ -1,4 +1,7 @@
 # views.py
+import os
+from subprocess import call
+
 from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.viewsets import ModelViewSet
 from advertiser.models import Campaign, CampaignHoardings
@@ -76,6 +79,16 @@ class CreateCampaignView(View):
         myfile = request.FILES['resource']
         fs = FileSystemStorage()
         filename = fs.save(myfile.name, myfile)
+        if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
+            outFileName = os.path.splitext(filename)[0]+'.mp4'
+            # ffmpegCmd = 'D:\\softwares\\raspberry-pi\\ffmpeg-20170503-a75ef15-win64-static\\bin\\ffmpeg.exe -loop 1 -i ' \
+            ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -loop 1 -i '\
+                        + fs.location + "\\" + filename + ' -t 10 ' \
+                        + fs.location + "\\" + outFileName
+            process = call(ffmpegCmd, shell=True)
+           # process.wait()
+            filename = outFileName
+
         uploaded_file_url = fs.url(filename)
 
         campaign = Campaign(user=self.request.user,
