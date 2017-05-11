@@ -82,9 +82,13 @@ class CreateCampaignView(View):
         if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
             outFileName = os.path.splitext(filename)[0]+'.mp4'
             # ffmpegCmd = 'D:\\softwares\\raspberry-pi\\ffmpeg-20170503-a75ef15-win64-static\\bin\\ffmpeg.exe -loop 1 -i ' \
-            ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -loop 1 -i '\
-                        + fs.location + "\\" + filename + ' -t 10 ' \
-                        + fs.location + "\\" + outFileName
+            # ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -loop 1 -i '\
+            #             + fs.location + "\\" + filename + ' -t 10 ' \
+            #             + fs.location + "\\" + outFileName
+
+            ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -loop 1 -i ' \
+                        + fs.location + "/" + filename + ' -t 10 ' \
+                        + fs.location + "/" + outFileName
             process = call(ffmpegCmd, shell=True)
            # process.wait()
             filename = outFileName
