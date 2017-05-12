@@ -5,11 +5,13 @@ import wget
 import urllib
 import shutil
 import time
+import os
+from subprocess import call
 
 POLL_TIME = 1 * 60 #5 mins
 
 def pollHoarding():
-    response = urllib2.urlopen('http://localhost:8000/hoarder/api/all/hoardings/1/')
+    response = urllib2.urlopen('http://148.72.245.147/hoarder/api/all/hoardings/1/')
     jsonData = json.load(response)
     saveHoarding(jsonData)
 
@@ -30,8 +32,8 @@ def saveHoarding(jsonData):
             file.truncate()
 
 def downloadResources():
-    # shutil.rmtree('resources/*')
-    response = urllib2.urlopen('http://localhost:8000/hoarder/api/hoarding/1/campaigns/')
+    call('rm -r resources/*', shell=True)
+    response = urllib2.urlopen('http://148.72.245.147/hoarder/api/hoarding/1/campaigns/')
     data = json.load(response)
     for item in data:
         url = item['campaign']['resource']

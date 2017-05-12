@@ -14,8 +14,8 @@ class CampaignSerializer(serializers.HyperlinkedModelSerializer):
     def to_representation(self, instance):
         representation = super(CampaignSerializer, self).to_representation(instance)
         request = self.context.get('request')
-        domain_name = request.scheme + "://" + request.META['HTTP_HOST'] + "/"
-        full_path = domain_name + instance.resource.url
+        domain_name = request.scheme + "://" + request.META['HTTP_HOST']
+        full_path = domain_name + instance.resource.name
         representation['resource'] = full_path
         return representation
 
