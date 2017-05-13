@@ -85,9 +85,10 @@ class CreateCampaignView(View):
             # ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -loop 1 -i '\
             #             + fs.location + "\\" + filename + ' -t 10 ' \
             #             + fs.location + "\\" + outFileName
+            # ffmpeg -loop 1 -i rado.jpg -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1280:720 out.mp4
 
             ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -loop 1 -i ' \
-                        + fs.location + "/" + filename + ' -t 10 ' \
+                        + fs.location + "/" + filename + ' -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1280:720 ' \
                         + fs.location + "/" + outFileName
             process = call(ffmpegCmd, shell=True)
            # process.wait()
