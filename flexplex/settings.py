@@ -164,6 +164,10 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+MIDDLEWARE_CLASSES = (
+    'authentication.middleware.AuthRequiredMiddleware',
+)
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/var/www/media/flexplex/'
