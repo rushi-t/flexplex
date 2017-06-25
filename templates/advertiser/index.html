@@ -1,4 +1,6 @@
-<style>
+{% extends "advertiser/base.html" %}
+{% block content %}
+    <style>
     .vcenter {
         min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
         min-height: 100vh; /* These two lines are counted as one :-)       */
@@ -6,11 +8,8 @@
         display: flex;
         align-items: center;
     }
-</style>
-{% extends "advertiser/base.html" %}
-{% block content %}
-    {% include "advertiser/header.html" %}
-    {% if campaigns.count > 0 %}
+    </style>
+     {% if campaigns.count > 0 %}
         <div class="container-fluid" style="margin-top: 10px; margin-left: 30px">
             <h3 style="margin-bottom: 20px">Your Campaigns:</h3>
 
@@ -95,5 +94,5 @@
             opacity: 0;
         }
     </style>
-    {% include "advertiser/footer.html" %}
+
 {% endblock content %}

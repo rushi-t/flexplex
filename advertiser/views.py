@@ -18,6 +18,7 @@ from rest_auth.views import APIView
 from datetime import datetime
 
 
+
 class CampaignResourceViewSet(ModelViewSet):
     # queryset = Campaign.objects.all()
     serializer_class = CampaignResourceSerializer
@@ -60,14 +61,46 @@ class CampaignHoardingsViewSet(ModelViewSet):
 
 class AdvertiserHome(APIView):
     def get(self, request):
-
         campaigns = Campaign.objects.filter(user=self.request.user).order_by('-to_date')
         # for campaign in campaigns:
         #     hoardings = CampaignHoardings.objects.filter(campaign=campaign)
         #     campaign.hoardings['hoardings'] = hoardings
 
         return render(request, 'advertiser/index.html',
-                      {'campaigns': campaigns })
+                      {'campaigns': campaigns})
+
+
+def create_campaign(request, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0]):
+    myfile = request.FILES['resource']
+    fs = FileSystemStorage()
+    filename = fs.save(myfile.name, myfile)
+    if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
+        outFileName = os.path.splitext(filename)[0] + '.mp4'
+
+        ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -loop 1 -i ' \
+                    + fs.location + "/" + filename + ' -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1280:720 ' \
+                    + fs.location + "/" + outFileName
+        # server
+        # ffmpegCmd = 'ffmpeg -loop 1 -i ' \
+        #             + fs.location + "/" + filename + ' -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1280:720 ' \
+        #             + fs.location + "/" + outFileName
+        process = call(ffmpegCmd, shell=True)
+        # process.wait()
+        filename = outFileName
+
+    uploaded_file_url = fs.url(filename)
+
+    campaign = Campaign(user=request.user,
+                        name=request.POST['name'],
+                        from_date=request.POST['from_date'],
+                        to_date=request.POST['to_date'],
+                        resource=uploaded_file_url)
+    campaign.save()
+    for hoarding_id in request.POST.getlist('hoardings'):
+        hoarding = Hoarding.objects.get(id=hoarding_id)
+        CampaignHoardings.objects.create(campaign=campaign, hoarding=hoarding, status=status)
+        hoarding.last_update = datetime.now()
+        hoarding.save()
 
 
 class CreateCampaignView(View):
@@ -76,43 +109,15 @@ class CreateCampaignView(View):
         return render(request, 'advertiser/campaign-wizard.html', {'hoardings': queryset})
 
     def post(self, request, *args, **kwargs):
-        myfile = request.FILES['resource']
-        fs = FileSystemStorage()
-        filename = fs.save(myfile.name, myfile)
-        if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
-            outFileName = os.path.splitext(filename)[0]+'.mp4'
-            # ffmpegCmd = 'D:\\softwares\\raspberry-pi\\ffmpeg-20170503-a75ef15-win64-static\\bin\\ffmpeg.exe -loop 1 -i ' \
-            # ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -loop 1 -i '\
-            #             + fs.location + "\\" + filename + ' -t 10 ' \
-            #             + fs.location + "\\" + outFileName
-            # ffmpeg -loop 1 -i rado.jpg -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1280:720 out.mp4
-
-            ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -loop 1 -i ' \
-                        + fs.location + "/" + filename + ' -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1280:720 ' \
-                        + fs.location + "/" + outFileName
-            process = call(ffmpegCmd, shell=True)
-           # process.wait()
-            filename = outFileName
-
-        uploaded_file_url = fs.url(filename)
-
-        campaign = Campaign(user=self.request.user,
-                            name=request.POST['name'],
-                            from_date=request.POST['from_date'],
-                            to_date=request.POST['to_date'],
-                            resource=uploaded_file_url)
-        campaign.save()
-        for hoarding_id in request.POST.getlist('hoardings'):
-            hoarding = Hoarding.objects.get(id=hoarding_id)
-            CampaignHoardings.objects.create(campaign=campaign, hoarding=hoarding)
-            hoarding.last_update = datetime.now()
-            hoarding.save()
+        create_campaign(request)
         return HttpResponseRedirect('../')
+
 
 class CampaignDetail(View):
     def get(self, request, id):
         campaign = Campaign.objects.get(id=id)
         return render(request, 'advertiser/campaign-detail.html', {'campaign': campaign})
+
 
 class Inventory(GenericAPIView):
     def get(self, request):

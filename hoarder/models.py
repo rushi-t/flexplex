@@ -2,6 +2,9 @@ from __future__ import unicode_literals
 import uuid
 from django.db import models
 from datetime import datetime
+from datetime import date
+from django.db.models import Q
+from advertiser.models import Campaign, CampaignHoardings
 # Create your models here.
 
 class Hoarding(models.Model):
@@ -10,6 +13,9 @@ class Hoarding(models.Model):
     address = models.ForeignKey('common.Address', default=None)
     width = models.PositiveIntegerField(default=0)
     height = models.PositiveIntegerField(default=0)
+    h_res = models.PositiveIntegerField(default=0)
+    v_res = models.PositiveIntegerField(default=0)
+
     DISPLAY_TYPE_CHOICES = (
         (1, 'Indoor'),
         (2, 'OutDoor'),
@@ -21,6 +27,10 @@ class Hoarding(models.Model):
         (2, 'Weekly'),
         (3, 'Monthly'),
     )
+
+    start_time = models.TimeField(default='00:00 AM')
+    stop_time = models.TimeField(default='00:00 AM')
+
     cost_cycle = models.IntegerField(choices=COST_CYCLE_CHOICES, default=3)
     cost = models.FloatField(default=0)
 
@@ -38,6 +48,31 @@ class Hoarding(models.Model):
             return 0
         else:
             return 1
+
+    def get_all_ads(self):
+        today = date.today()
+        campaigns = CampaignHoardings.objects.filter(hoarding=self, status=CampaignHoardings.STATUS_TYPE_CHOICES[1][0]). \
+            only('campaign')
+        return campaigns
+
+    def get_running_ads(self):
+        today = date.today()
+        campaigns = CampaignHoardings.objects.filter(hoarding=self, status=CampaignHoardings.STATUS_TYPE_CHOICES[1][0]).\
+                    only('campaign').filter(Q(campaign__from_date__lte=today) & Q(campaign__to_date__gte=today))
+        return campaigns
+
+    def get_scheduled_ads(self):
+        today = date.today()
+        campaigns = CampaignHoardings.objects.filter(hoarding=self, status=CampaignHoardings.STATUS_TYPE_CHOICES[1][0]).\
+                    only('campaign').filter(campaign__from_date__gt=today)
+        return campaigns
+
+    def get_pending_ads(self):
+        today = date.today()
+        campaigns = CampaignHoardings.objects.filter(hoarding=self, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0]).\
+                    only('campaign').filter(campaign__from_date__gt=today)
+        return campaigns
+
 
 class HoardingResource(models.Model):
     hoarding = models.ForeignKey('Hoarding', default=None)

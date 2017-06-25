@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Publisher Console | Flexplex </title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <link href="../vendors/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.css" rel="stylesheet">
+    <style>
+         #map {
+            height: 100%;
+        }
+        .inputfile {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+        .image-box {
+            text-align: center;
+            border: 5px dashed #ccc;
+            padding: 4.25rem 1.25rem;
+        }
+        .inputfile-4 + label {
+            color: #d3394c;
+        }
+
+        .inputfile + label {
+            max-width: 80%;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+            display: inline-block;
+            overflow: hidden;
+            padding: 0.625rem 1.25rem;
+        }
+        .inputfile-4 + label figure {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #d3394c;
+            display: block;
+            padding: 20px;
+            margin: 0 auto 10px;
+        }
+        .inputfile-4 + label svg {
+            width: 100%;
+            height: 100%;
+            fill: #f1e5e6;
+        }
+        .img-wrap {
+            position: relative;
+        }
+        .img-wrap .close {
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            z-index: 100;
+            margin: -5.0rem -1.8rem;
+            display:block;
+            position: absolute;
+            z-index: 100;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            <div class="left_col scroll-view">
+                <div class="navbar nav_title" style="border: 0;">
+                    <a href="index.html" class="site_title"><i class="fa fa-home"></i> <span>Publisher Console</span></a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <!-- menu profile quick info -->
+                <div class="profile clearfix">
+                    <div class="profile_pic">
+                        <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                    </div>
+                    <div class="profile_info">
+                        <span>Welcome,</span>
+                        <h2>Parikshit Nangre</h2>
+                    </div>
+                </div>
+                <!-- /menu profile quick info -->
+
+                <br />
+
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        <h3>General</h3>
+                        <ul class="nav side-menu">
+                            <li><a href="index.html"><i class="fa fa-home"></i> Home </a>
+                            </li>
+                            <li><a href="index.html"><i class="fa fa-plus-circle"></i> Add New Hoarding </a>
+                            </li>
+                            <li><a href="index.html"><i class="fa fa-bell"></i> New Ad Requests </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+                <!-- /sidebar menu -->
+
+                <!-- /menu footer buttons -->
+                <div class="sidebar-footer hidden-small">
+                    <a data-toggle="tooltip" data-placement="top" title="Settings">
+                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Lock">
+                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                    </a>
+                    <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                    </a>
+                </div>
+                <!-- /menu footer buttons -->
+            </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+            <div class="nav_menu">
+                <nav>
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="">
+                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <img src="images/img.jpg" alt="">Parikshit Nangre
+                                <span class=" fa fa-angle-down"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                <li><a href="javascript:;"> Profile</a></li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <span class="badge bg-red pull-right">50%</span>
+                                        <span>Settings</span>
+                                    </a>
+                                </li>
+                                <li><a href="javascript:;">Help</a></li>
+                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                            </ul>
+                        </li>
+
+                        <li role="presentation" class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="badge bg-green">6</span>
+                            </a>
+                            <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                        <span>
+                          <span>John Smith</span>
+                          <span class="time">3 mins ago</span>
+                        </span>
+                                        <span class="message">
+                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <div class="text-center">
+                                        <a>
+                                            <strong>See All Alerts</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            <div class="">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2>Register Hoarding <small>Register new hoarding to maximize your revenue</small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="#">Settings 1</a>
+                                            </li>
+                                            <li><a href="#">Settings 2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                                <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                            <h2>Specification</h2>
+
+                                            <select class="form-control input-group" name="display_type">
+                                                <option value="" selected disabled>Display Type</option>
+                                                <option value="2">OutDoor</option>
+                                                <option value="1">Indoor</option>
+                                            </select>
+
+                                            <div class="input-group">
+                                                <input class="form-control" type="number" placeholder="Width" name="width" >
+                                                <span class="input-group-addon">feet</span>
+                                            </div>
+                                            <div class="input-group">
+                                                <input class="form-control" type="number" placeholder="Height" name="height" >
+                                                <span class="input-group-addon">feet</span>
+                                            </div>
+                                            <br/>
+                                            <h2>Billing</h2>
+                                            <div class="input-group">
+                                                <input name="cost" class="form-control" type="text" placeholder="Rate">
+                                                <span class="input-group-btn" >
+                                                  <select class="btn" style="border-color: #ccc; margin-top: 0px; margin-bottom: 0px; padding-top: 7px; padding-bottom: 7px; margin-right: 0px">
+                                                    <option>/ Month</option>
+                                                    <option>/ Week</option>
+                                                    <option>/ Day</option>
+                                                  </select>
+                                                </span>
+                                            </div>
+
+                                            <select class="form-control input-group" name="display_type">
+                                                <option hidden value="" selected disabled>Min Booking Duration</option>
+                                                <option value="3">Month</option>
+                                                <option value="2">Week</option>
+                                                <option value="1">Day</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-4 col-sm-4 col-xs-12 col-md-offset-1">
+                                            <h2>Address</h2>
+                                            <div class="form-group has-feedback">
+                                                <select id="country" name="country" class="form-control has-feedback-left">
+                                                    <option value="" selected disabled>Country</option>
+                                                </select>
+                                                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="form-group  has-feedback">
+                                                <select id="state" name="state" class="form-control has-feedback-left">
+                                                    <option value="" selected disabled>State</option>
+                                                </select>
+                                                <span class="fa fa-user form-control-feedback left" aria-hidden="true" style="padding-left: -10px"></span>
+                                            </div>
+                                            <div class="form-group  has-feedback">
+                                                <select id="city" name="city" class="form-control has-feedback-left">
+                                                    <option value="" selected disabled>City</option>
+                                                </select>
+                                                <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea rows="3" name="address" class="form-control" type="text" placeholder="Detail Address"></textarea>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-1">
+                                            <h2>Timing</h2>
+                                            <div class="input-group">
+                                                <label class="input-group-addon" ><i class="glyphicon glyphicon-time"></i> Start Time</label>
+                                                <input id="timepicker1" type="text" class="form-control input-small">
+                                            </div>
+                                            <div class="input-group">
+                                                <label class="input-group-addon" ><i class="glyphicon glyphicon-time"></i> Stop Time </label>
+                                                <input id="timepicker2" type="text" class="form-control input-small">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                             <h2>Hoarding Image</h2>
+                                            <div class="image-box" >
+                                                <input type="file" name="resource" id="resource" class="inputfile inputfile-4">
+                                                <label id="drop-label" for="resource">
+                                                    <figure>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                                                            <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
+                                                        </svg>
+                                                    </figure>
+                                                    <span>
+                                                        Choose Hoarding Image
+                                                    </span>
+                                                </label>
+                                                <div id="media" class="img-wrap" style="display: none; overflow: visible">
+                                                    <img id="preview-img" src="" width="100%" style="display: none; margin: -3.25rem" />
+                                                    <i id="close" class="close fa fa-times-circle fa-2x " aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8 col-xs-12">
+                                             <h2>Select Location</h2>
+                                            <div id="map" style="width: 100%; height: 400px"></div>
+                                            <input id="geo_location" name="geo_location" class="form-control" type="hidden"/>
+                                        </div>
+                                    </div>
+                                    <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <button type="submit" class="btn btn-primary pull-right">Register</button>
+                        </div>
+                      </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="../vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="../vendors/nprogress/nprogress.js"></script>
+<!-- Chart.js -->
+<script src="../vendors/Chart.js/dist/Chart.min.js"></script>
+<!-- jQuery Sparklines -->
+<script src="../vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<!-- Flot -->
+<script src="../vendors/Flot/jquery.flot.js"></script>
+<script src="../vendors/Flot/jquery.flot.pie.js"></script>
+<script src="../vendors/Flot/jquery.flot.time.js"></script>
+<script src="../vendors/Flot/jquery.flot.stack.js"></script>
+<script src="../vendors/Flot/jquery.flot.resize.js"></script>
+<!-- Flot plugins -->
+<script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+<script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+<script src="../vendors/flot.curvedlines/curvedLines.js"></script>
+<!-- DateJS -->
+<script src="../vendors/DateJS/build/date.js"></script>
+<!-- bootstrap-daterangepicker -->
+<script src="../vendors/moment/min/moment.min.js"></script>
+<script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+<script type="text/javascript">
+    $('#timepicker1').timepicker();
+</script>
+<script>
+        var map;
+        var markers = [];
+
+        function initMap() {
+            var haightAshbury = {lat: 18.516412, lng: 73.856125};
+
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                scrollwheel: false,
+                center: haightAshbury,
+            });
+
+            // This event listener will call addMarker() when the map is clicked.
+            map.addListener('click', function(event) {
+                addMarker(event.latLng);
+            });
+
+            // Adds a marker at the center of the map.
+            //addMarker(haightAshbury);
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    //infoWindow.setPosition(pos);
+                    //infoWindow.setContent('Location found.');
+                    map.setCenter(pos);
+                }, function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+
+        }
+
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+        }
+
+        // Adds a marker to the map and push to the array.
+        function addMarker(location) {
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+            clearMarkers();
+            markers.push(marker);
+            $('#geo_location').val(location.lat().toFixed(6)+","+location.lng().toFixed(6));
+            //alert(location);
+        }
+
+        // Sets the map on all markers in the array.
+        function setMapOnAll(map) {
+            for (var i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+
+        // Removes the markers from the map, but keeps them in the array.
+        function clearMarkers() {
+            setMapOnAll(null);
+        }
+
+        // Shows any markers currently in the array.
+        function showMarkers() {
+            setMapOnAll(map);
+        }
+
+        // Deletes all markers in the array by removing references to them.
+        function deleteMarkers() {
+            clearMarkers();
+            markers = [];
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT10vV8xt9FuH_GNXSN1Xoi-rTEi530fo&callback=initMap">
+    </script>
+<!-- Custom Theme Scripts -->
+<script src="../build/js/custom.min.js"></script>
+</body>
+</html>

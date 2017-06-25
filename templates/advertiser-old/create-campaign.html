@@ -1,0 +1,29 @@
+{% extends "hoarder/base.html" %}
+{% block content %}
+{% include "hoarder/header.html" %}
+     <div class="container">
+    <script src="../../static/js/libs/handlebars.min.js"></script>
+
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-5">
+               <input name="resource" type="file">
+                <input name="from_date" class="form-control" type="date">
+                <input name="to_date" class="form-control" type="date">
+                <input type="submit" value="Submit" name="submit">
+            </div>
+            <div class="col-md-5">
+                 {% for hoarding in hoardings %}
+                    <div class="checkbox">
+                      <label><input type="checkbox" name="hoardings" value="{{ hoarding.address.id }}" class="form-control">{{ hoarding.address.address }}</label>
+                    </div>
+                 {% endfor %}
+            </div>
+        </div>
+    </form>
+
+
+     <div class="container">
+{% include "hoarder/footer.html" %}
+{% endblock content %}

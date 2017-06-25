@@ -1,0 +1,46 @@
+<header>
+
+    <nav class="navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header" style="vertical-align: middle;">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/hoarder">
+                    <img src="/static/flexplex/img/logo-1.png" alt="" height="40" style="margin-left: 15px;margin-top: 7px"/>
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="menuItem"><a class="nav-link" href="/hoarder">My Hoardings</a></li>
+                    <li class="menuItem"><a class="nav-link" href="/hoarder/add/hoarding">Add Hoarding</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="">{{ user.first_name }}
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="">My Profile</a></li>
+                                {% if user.is_superuser  %}
+                                    <li><a href="/advertiser">Advertiser Console</a></li>
+                                    <li><a href="/hoarder">Hoarder Console</a></li>
+                                {% endif %}
+
+                                <hr style="margin: 0px"/>
+                                <li><a href="{% url 'logout' %}?next=/">Logout</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li class="menuItem"><a href="/signin">Login</a></li>
+                    {% endif %}
+
+                </ul>
+
+            </div>
+
+        </div>
+    </nav>
+</header>

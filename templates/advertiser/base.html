@@ -2,35 +2,84 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="/static/img/ico/favicon.png">
+    <link rel="shortcut icon" href="../../static/img/ico/favicon.png">
+
+    <title>Advertiser Console | Flexplex </title>
+
     <!-- Bootstrap -->
-    <link href="/static/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="/static/gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="/static/gentelella/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- bootstrap-daterangepicker -->
+    <link href="/static/gentelella/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
-    <link href="/static/flexplex/font-awesome/css/font-awesome.min.css" rel='stylesheet' >
+    <!-- Custom Theme Style -->
+    <link href="/static/gentelella/build/css/custom.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/static/jquery-1.11.1/jquery-1.11.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/static/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <style>
-        * {
-            font-size: 14px;
-        }
-    </style>
+
 </head>
-<body>
-{#        {% include "header.html" %}#}
-{% block content %}
-{% endblock content %}
-{#        {% include "footer.html" %}#}
+
+<body class="nav-md">
+<div class="container body">
+    <div class="main_container">
+        <div class="col-md-3 left_col">
+            {% include "advertiser/sidebar.html" %}
+        </div>
+
+        {% include "advertiser/header.html" %}
+
+        <!-- Scripts -->
+        <!-- jQuery -->
+        <script src="/static/gentelella/vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="/static/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- FastClick -->
+        <script src="/static/gentelella/vendors/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="/static/gentelella/vendors/nprogress/nprogress.js"></script>
+        <!-- Chart.js -->
+        <script src="/static/gentelella/vendors/Chart.js/dist/Chart.min.js"></script>
+        <!-- jQuery Sparklines -->
+        <script src="/static/gentelella/vendors/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+        <!-- Flot -->
+        <script src="/static/gentelella/vendors/Flot/jquery.flot.js"></script>
+        <script src="/static/gentelella/vendors/Flot/jquery.flot.pie.js"></script>
+        <script src="/static/gentelella/vendors/Flot/jquery.flot.time.js"></script>
+        <script src="/static/gentelella/vendors/Flot/jquery.flot.stack.js"></script>
+        <script src="/static/gentelella/vendors/Flot/jquery.flot.resize.js"></script>
+        <!-- Flot plugins -->
+        <script src="/static/gentelella/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+        <script src="/static/gentelella/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+        <script src="/static/gentelella/vendors/flot.curvedlines/curvedLines.js"></script>
+        <!-- DateJS -->
+        <script src="/static/gentelella/vendors/DateJS/build/date.js"></script>
+        <!-- bootstrap-daterangepicker -->
+        <script src="/static/gentelella/vendors/moment/min/moment.min.js"></script>
+        <script src="/static/gentelella/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+        <script src="/static/gentelella/vendors/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+        <!-- Custom Theme Scripts -->
+        <script src="/static/gentelella/build/js/custom.js"></script>
+
+        <!-- page content -->
+        <div class="right_col" role="main">
+            {#        {% include "header.html" %}#}
+            {% block content %}
+            {% endblock content %}
+
+        </div>
+        <!-- /page content -->
+
+        {% include "advertiser/footer.html" %}
+    </div>
+</div>
 </body>
+
 </html>

@@ -1,0 +1,189 @@
+{% extends "hoarder/base.html" %}
+{% block content %}
+    <style>
+        .ad-media {
+            width: 80px;
+            height: 50px;
+        }
+
+        .table > tbody > tr > td {
+            vertical-align: middle;
+        }
+
+        .fade.in {
+            opacity: 1;
+        }
+
+        .modal.in .modal-dialog {
+            -webkit-transform: translate(0, 0);
+            -o-transform: translate(0, 0);
+            transform: translate(0, 0);
+        }
+
+        .modal-backdrop .fade .in {
+            opacity: 0.5 !important;
+        }
+
+        .modal-backdrop.fade {
+            opacity: 0.5 !important;
+        }
+    </style>
+    {% csrf_token %}
+    <script>
+        var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+
+        $.ajaxSetup({
+            beforeSend: function (xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
+        function acceptAdRequest(id) {
+            $.post("{{ request.path }}",
+                {
+                    accept: id,
+                },
+                function (data, status) {
+                    location.reload();
+                });
+        }
+
+        function rejectAdRequest(id) {
+            $.post("{{ request.path }}",
+                {
+                    reject: id,
+                },
+                function (data, status) {
+                    location.reload();
+                });
+        }
+
+    </script>
+    <div class="">
+        <div class="x_panel">
+            <div class="row x_title">
+                <div class="col-md-6">
+                    <h2>New Ad Request
+                        <small>List of pending Ad request </small>
+                    </h2>
+                </div>
+                <div class="col-md-6">
+                    <div id="reportrange" class="pull-right"
+                         style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                        <span>May 21, 2017 - June 19, 2017</span> <b class="caret"></b>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="x_content">
+
+                <div class="table-responsive">
+
+                    <table class="table table-striped jambo_table table-bordered">
+                        <thead>
+                        <tr class="headings">
+                            <th class="column-title">Date</th>
+                            <th class="column-title">Hoarding</th>
+                            <th class="column-title">Media</th>
+                            <th class="column-title">Campaign Name</th>
+                            <th class="column-title">Amount</th>
+                            <th class="column-title">Schedule</th>
+                            <th class="column-title">Duration</th>
+                            <th class="column-title">Action</th>
+                            <th class="bulk-actions" colspan="7">
+                                <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span
+                                        class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                            </th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for item in campaignHoardings %}
+                            <tr class="{% if forloop.counter|divisibleby:2 %} even pointer {% else %} odd ppointer {% endif %}">
+                                <td class=" ">{{ item.campaign.creation_date.date }}</td>
+                                <td class=" ">{{ item.hoarding.address.address }}</td>
+                                <td align="">
+                                    <a onclick="showModal({{ item.campaign.isVideo|yesno:"1,0" }},'{{ item.campaign.resource }}');"
+                                       data-toggle="modal" data-target="#flipFlop">
+                                        {% if item.campaign.isVideo %}
+                                            <video class="ad-media">
+                                                <source src="{{ item.campaign.resource }}" type="video/mp4">
+                                            </video>
+                                        {% else %}
+                                            <img src="{{ item.campaign.resource }}" class="img-rounded ad-media">
+                                        {% endif %}
+                                    </a>
+                                </td>
+                                <td class=" ">{{ item.campaign.name }}</td>
+                                <td class=" ">{{ item.hoarding.cost }}</td>
+                                <td class=" ">{{ item.campaign.from_date }} - {{ item.campaign.to_date }}</td>
+                                <td class=" ">15 sec</td>
+                                <td>
+                                    {% if item.status == 0 %}
+                                        <a href="javascript:acceptAdRequest({{ item.id }});" class="green">Accept</a> |
+                                        <a href="javascript:rejectAdRequest({{ item.id }})" class="red">Reject</a>
+                                    {% else %}
+
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!-- The modal -->
+    <div class="modal fade" id="flipFlop" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-body" >
+                    <div id="modal-video">
+                        <video style="width: 100%" controls>
+                            <source id="modal-video-src" src="" type="video/mp4">
+                        </video>
+                    </div>
+                    <img id="modal-image" src="/static/img/hoarding.jpg" class="img-rounded"  style="width: 100%; ">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showModal(isVideo, url) {
+            if (isVideo == 1) {
+                $('#modal-image').hide();
+                $('#modal-video').show();
+                $("#modal-video-src").attr('src', url);
+                {#                                $("#modal-video").load();#}
+                {#                                 $("#modal-video").play();#}
+                $("#modal-video video")[0].load();
+                $("#modal-video video")[0].play();
+            }
+            else {
+                $('#modal-image').show();
+                $("#modal-image").attr('src', url);
+                $('#modal-video').hide();
+            }
+            $('#flipFlop').on('hidden.bs.modal', function (e) {
+                $("#modal video")[0].pause();
+            });
+        }
+
+    </script>
+{% endblock content %}

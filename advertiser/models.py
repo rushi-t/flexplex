@@ -5,12 +5,14 @@ import uuid
 from django.db import models
 import os
 from datetime import date
+from django.db.models import Sum
 
 class Campaign(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     user = models.ForeignKey('auth.User')
     name = models.CharField(default='', max_length=100)
     resource = models.FileField(null=True)
+    duration = models.PositiveIntegerField(default=15)
     from_date = models.DateField(null=True)
     to_date = models.DateField(null=True)
     CONTENT_STATUS_TYPE_CHOICES = (
@@ -37,6 +39,7 @@ class Campaign(models.Model):
             return 'Scheduled'
 
 
+
 class CampaignHoardings(models.Model):
     campaign = models.ForeignKey('Campaign', related_name='hoardings', on_delete=models.CASCADE)
     hoarding = models.ForeignKey('hoarder.Hoarding')
@@ -46,3 +49,25 @@ class CampaignHoardings(models.Model):
         (2, 'Rejected'),
     )
     status = models.IntegerField(choices=STATUS_TYPE_CHOICES, default=0)
+
+    def get_total_impression_count(self):
+        total_impressions = CampaignImpressions.objects.filter(hoarding=self.hoarding, campaign=self.campaign).aggregate(Sum('impression_count'))
+        if total_impressions['impression_count__sum'] is None:
+            return 0
+        else:
+            return total_impressions['impression_count__sum']
+
+    def get_todays_impression_count(self):
+        campaign_impressions = CampaignImpressions.objects.filter(hoarding=self.hoarding, campaign=self.campaign,
+                                                                         date=date.today()).first()
+        if campaign_impressions is None:
+            return 0
+        else:
+            return campaign_impressions.impression_count
+
+class CampaignImpressions(models.Model):
+    date = models.DateField(null=True)
+    campaign = models.ForeignKey('Campaign', on_delete=models.CASCADE)
+    hoarding = models.ForeignKey('hoarder.Hoarding')
+    impression_count = models.IntegerField(default=0)
+

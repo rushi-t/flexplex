@@ -1,0 +1,122 @@
+{% extends "hoarder/base.html" %}
+
+{% block content %}
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAT10vV8xt9FuH_GNXSN1Xoi-rTEi530fo"></script>
+    <style>
+        .list-group {
+            max-height: 600px;
+            overflow-y: scroll;
+        }
+
+        {#        #hoarding-list {#}
+        {#            height:500px;#}
+        {#            overflow:hidden;#}
+        {#            overflow-y:scroll;#}
+        {#        }#}
+        #map-canvas {
+            padding-top: 50px;
+            width: 66.3333%;
+            height: 600px;
+            position: absolute;
+            right: 8%;
+            top: 50px;
+            bottom: 0;
+            overflow: hidden;
+        }
+    </style>
+    <script>
+        var map;
+        var arrMarkers = [];
+        var infowindow = new google.maps.InfoWindow();
+        var locations;
+        /* google maps -----------------------------------------------------*/
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+        function initialize() {
+
+            locations = [
+                //['Sarag Baug', 18.499797, 73.853990, 4],
+                {% for hoarding in hoardings %}
+                    ['{{ hoarding.address.address }}', {{ hoarding.address.geo_location }}, {{ hoarding.id }}],
+                {% endfor %}
+            ];
+
+            map = new google.maps.Map(document.getElementById('map-canvas'), {
+                zoom: 11,
+                center: new google.maps.LatLng(18.5164222, 73.8539146),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            var marker;
+
+            var pinIcon = new google.maps.MarkerImage(null, null, null, new google.maps.Size(15, 28)
+            );
+
+            var pinIcon1 = {
+                url: "http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|ff0000", // url
+                scaledSize: new google.maps.Size(20, 20), // scaled size
+                origin: new google.maps.Point(0, 0), // origin
+                anchor: new google.maps.Point(0, 0) // anchor
+            };
+
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map,
+                    icon: pinIcon
+                });
+                marker.set("id", locations[i][3]);
+                arrMarkers[i] = marker;
+
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                        handleMarkerClick(locations[i][3])
+                    }
+                })(marker, i));
+            }
+
+        };
+
+        function handleListItemClicked(id) {
+            for (i = 0; i < arrMarkers.length; i++) {
+                if (arrMarkers[i].id == id) {
+                    infowindow.setContent(locations[i][0]);
+                    infowindow.open(map, arrMarkers[i]);
+                }
+                $('li').removeClass('active');
+                $("#list-" + id).addClass('active');
+            }
+        }
+
+        function handleMarkerClick(id) {
+            document.getElementById("list-" + id).scrollIntoView();
+            $('li').removeClass('active');
+            $("#list-" + id).addClass('active');
+        }
+    </script>
+    {% include "hoarder/header.html" %}
+    <div id="map-canvas"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="list-group" id="hoarding-list">
+                    {% for hoarding in hoardings %}
+                        <li class="list-group-item" id="list-{{ hoarding.id }}" value="{{ hoarding.id }}"
+                            onClick="handleListItemClicked(this.value)">
+                            <span class="badge">{{ hoarding.cost }}</span>
+                            <div class="">
+                                <label><input type="checkbox" name="hoardings"
+                                              value="{{ hoarding.address.id }}">{{ hoarding.address.address }}</label>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-8"></div>
+
+        </div>
+    </div>
+    {% include "hoarder/footer.html" %}
+{% endblock content %}

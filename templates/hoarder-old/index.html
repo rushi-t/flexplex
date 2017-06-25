@@ -1,0 +1,97 @@
+<style>
+    .vcenter {
+        min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+        min-height: 100vh; /* These two lines are counted as one :-)       */
+        width: 100%;
+        display: flex;
+        align-items: center;
+    }
+</style>
+
+{% extends "hoarder/base.html" %}
+{% block content %}
+    {% include "hoarder/header.html" %}
+    {% if hoardings.count > 0 %}
+        <div class="container-fluid" style="margin-top: 10px; margin-left: 30px">
+            <h3 style="margin-bottom: 20px">Your Hoardings:</h3>
+            {% for hoarding in hoardings %}
+                <div class="row" >
+                    <div class="col-md-8" onclick="location.href='/hoarder/hoarding/{{ hoarding.id }}';" >
+                        <div class="panel panel-default" style="padding: 0px; cursor: pointer;">
+                            <div class="panel-body" style="padding: 0px" >
+                                <div class="col-md-4" style="padding: 0px;">
+                                    {% if hoarding.get_resources.count > 0 %}
+                                        <img src="{{ hoarding.get_resources.0.resource }}" width="100%" height="160px">
+                                    {% else %}
+                                        <img src="/static/img/hoarding.png" width="100%"  height="160px">
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-8" style="cursor: pointer;">
+                                    <h4>{{ hoarding.address.address }}</h4>
+                                    <hr style="margin-left: -15px; margin-right: -15px; margin-top: 0px; margin-bottom: 10px"/>
+                                    <table data-toggle="table" data-striped="true">
+                                        <thead>
+                                        <tr>
+                                            <td style="width: 150px"></td>
+                                            <td style="width: 20px"></td>
+                                            <td></td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td> <label>Dimension</label></td>
+                                            <td>:</td>
+                                            <td>{{ hoarding.width }} x {{ hoarding.height }} ft.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Rate</label></td>
+                                            <td>:</td>
+                                            <td> &#8377; {{ hoarding.cost }} </td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Billing Cycle</label></td>
+                                            <td>:</td>
+                                            <td>{{ hoarding.get_cost_cycle_display }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Hardware Status</label></td>
+                                            <td>:</td>
+                                            <td >
+                                                {% if hoarding.get_hardware_status == 1 %}
+                                                    <span class="label label-success">Live</span>
+                                                {% else %}
+                                                    <span class="label label-danger">Dead</span>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {#            <a href="/hoarder/hoarding/{{ hoarding.id }}" style="text-decoration: none">#}
+
+                <br/>
+                {#            </a>#}
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="container">
+            <div class="vcenter">
+                <div style="text-align: center; width:100%; margin-top: -100px">
+                    {% if request.GET.first_login %}
+                        <strong>Congratulation!! You have successfully registered.<br/>
+                    {% else %}
+                        <strong>You haven't registered any Hoarding.<br/>
+                    {% endif %}
+                    <a href="/hoarder/add/hoarding">Register</a> your first Hoarding.
+                    </strong>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {% include "hoarder/footer.html" %}
+{% endblock content %}

@@ -1,6 +1,6 @@
 {% extends "hoarder/base.html" %}
+
 {% block content %}
-    {% include "hoarder/header.html" %}
     <script src="../../static/js/jquery.cookie.js"></script>
     <script type = "text/javascript">
         //Populate city
@@ -152,14 +152,12 @@
 
         }
     </script>
-
-    <style type="text/css">
+    <link href="/static/gentelella/vendors/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet">
+    <style>
         #map {
             height: 100%;
         }
-        .form-control{
-            margin-bottom: 10px;
-        }
+
         .inputfile {
             width: 0.1px;
             height: 0.1px;
@@ -168,12 +166,13 @@
             position: absolute;
             z-index: -1;
         }
-        .box {
-        {#        background-color: #dfc8ca;#}
+
+        .image-box {
             text-align: center;
             border: 5px dashed #ccc;
             padding: 4.25rem 1.25rem;
         }
+
         .inputfile-4 + label {
             color: #d3394c;
         }
@@ -189,6 +188,7 @@
             overflow: hidden;
             padding: 0.625rem 1.25rem;
         }
+
         .inputfile-4 + label figure {
             width: 100px;
             height: 100px;
@@ -198,118 +198,174 @@
             padding: 20px;
             margin: 0 auto 10px;
         }
+
         .inputfile-4 + label svg {
             width: 100%;
             height: 100%;
             fill: #f1e5e6;
         }
-        {#        #close{#}
-        {#            display:block;#}
-        {#            float:right;#}
-        {#            position: absolute;#}
-        {#            top: -6px;#}
-        {#            right: 6px;#}
-        {#            z-index: 100;#}
-        {#    background:url(http://digitalsbykobke.com/images/close.png) no-repeat center center;#}
-        {#        }#}
+
         .img-wrap {
             position: relative;
-        ...
         }
+
         .img-wrap .close {
             position: absolute;
             top: 2px;
             right: 2px;
             z-index: 100;
             margin: -5.0rem -1.8rem;
-            display:block;
+            display: block;
             position: absolute;
             z-index: 100;
             opacity: 0.8;
         }
     </style>
-    <div class="container-fluid" style="padding: 0px 30px 0px 40px">
+    <div class="">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Register Hoarding
+                            <small>Register new hoarding to maximize your revenue</small>
+                        </h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="" method="post" enctype="multipart/form-data">
+                             {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-3 col-sm-3 col-xs-12">
+                                    <h2>Specification</h2>
 
-        <form action="" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
+                                    <select class="form-control input-group" name="display_type">
+                                        <option value="" selected disabled>Display Type</option>
+                                        <option value="2">OutDoor</option>
+                                        <option value="1">Indoor</option>
+                                    </select>
 
-            <div class="" style="margin-top: 20px">
-                <div class="">
-                    <div class="row">
-                        <div class="col-md-4" style="padding-right: 80px">
-                            <h4>Specifications</h4>
-                            <input name="width" class="form-control" type="number" placeholder="Width">
-                            <input name="height" class="form-control" type="number" placeholder="Height">
-                            <select class="form-control" name="display_type">
-                                <option value="" selected disabled>Display Type</option>
-                                <option value="2">OutDoor</option>
-                                <option value="1">Indoor</option>
-                            </select>
-                            <br/>
-                            <br/>
-                            <h4>Billing</h4>
-                            <input name="cost" class="form-control" type="text" placeholder="Rate">
-                            <select class="form-control" name="cost_cycle">
-                                <option value="" selected disabled>Billing Cycle</option>
-                                <option value="3">Monthly</option>
-                                <option value="2">Weekly</option>
-                                <option value="1">Daily</option>
-                            </select>
-                        </div>
+                                    <div class="input-group">
+                                        <input class="form-control" type="number" placeholder="Width" name="width">
+                                        <span class="input-group-addon">feet</span>
+                                    </div>
+                                    <div class="input-group">
+                                        <input class="form-control" type="number" placeholder="Height" name="height">
+                                        <span class="input-group-addon">feet</span>
+                                    </div>
+                                    <br/>
+                                    <h2>Billing</h2>
+                                    <div class="input-group">
+                                        <input name="cost" class="form-control" type="text" placeholder="Rate">
+                                        <span class="input-group-btn">
+                                          <select class="btn"
+                                                  style="border-color: #ccc; margin-top: 0px; margin-bottom: 0px; padding-top: 7px; padding-bottom: 7px; margin-right: 0px" name="cost_duration">
+                                            <option value="3">/ Month</option>
+                                            <option value="2">/ Week</option>
+                                            <option value="1">/ Day</option>
+                                          </select>
+                                        </span>
+                                    </div>
 
-                        <div class="col-md-4" style="padding-right: 80px">
-                            <h4>Address</h4>
-                            <select id="country" name="country" class="form-control"></select>
-                            <select id="state" name="state" class="form-control"></select>
-                            <select id="city" name="city" class="form-control"></select>
-                            <textarea rows="3" name="address" class="form-control" type="text" placeholder="Address"></textarea>
+                                    <select class="form-control input-group" name="cost_cycle">
+                                        <option value="" selected disabled>Min Booking Duration</option>
+                                        <option value="3">Month</option>
+                                        <option value="2">Week</option>
+                                        <option value="1">Day</option>
+                                    </select>
+                                </div>
 
-                            <div class="box" >
-                                <input type="file" name="resource" id="resource" class="inputfile inputfile-4">
-                                <label id="drop-label" for="resource">
-                                    <figure>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
-                                            <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
-                                        </svg>
-                                    </figure>
-                                    <span>
-                                        Choose Hoarding Image
-                                    </span>
-                                </label>
-                                <div id="media" class="img-wrap" style="display: none; overflow: visible">
+                                <div class="col-md-4 col-sm-4 col-xs-12 col-md-offset-1">
+                                    <h2>Address</h2>
+                                    <div class="form-group has-feedback">
+                                        <select id="country" name="country" class="form-control ">
+                                            <option value="" selected disabled>Country</option>
+                                        </select>
+{#                                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>#}
+                                    </div>
+                                    <div class="form-group  has-feedback">
+                                        <select id="state" name="state" class="form-control">
+                                            <option value="" selected disabled>State</option>
+                                        </select>
+{#                                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"#}
+{#                                              style="padding-left: -10px"></span>#}
+                                    </div>
+                                    <div class="form-group  has-feedback">
+                                        <select id="city" name="city" class="form-control">
+                                            <option value="" selected disabled>City</option>
+                                        </select>
+{#                                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>#}
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea rows="3" name="address" class="form-control" type="text"
+                                                  placeholder="Detail Address"></textarea>
+                                    </div>
 
-                                    <img id="preview-img" src="" width="100%" style="display: none; margin: -3.25rem" />
-                                     <i id="close" class="close fa fa-times-circle fa-2x " aria-hidden="true"></i>
+                                </div>
+
+                                <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-1">
+                                    <h2>Timing</h2>
+                                    <div class="input-group">
+                                        <label class="input-group-addon"><i class="glyphicon glyphicon-time"></i> Start
+                                            Time</label>
+                                        <input id="timepicker1" type="text" class="form-control input-small" name="start_time" value="8:00 AM">
+                                    </div>
+                                    <div class="input-group">
+                                        <label class="input-group-addon"><i class="glyphicon glyphicon-time"></i> Stop
+                                            Time </label>
+                                        <input id="timepicker2" type="text" class="form-control input-small" name="stop_time" value="10:00 PM">
+                                    </div>
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="col-md-4">
-                            <h4>Select Location</h4>
-                            <div id="map" style="width:400px;height:300px;"></div>
-                            <input id="geo_location" name="geo_location" class="form-control" type="hidden"/>
-                        </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <h2>Hoarding Image</h2>
+                                    <div class="image-box" style="width: 100%; height: 300px">
+                                        <input type="file" name="resource" id="resource" class="inputfile inputfile-4">
+                                        <label id="drop-label" for="resource">
+                                            <figure>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
+                                                     viewBox="0 0 20 17">
+                                                    <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"></path>
+                                                </svg>
+                                            </figure>
+                                            <span> Choose Hoarding Image</span>
+                                        </label>
+                                        <div id="media" class="img-wrap" style="display: none; overflow: visible">
+                                            <img id="preview-img" src="" width="100%" height="270px"
+                                                 style="display: none; margin: -3.25rem"/>
+                                            <i id="close" class="close fa fa-times-circle fa-2x "
+                                               aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <h2>Select Location</h2>
+                                    <div id="map" style="width: 100%; height: 300px"></div>
+                                    <input id="geo_location" name="geo_location" class="form-control" type="hidden"/>
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <button type="submit" class="btn btn-primary pull-right">Register</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                    <br/>
-
                 </div>
             </div>
 
-            <div class="form-group" >
-                <hr style="height:1px; margin-top: 0px"/>
-                <div class="col-md-2 col-md-offset-10">
-                    <button type="submit" class="btn btn-primary btn-block">
-                        Register
-                        <i class="fa fa-arrow-right" aria-hidden="true" style="margin-left: 10px"></i>
-                    </button>
-                </div>
-            </div>
-        </form> <!-- /form -->
+        </div>
 
+    </div>
+    <script src="/static/gentelella/vendors/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
 
-
-    </div> <!-- ./container -->
-
+    <script type="text/javascript">
+        $('#timepicker1').timepicker();
+        $('#timepicker2').timepicker();
+    </script>
     <script>
         var map;
         var markers = [];
@@ -319,11 +375,12 @@
 
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 12,
+                scrollwheel: false,
                 center: haightAshbury,
             });
 
             // This event listener will call addMarker() when the map is clicked.
-            map.addListener('click', function(event) {
+            map.addListener('click', function (event) {
                 addMarker(event.latLng);
             });
 
@@ -331,7 +388,7 @@
             //addMarker(haightAshbury);
             // Try HTML5 geolocation.
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
+                navigator.geolocation.getCurrentPosition(function (position) {
                     var pos = {
                         lat: position.coords.latitude,
                         lng: position.coords.longitude
@@ -340,7 +397,7 @@
                     //infoWindow.setPosition(pos);
                     //infoWindow.setContent('Location found.');
                     map.setCenter(pos);
-                }, function() {
+                }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
                 });
             } else {
@@ -365,7 +422,7 @@
             });
             clearMarkers();
             markers.push(marker);
-            $('#geo_location').val(location.lat().toFixed(6)+","+location.lng().toFixed(6));
+            $('#geo_location').val(location.lat().toFixed(6) + "," + location.lng().toFixed(6));
             //alert(location);
         }
 
@@ -395,5 +452,5 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAT10vV8xt9FuH_GNXSN1Xoi-rTEi530fo&callback=initMap">
     </script>
-    {% include "hoarder/footer.html" %}
 {% endblock content %}
+

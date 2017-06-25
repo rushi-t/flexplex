@@ -21,7 +21,7 @@ class CampaignSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Campaign
-        fields = ('name', 'resource', 'from_date', 'to_date', 'content_status', 'creation_date')
+        fields = ('id', 'name', 'resource', 'from_date', 'to_date', 'content_status', 'creation_date')
 
     def create(self, validated_data):
         hoardings_data = validated_data.pop('hoardings')

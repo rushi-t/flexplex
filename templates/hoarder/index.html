@@ -1,62 +1,99 @@
-<style>
-    .vcenter {
-        min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
-        min-height: 100vh; /* These two lines are counted as one :-)       */
-        width: 100%;
-        display: flex;
-        align-items: center;
-    }
-</style>
-
 {% extends "hoarder/base.html" %}
 {% block content %}
-    {% include "hoarder/header.html" %}
-    {% if hoardings.count > 0 %}
-        <div class="container-fluid" style="margin-top: 10px; margin-left: 30px">
-            <h3 style="margin-bottom: 20px">Your Hoardings:</h3>
-            {% for hoarding in hoardings %}
-                <div class="row" >
-                    <div class="col-md-8" onclick="location.href='/hoarder/hoarding/{{ hoarding.id }}';" >
-                        <div class="panel panel-default" style="padding: 0px; cursor: pointer;">
-                            <div class="panel-body" style="padding: 0px" >
-                                <div class="col-md-4" style="padding: 0px;">
-                                    {% if hoarding.get_resources.count > 0 %}
-                                        <img src="{{ hoarding.get_resources.0.resource }}" width="100%" height="160px">
-                                    {% else %}
-                                        <img src="/static/img/hoarding.png" width="100%"  height="160px">
-                                    {% endif %}
-                                </div>
-                                <div class="col-md-8" style="cursor: pointer;">
-                                    <h4>{{ hoarding.address.address }}</h4>
-                                    <hr style="margin-left: -15px; margin-right: -15px; margin-top: 0px; margin-bottom: 10px"/>
-                                    <table data-toggle="table" data-striped="true">
+    <style>
+        .vcenter {
+            min-height: 100%; /* Fallback for browsers do NOT support vh unit */
+            min-height: 100vh; /* These two lines are counted as one :-)       */
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+    <div class="">
+        {% if hoardings.count > 0 %}
+            <div class="row top_tiles">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="tile-stats">
+                        <div class="icon"><i class="fa fa-youtube-play"></i></div>
+                        <div class="count">20</div>
+                        <h3>Total Running Ads</h3>
+                        <p>Represents live ads</p>
+                    </div>
+                </div>
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="tile-stats">
+                        <div class="icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="count">45</div>
+                        <h3>Scheduled Ads</h3>
+                        <p>Scheduled ads for future</p>
+                    </div>
+                </div>
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="tile-stats">
+                        <div class="icon" style="padding-left: 50px"><i class="fa fa-inr"></i></div>
+                        <div class="count">1,20,000</div>
+                        <h3>Revenue</h3>
+                        <p>Total revenue of all Hoarding(s)</p>
+                    </div>
+                </div>
+                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                    <div class="tile-stats">
+                        <div class="icon"><i class="fa fa-bell-o"></i></div>
+                        <div class="count">5</div>
+                        <h3>New Ad Requests</h3>
+                        <p>Ad requests by advertiser</p>
+                    </div>
+                </div>
+            </div>
+            <div class="page-title">
+                <div class="title_left">
+                    <h3>Your Hoardings</h3>
+                </div>
+            </div>
+        {% endif %}
+        <div class="">
+            {% if hoardings.count > 0 %}
+                {% for hoarding in hoardings %}
+
+                    <!-- Ad Card -->
+                    <div class="col-md-6 col-sm-6 col-xs-12 profile_details"
+                         onclick="location.href='/hoarder/hoarding/{{ hoarding.id }}';" style="cursor: pointer;">
+                        <div class="well profile_view">
+                            <div class="col-sm-12">
+                                <h4 class="brief"><i>{{ hoarding.address.address }}</i></h4>
+                                <div class="left col-xs-7">
+                                    <!-- <h2>Nicole Pearson</h2> -->
+                                    <table class="tile_info" data-toggle="table" data-striped="true">
                                         <thead>
                                         <tr>
-                                            <td style="width: 150px"></td>
-                                            <td style="width: 20px"></td>
-                                            <td></td>
+                                            <th>
+                                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                                </div>
+                                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                                </div>
+                                            </th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td> <label>Dimension</label></td>
-                                            <td>:</td>
-                                            <td>{{ hoarding.width }} x {{ hoarding.height }} ft.</td>
+                                            <td><strong>Current Ads: </strong></td>
+                                            <td>{{ hoarding.get_running_ads.count }}</td>
                                         </tr>
                                         <tr>
-                                            <td><label>Rate</label></td>
-                                            <td>:</td>
-                                            <td> &#8377; {{ hoarding.cost }} </td>
+                                            <td><strong>Scheduled Ads: </strong></td>
+                                            <td>{{ hoarding.get_scheduled_ads.count }}</td>
                                         </tr>
                                         <tr>
-                                            <td><label>Billing Cycle</label></td>
-                                            <td>:</td>
-                                            <td>{{ hoarding.get_cost_cycle_display }}</td>
+                                            <td><strong>New Ad Request: </strong></td>
+                                            <td>{{ hoarding.get_pending_ads.count }}</td>
                                         </tr>
                                         <tr>
-                                            <td><label>Hardware Status</label></td>
-                                            <td>:</td>
-                                            <td >
+                                            <td><strong>Daily Impressions: </strong></td>
+                                            <td>200~300</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Hardware Status: </strong></td>
+                                            <td>
                                                 {% if hoarding.get_hardware_status == 1 %}
                                                     <span class="label label-success">Live</span>
                                                 {% else %}
@@ -66,32 +103,103 @@
                                         </tr>
                                         </tbody>
                                     </table>
+                                </div>
+                                <div class="right col-xs-5 pull-right">
+                                    {% if hoarding.get_resources.count > 0 %}
+                                        <img src="{{ hoarding.get_resources.0.resource }}" alt=""
+                                             class="img img-responsive">
+                                    {% else %}
+                                        <img src="/static/img/hoarding3.png" alt="" class="img img-responsive">
+                                    {% endif %}
 
+                                </div>
+                            </div>
+                            <div class="col-xs-12 bottom text-center" style="margin-top: 15px">
+                                <div class="col-xs-12 col-sm-8 emphasis">
+                                    <p class="ratings">
+                                        <strong>Revenue: </strong>₹ 10,000
+                                    </p>
+                                </div>
+                                <div class="col-xs-12 col-sm-4 emphasis">
+                                    <button type="button" class="btn btn-primary btn-xs pull-right">
+                                        View Details
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                {#            <a href="/hoarder/hoarding/{{ hoarding.id }}" style="text-decoration: none">#}
-
-                <br/>
-                {#            </a>#}
-            {% endfor %}
-        </div>
-    {% else %}
-        <div class="container">
-            <div class="vcenter">
-                <div style="text-align: center; width:100%; margin-top: -100px">
-                    {% if request.GET.first_login %}
-                        <strong>Congratulation!! You have successfully registered.<br/>
-                    {% else %}
-                        <strong>You haven't registered any Hoarding.<br/>
+                    <!-- Ad Card -->
+                     {% if forloop.counter|divisibleby:2 %}
+                        <div class="clearfix"></div>
                     {% endif %}
-                    <a href="/hoarder/add/hoarding">Register</a> your first Hoarding.
-                    </strong>
+                {% endfor %}
+            {% else %}
+                <div class="container">
+                    <div class="vcenter">
+                        <div style="text-align: center; width:100%; margin-top: -100px">
+                            {% if request.GET.first_login %}
+                                <strong>Congratulation!! You have successfully registered.<br/>
+                            {% else %}
+                                <strong>You haven't registered any Hoarding.<br/>
+                            {% endif %}
+                            <a href="/hoarder/add/hoarding" class="btn btn-primary btn-xs">Register</a>your first
+                            Hoarding.
+                            </strong>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            {% endif %}
+            <!-- Ad Card -->
+
+            <!--  <div class="x_content">
+
+               <p>Add class <code>bulk_action</code> to table for bulk actions options on row select</p>
+
+               <div class="table-responsive">
+                 <table class="table table-striped jambo_table bulk_action table-bordered">
+                   <thead>
+                     <tr class="headings">
+                       <th>
+                         <input type="checkbox" id="check-all" class="flat">
+                       </th>
+                       <th class="column-title">Name </th>
+                       <th class="column-title">Hardware Status</th>
+                       <th class="column-title">Current Ads</th>
+                       <th class="column-title">Scheduled Ads</th>
+                       <th class="column-title">Pending Ads</th>
+                       <th class="column-title">Daily Impressions(Avg)</th>
+                       <th class="column-title">Revenue</th>
+                       <th class="column-title no-link last"><span class="nobr">Action</span>
+                       </th>
+                       <th class="bulk-actions" colspan="7">
+                         <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                       </th>
+                     </tr>
+                   </thead>
+
+                   <tbody>
+                     <tr class="even pointer">
+                       <td class="a-center ">
+                         <input type="checkbox" class="flat" name="table_records">
+                       </td>
+                       <td class=" ">Sarus Baug</td>
+                       <td class=" "><span class="label label-success">Live</span></td>
+                       <td class=" ">15</td>
+                       <td class=" ">20</td>
+                       <td class=" ">4</td>
+                       <td class="a-right a-right ">200~300</td>
+                       <td class=" ">₹ 10000</td>
+                       <td class=" last"><a href="#">View</a>
+                       </td>
+                     </tr>
+
+                   </tbody>
+                 </table>
+               </div>
+             </div> -->
+
         </div>
-    {% endif %}
-    {% include "hoarder/footer.html" %}
+
+    </div>
+
 {% endblock content %}

@@ -8,11 +8,14 @@ from rest_framework.generics import GenericAPIView
 from django.views import View
 from django.http import HttpResponseRedirect
 from common.models import *
-from advertiser.models import CampaignHoardings
+from advertiser.models import CampaignHoardings, CampaignImpressions
 from advertiser.serializers import CampaignHoardingsSerializer, CampaignSerializer
+from advertiser import views
 
 from datetime import datetime
 from django.core.files.storage import FileSystemStorage
+from django.http import HttpResponse
+from datetime import date
 
 # class CampaignViewSet(ModelViewSet):
 #     queryset = Campaign.objects.all()
@@ -130,7 +133,9 @@ class AddHoardingView(View):
                             height=request.POST['height'],
                             display_type=request.POST['display_type'],
                             cost_cycle=request.POST['cost_cycle'],
-                            cost=request.POST['cost'], )
+                            cost=request.POST['cost'],
+                            start_time=datetime.strptime(request.POST['start_time'], '%I:%M %p').time(),
+                            stop_time=datetime.strptime(request.POST['stop_time'], '%I:%M %p').time())
 
         hoarding.save()
 
@@ -146,4 +151,42 @@ class AddHoardingView(View):
             hoardingResource.save()
 
         return HttpResponseRedirect('../')
+
+class AddCampaign(View):
+    def get(self, request, id):
+        return render(request, 'hoarder/add-campaign.html',)
+
+    def post(self, request, id):
+        # hoarding = Hoarding.objects.get(user=self.request.user, id=id)
+        post_values = request.POST.copy()
+        post_values['hoardings'] = id
+        request.POST = post_values
+        views.create_campaign(request,CampaignHoardings.STATUS_TYPE_CHOICES[1][0])
+        return HttpResponseRedirect('../')
+
+class CampaignRequests(View):
+    def get(self, request):
+        campaignHoardings = CampaignHoardings.objects.filter(hoarding__user=self.request.user, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0]).order_by('-campaign__creation_date')
+        return render(request, 'hoarder/campaign-requests.html', {'campaignHoardings': campaignHoardings})
+
+    def post(self, request):
+        if request.POST.get('accept', False):
+            id = int(request.POST['accept'])
+            campaign = CampaignHoardings.objects.get(id=id)
+            campaign.status = 1
+            campaign.save()
+
+        elif request.POST.get('reject', False):
+            id = int(request.POST['reject'])
+            campaign = CampaignHoardings.objects.get(id=id)
+            campaign.status = 2
+            campaign.save()
+        return render(request, 'hoarder/hoarding-detail.html')
+
+class IncrementCampaignImprssion(View):
+    def get(self, request, hoarding_id, campaign_id):
+        campaignImpressions, created = CampaignImpressions.objects.get_or_create(hoarding_id=hoarding_id, campaign_id=campaign_id, date=date.today())
+        campaignImpressions.impression_count += 1
+        campaignImpressions.save()
+        return HttpResponse(campaignImpressions.impression_count)
 

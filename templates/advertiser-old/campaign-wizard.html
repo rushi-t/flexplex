@@ -1,0 +1,243 @@
+{% extends "advertiser/base.html" %}
+{% block content %}
+    <style type="text/css">
+        /*Start Wizard*/
+
+        .bootstrapWizard {
+            display: block;
+            list-style: none;
+            padding: 0;
+            position: relative;
+            width: 100%
+        }
+
+        .bootstrapWizard a:hover,.bootstrapWizard a:active,.bootstrapWizard a:focus {
+            text-decoration: none
+        }
+
+        .bootstrapWizard li {
+            display: block;
+            float: left;
+            width: 25%;
+            text-align: center;
+            padding-left: 0
+        }
+
+        .bootstrapWizard li:before {
+            border-top: 3px solid #55606E;
+            content: "";
+            display: block;
+            font-size: 0;
+            overflow: hidden;
+            position: relative;
+            top: 11px;
+            right: 1px;
+            width: 100%;
+            z-index: 1
+        }
+
+        .bootstrapWizard li:first-child:before {
+            left: 50%;
+            max-width: 50%
+        }
+
+        .bootstrapWizard li:last-child:before {
+            max-width: 50%;
+            width: 50%
+        }
+
+        .bootstrapWizard li.complete .step {
+            background: #0aa66e;
+            padding: 1px 6px;
+            border: 3px solid #55606E
+        }
+
+        .bootstrapWizard li .step i {
+            font-size: 10px;
+            font-weight: 400;
+            position: relative;
+            top: -1.5px
+        }
+
+        .bootstrapWizard li .step {
+            background: #B2B5B9;
+            color: #fff;
+            display: inline;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 12px;
+            padding: 7px 13px;
+            border: 3px solid transparent;
+            border-radius: 50%;
+            line-height: normal;
+            position: relative;
+            text-align: center;
+            z-index: 2;
+            transition: all .1s linear 0s
+        }
+
+        .bootstrapWizard li.active .step,.bootstrapWizard li.active.complete .step {
+            background: #0091d9;
+            color: #fff;
+            font-weight: 700;
+            padding: 7px 13px;
+            font-size: 15px;
+            border-radius: 50%;
+            border: 3px solid #55606E
+        }
+
+        .bootstrapWizard li.complete .title,.bootstrapWizard li.active .title {
+            color: #2B3D53
+        }
+
+        .bootstrapWizard li .title {
+            color: #bfbfbf;
+            display: block;
+            font-size: 13px;
+            line-height: 15px;
+            max-width: 100%;
+            position: relative;
+            table-layout: fixed;
+            text-align: center;
+            top: 20px;
+            word-wrap: break-word;
+            z-index: 104
+        }
+
+        .wizard-actions {
+            display: block;
+            list-style: none;
+            padding: 0;
+            position: relative;
+            width: 100%
+        }
+
+        .wizard-actions li {
+            display: inline
+        }
+
+        .tab-content.transparent {
+            background-color: transparent
+        }
+
+        .pager li>a {
+            display: inline-block;
+            padding: 5px 14px;
+            background-color: #337ab7;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+        }
+        .pager li>a:hover {
+            text-decoration: none;
+            background-color: #286090;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        {#            window.alert = function(){};#}
+        {#            var defaultCSS = document.getElementById('bootstrap-css');#}
+        {#            function changeCSS(css){#}
+        {#                if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />');#}
+        {#                else $('head > link').filter(':first').replaceWith(defaultCSS);#}
+        {#            }#}
+        {#            $( document ).ready(function() {#}
+        {#                var iframe_height = parseInt($('html').height());#}
+        {#                window.parent.postMessage( iframe_height, 'http://bootsnipp.com');#}
+        {#            });#}
+
+        {#            $(document).ready(function(){#}
+        {#                $('a[data-toggle="tab"]').on('shown.bs.tab', function(e){#}
+        {#                    var currentTab = $(e.target).text(); // get current tab#}
+        {#                    var LastTab = $(e.relatedTarget).text(); // get last tab#}
+        {#                    $(".current-tab span").html(currentTab);#}
+        {#                    $(".last-tab span").html(LastTab);#}
+        {#                });#}
+        {#            });#}
+
+    </script>
+    {% include "advertiser/header.html" %}
+    <link href="/static/css/dropzone.css" rel="stylesheet">
+    <script src="/static/js/dropzone.js"></script>
+
+    <div class="container-fluid">
+        <div class="widget-body">
+            <div class="row">
+                <form id="wizard-1" novalidate="novalidate" action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div id="bootstrap-wizard-1" class="col-sm-12">
+                        <div class="form-bootstrapWizard col-sm-offset-2">
+                            <ul class="bootstrapWizard form-wizard">
+                                <li class="active" data-target="#step1" >
+                                    <a id="tab-link1" href="#tab1"  data-toggle="tab" class="active"> <span class="step">1</span> <span class="title">Basic Details</span> </a>
+                                </li>
+                                <li data-target="#step2" class="" onclick="resizeMap();">
+                                    <a id="tab-link2" href="#tab2" data-toggle="tab"> <span class="step">2</span> <span class="title">Select Screens</span> </a>
+                                </li>
+                                <li data-target="#step3" class="">
+                                    <a id="tab-link3" href="#tab3" data-toggle="tab"> <span class="step">3</span> <span class="title">Publish</span> </a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab1">
+                                {#                                <h3><strong>Step 1 </strong> - Select Hoardings</h3>#}
+                                {#                                {% include "advertiser/choose-hoarding.html" %}#}
+                                {% include "advertiser/file-upload.html" %}
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <ul class="pager wizard no-margin" style="margin-top: 0px">
+                                                <li class="next" data-target="#step1">
+                                                    <a onclick="$('#tab-link2').trigger('click');"  data-toggle="tab" class="btn btn-primary txt-color-darken"> Next </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab2">
+                                {% include "advertiser/choose-hoarding.html" %}
+                                {#                                {% include "advertiser/file-upload.html" %}#}
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <ul class="pager wizard no-margin" style="margin-top: 0px">
+                                                <li class="previous">
+                                                    <a onclick="$('#tab-link1').trigger('click');" class="btn btn-primary"> Previous </a>
+                                                </li>
+                                                <li class="next">
+                                                    <a onclick="$('#tab-link3').trigger('click');" class="btn btn-primary"> Next </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab3">
+                                <div style="margin-top: 180px;height: 330px; text-align: center">
+                                    <button type="submit" class="btn btn-primary" style="width: 150px">
+                                        <i class="fa fa-cloud-upload fa-4x" aria-hidden="true"></i> <br/>Publish
+                                    </button>
+                                </div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <ul class="pager wizard no-margin" style="margin-top: 0px">
+                                                <li class="previous">
+                                                    <a onclick="$('#tab-link2').trigger('click');" class="btn btn-primary btn-default"> Previous </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% include "advertiser/footer.html" %}
+{% endblock content %}

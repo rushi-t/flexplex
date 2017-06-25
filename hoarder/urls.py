@@ -5,7 +5,7 @@ from django.conf.urls import include
 from rest_framework import routers
 from django.views.generic import TemplateView
 from views import AllHoardingViewSet,MyHoardingViewSet, \
-    HoarderHome, HoardingDetail, AddHoardingView, CampaignHoardingsView
+    HoarderHome, HoardingDetail, AddHoardingView, CampaignHoardingsView, AddCampaign, IncrementCampaignImprssion, CampaignRequests
 
 router = routers.DefaultRouter()
 router.register(r'all/hoardings', AllHoardingViewSet, base_name="Hoarding")
@@ -17,7 +17,11 @@ urlpatterns = [
 
     url(r'/add/hoarding$', AddHoardingView.as_view()),
     url(r'/hoarding/(?P<id>\d+)/$', HoardingDetail.as_view()),
+    url(r'/hoarding/(?P<id>\d+)/add/campaign', AddCampaign.as_view()),
+    url(r'/hoarding/(?P<hoarding_id>\d+)/increment/campaign/(?P<campaign_id>\d+)', IncrementCampaignImprssion.as_view()),
+    url(r'/campaign/requests$', CampaignRequests.as_view()),
     url(r'/api/hoarding/(?P<id>\d+)/campaigns', CampaignHoardingsView.as_view()),
+
 
     # url(r'hoarding/', HoardingDetail.as_view()),
     # url(r'register/', TemplateView.as_view(template_name='register-hoarding.html')),

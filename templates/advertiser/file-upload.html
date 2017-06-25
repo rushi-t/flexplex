@@ -1,7 +1,6 @@
 <style>
     #content {
-        height: 480px;
-        margin-top: 30px;
+    {#        height: 480px;#} margin-top: 30px;
     }
 
     .inputfile {
@@ -13,22 +12,20 @@
         z-index: -1;
     }
 
-    .box {
+    .image-box {
     {#        background-color: #dfc8ca;#} text-align: center;
-    {#        border: 5px dashed #ccc;#}{#        padding: 4.25rem 1.25rem;#}
-        background: url("/static/img/billboard-1.png") center center no-repeat;
+    {#        border: 5px dashed #ccc;#}{#        padding: 4.25rem 1.25rem;#} background: url("/static/img/billboard.png") center center no-repeat;
         background-size: contain;
         height: 380px;
     }
 
-    #preview-img, #preview-video  {
-       padding: 28px 62px 0px 62px;
-        height: 249px;
+    #preview-img, #preview-video {
+    {#       padding: 28px 62px 0px 62px;#} height: 249px;
         display: none;
     }
 
-    #drop-label{
-        padding-top: 75px;
+    #drop-label {
+        padding-top: 85px;
     }
 
     .inputfile-4 + label {
@@ -67,8 +64,8 @@
         display: block;
         float: right;
         position: absolute;
-        top: -6px;
-        right: 6px;
+        top: -15px;
+        right: -15px;
         z-index: 100;
     {#    background:url(http://digitalsbykobke.com/images/close.png) no-repeat center center;#}
     }
@@ -121,29 +118,35 @@
 
 </script>
 
-<div class="row" id="content" style="padding-top: 45px">
+<div class="row" id="content" style="padding-top: 20px">
     <div class="col-md-1"></div>
     <div class="col-md-4">
         <div class="form-group">
             <h4>Campaign Name</h4>
             <input id="name" name="name" type="text" class="form-control" placeholder="Enter Campaign Name">
         </div>
-
-
-        <div class="form-group" style="margin-top: 30px">
+        <div class="form-group" style="margin-top: 20px">
             <h4>From Date</h4>
-            <input name="from_date" class="form-control" type="date" value="Campaign Name">
+            <input name="from_date" class="form-control" type="date" placeholder="from_date">
         </div>
-        <div class="form-group" style="margin-top: 30px">
+        <div class="form-group" style="margin-top: 20px">
             <h4>To Date</h4>
             <input name="to_date" class="form-control" type="date" placeholder="to date">
         </div>
+         <div class="form-group" style="margin-top: 20px">
+            <h4>Ad Duration</h4>
+             <div class="input-group" >
+            <input class="form-control" type="number" placeholder="Ad Duration" name="ad_duration">
+            <span class="input-group-addon">sec</span>
+        </div>
+        </div>
+
     </div>
     <div class="col-md-1">
         <div style="border-left:1px solid #000;height:100%"></div>
     </div>
     <div class="col-md-5" style="padding-top: 10px">
-        <div class="box">
+        <div class="image-box">
             <input type="file" name="resource" id="resource" class="inputfile inputfile-4">
             <label id="drop-label" for="resource">
                 <figure>

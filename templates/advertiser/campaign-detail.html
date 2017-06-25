@@ -1,70 +1,65 @@
 {% extends "advertiser/base.html" %}
 {% block content %}
-    {% include "advertiser/header.html" %}
-    <div class="container" style="margin-top: 30px">
-        {#            <a href="../campaign?id={{ campaign.id }}" style="text-decoration: none">#}
-        <div class="row">
-            <div class="panel panel-default col-md-12">
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-5" style="padding: 0px">
-                            {% if campaign.isVideo %}
-                                <video width="100%" controls>
-                                    <source src="{{ campaign.resource }}" type="video/mp4">
-                                </video>
-                            {% else %}
-                                <img src="{{ campaign.resource }}" class="img-rounded" width="100%">
-                            {% endif %}
-                        </div>
-                        <div class="col-md-7">
-                            <h4>{{ campaign.name }}</h4>
-                            <label>Total Hoardings:</label> {{ campaign.hoardings.count }} <br/>
-                            <label>Schedule:</label> {{ campaign.from_date }} to {{ campaign.to_date }}<br/>
-                            <label>Content Status:</label>
-                            {% if campaign.content_status == 2 %}
-                                <span class="label label-danger">{{ campaign.get_content_status_display }}</span>
-                            {% elif campaign.content_status == 1 %}
-                                <span class="label label-success">{{ campaign.get_content_status_display }}</span>
-                            {% else %}
-                                <span class="label label-warning">{{ campaign.get_content_status_display }}</span>
-                            {% endif %}
-                        </div>
+    <div class="row">
+        <div class="panel panel-default col-md-12">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-5" style="padding: 0px">
+                        {% if campaign.isVideo %}
+                            <video width="100%" controls>
+                                <source src="{{ campaign.resource }}" type="video/mp4">
+                            </video>
+                        {% else %}
+                            <img src="{{ campaign.resource }}" class="img-rounded" width="100%">
+                        {% endif %}
                     </div>
-                    <br/>
-                    <div class="row">
-                        <table class="table table-bordered">
-                            <thead>
+                    <div class="col-md-7">
+                        <h4>{{ campaign.name }}</h4>
+                        <label>Total Hoardings:</label> {{ campaign.hoardings.count }} <br/>
+                        <label>Schedule:</label> {{ campaign.from_date }} to {{ campaign.to_date }}<br/>
+                        <label>Content Status:</label>
+                        {% if campaign.content_status == 2 %}
+                            <span class="label label-danger">{{ campaign.get_content_status_display }}</span>
+                        {% elif campaign.content_status == 1 %}
+                            <span class="label label-success">{{ campaign.get_content_status_display }}</span>
+                        {% else %}
+                            <span class="label label-warning">{{ campaign.get_content_status_display }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <br/>
+                <div class="row">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Hoarding</th>
+                            <th>Cost</th>
+                            <th>Dimension</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for hoarding in campaign.hoardings.all %}
                             <tr>
-                                <th>Hoarding</th>
-                                <th>Cost</th>
-                                <th>Dimension</th>
-                                <th>Status</th>
+                                <td>{{ hoarding.hoarding.address.address }}, {{ hoarding.hoarding.address.city.name }}</td>
+                                <td>{{ hoarding.hoarding.cost }}</td>
+                                <td>{{ hoarding.hoarding.width }} x {{ hoarding.hoarding.height }} ft.</td>
+                                {% if hoarding.status == 2 %}
+                                    <td><span class="label label-danger">{{ hoarding.get_status_display }}</span></td>
+                                {% elif hoarding.status == 1 %}
+                                    <td><span class="label label-success">{{ hoarding.get_status_display }}</span></td>
+                                {% else %}
+                                    <td><span class="label label-warning">{{ hoarding.get_status_display }}</span></td>
+                                {% endif %}
+
                             </tr>
-                            </thead>
-                            <tbody>
-                            {% for hoarding in campaign.hoardings.all %}
-                                <tr>
-                                    <td>{{ hoarding.hoarding.address.address }}, {{ hoarding.hoarding.address.city.name }}</td>
-                                    <td>{{ hoarding.hoarding.cost }}</td>
-                                    <td>{{ hoarding.hoarding.width }} x {{ hoarding.hoarding.height }} ft.</td>
-                                    {% if hoarding.status == 2 %}
-                                        <td><span class="label label-danger">{{ hoarding.get_status_display }}</span></td>
-                                    {% elif hoarding.status == 1 %}
-                                        <td><span class="label label-success">{{ hoarding.get_status_display }}</span></td>
-                                    {% else %}
-                                        <td><span class="label label-warning">{{ hoarding.get_status_display }}</span></td>
-                                    {% endif %}
+                        {% endfor %}
 
-                                </tr>
-                            {% endfor %}
-
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        {#            </a>#}
     </div>
     <link rel="stylesheet" href="https://cdn.plyr.io/2.0.12/plyr.css">
     <script src="https://cdn.plyr.io/2.0.12/plyr.js"></script>
@@ -76,5 +71,4 @@
 
         }
     </style>
-    {% include "advertiser/footer.html" %}
 {% endblock content %}
