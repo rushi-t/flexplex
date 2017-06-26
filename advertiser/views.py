@@ -58,8 +58,9 @@ class CampaignHoardingsViewSet(ModelViewSet):
         campaigns = Campaign.objects.filter(user=user)
         return CampaignHoardings.objects.all()
 
-class AdvertiserHome(APIView):
 
+class AdvertiserHome(APIView):
+    @method_decorator(login_required)
     def get(self, request):
         campaigns = Campaign.objects.filter(user=self.request.user).order_by('-to_date')
         # for campaign in campaigns:

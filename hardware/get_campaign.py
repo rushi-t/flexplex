@@ -10,8 +10,8 @@ from subprocess import call
 import os.path
 
 POLL_TIME = 1 * 30 #5 mins
-#BASE_URL = 'http://148.72.245.147/'
-BASE_URL = 'http://192.168.0.107:8000/'
+BASE_URL = 'http://148.72.245.147/'
+# BASE_URL = 'http://192.168.0.107:8000/'
 PATH = '/home/pi/work/hardware/'
 #PATH = '/mnt/sda4/work/django/flexplex/hardware/'
 RESOURCE_DIR = PATH + 'videos'

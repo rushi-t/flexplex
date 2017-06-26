@@ -17,6 +17,8 @@ from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from datetime import date
 from django.db.models import Q
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 # class CampaignViewSet(ModelViewSet):
 #     queryset = Campaign.objects.all()
@@ -88,6 +90,7 @@ class CampaignHoardingsView(generics.ListAPIView):
 
 
 class HoarderHome(GenericAPIView):
+    @method_decorator(login_required)
     def get(self, request):
         hoardings = Hoarding.objects.filter(user=self.request.user)
         return render(request, 'hoarder/index.html', {'hoardings': hoardings})
