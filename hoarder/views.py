@@ -8,7 +8,7 @@ from rest_framework.generics import GenericAPIView
 from django.views import View
 from django.http import HttpResponseRedirect
 from common.models import *
-from advertiser.models import CampaignHoardings, CampaignImpressions
+from advertiser.models import CampaignHoardings, CampaignImpressions, Campaign
 from advertiser.serializers import CampaignHoardingsSerializer, CampaignSerializer
 from advertiser import views
 
@@ -16,6 +16,7 @@ from datetime import datetime
 from django.core.files.storage import FileSystemStorage
 from django.http import HttpResponse
 from datetime import date
+from django.db.models import Q
 
 # class CampaignViewSet(ModelViewSet):
 #     queryset = Campaign.objects.all()
@@ -63,7 +64,8 @@ class CampaignHoardingsView(generics.ListAPIView):
 
     def get_queryset(self):
         id = self.kwargs['id']
-        queryset = CampaignHoardings.objects.filter(hoarding=id)
+        queryset = CampaignHoardings.objects.filter(hoarding=id).filter(status=CampaignHoardings.STATUS_TYPE_CHOICES[1][0]).\
+            filter(Q(campaign__from_date__lte=date.today()) & Q(campaign__to_date__gte=date.today()))
         # update heartbeat
         # hoarding = Hoarding.objects.get(id=id)
         # hoarding.last_heartbeat = datetime.now()
@@ -103,12 +105,15 @@ class HoardingDetail(View):
             campaign = CampaignHoardings.objects.get(id=id)
             campaign.status = 1
             campaign.save()
+            campaign.hoarding.save()
 
         elif request.POST.get('reject', False):
             id = int(request.POST['reject'])
             campaign = CampaignHoardings.objects.get(id=id)
             campaign.status = 2
             campaign.save()
+            campaign.hoarding.save()
+
         return render(request, 'hoarder/hoarding-detail.html')
 
 

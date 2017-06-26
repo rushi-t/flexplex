@@ -30,7 +30,7 @@ class Campaign(models.Model):
         else:
             return False
 
-    def getStatus(self):
+    def get_status(self):
         if self.to_date < date.today():
             return 'Expired'
         elif self.from_date <= date.today() and self.to_date >= date.today():

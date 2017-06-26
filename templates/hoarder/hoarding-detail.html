@@ -134,14 +134,14 @@
                                 <td class=" ">{{ campaign.campaign.from_date }} - {{ campaign.campaign.to_date }}</td>
                                 <td class=" ">{{ campaign.campaign.duration }}</td>
                                 <td class=" ">
-                                    {% if  campaign.campaign.getStatus == 'Scheduled' %}
+                                    {% if  campaign.campaign.get_status == 'Scheduled' %}
                                         <span class="label label-primary">
-                                    {% elif campaign.campaign.getStatus == 'Running' %}
+                                    {% elif campaign.campaign.get_status == 'Running' %}
                                         <span class="label label-success">
-                                    {% elif campaign.campaign.getStatus == 'Expired' %}
+                                    {% elif campaign.campaign.get_status == 'Expired' %}
                                         <span class="label label-danger">
                                     {% endif %}
-                                    {{ campaign.campaign.getStatus }}</span>
+                                    {{ campaign.campaign.get_status }}</span>
 
                                 </td>
                                 <td class=" ">{{ campaign.get_total_impression_count }}</td>

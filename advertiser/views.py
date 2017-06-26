@@ -16,8 +16,8 @@ from django.utils.dateparse import parse_datetime
 from django.core.files.storage import FileSystemStorage
 from rest_auth.views import APIView
 from datetime import datetime
-
-
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 class CampaignResourceViewSet(ModelViewSet):
     # queryset = Campaign.objects.all()
@@ -58,8 +58,8 @@ class CampaignHoardingsViewSet(ModelViewSet):
         campaigns = Campaign.objects.filter(user=user)
         return CampaignHoardings.objects.all()
 
-
 class AdvertiserHome(APIView):
+
     def get(self, request):
         campaigns = Campaign.objects.filter(user=self.request.user).order_by('-to_date')
         # for campaign in campaigns:
@@ -80,7 +80,7 @@ def create_campaign(request, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0])
         ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -loop 1 -i ' \
                     + fs.location + "/" + filename + ' -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1280:720 ' \
                     + fs.location + "/" + outFileName
-        # server
+        # local
         # ffmpegCmd = 'ffmpeg -loop 1 -i ' \
         #             + fs.location + "/" + filename + ' -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1280:720 ' \
         #             + fs.location + "/" + outFileName
@@ -99,7 +99,6 @@ def create_campaign(request, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0])
     for hoarding_id in request.POST.getlist('hoardings'):
         hoarding = Hoarding.objects.get(id=hoarding_id)
         CampaignHoardings.objects.create(campaign=campaign, hoarding=hoarding, status=status)
-        hoarding.last_update = datetime.now()
         hoarding.save()
 
 

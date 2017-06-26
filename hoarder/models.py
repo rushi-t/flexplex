@@ -38,6 +38,10 @@ class Hoarding(models.Model):
     last_update = models.DateTimeField(default=datetime.now())
     last_heartbeat = models.DateTimeField(default=datetime.now())
 
+    def save(self, *args, **kwargs):
+        self.last_update = datetime.now()
+        super(models.Model, self).save(*args, **kwargs)
+
     def get_resources(self):
         resources = HoardingResource.objects.filter(hoarding=self)
         return resources

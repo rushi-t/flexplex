@@ -164,14 +164,21 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-MIDDLEWARE_CLASSES = (
-    'authentication.middleware.AuthRequiredMiddleware',
+MIDDLEWARE= (
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'authentication.middleware.LoginRequiredMiddleware',
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/var/www/media/flexplex/'
 MEDIA_ROOT = '/home/rtalokar/flexplex/static/uploads'
+
+LOGIN_URL = '/signin/'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

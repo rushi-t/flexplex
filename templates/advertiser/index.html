@@ -52,12 +52,12 @@
                                         <tr>
                                             <td><label>Status</label></td>
                                             <td>:</td>
-                                            <td>{% if  campaign.getStatus == 'Scheduled' %}
-                                                <span class="label label-primary">{{ campaign.getStatus}}</span>
-                                            {% elif campaign.getStatus == 'Running' %}
-                                                <span class="label label-success">{{ campaign.getStatus}}</span>
-                                            {% elif campaign.getStatus == 'Expired' %}
-                                                <span class="label label-danger">{{ campaign.getStatus}}</span>
+                                            <td>{% if  campaign.get_status == 'Scheduled' %}
+                                                <span class="label label-primary">{{ campaign.get_status}}</span>
+                                            {% elif campaign.get_status == 'Running' %}
+                                                <span class="label label-success">{{ campaign.get_status}}</span>
+                                            {% elif campaign.get_status == 'Expired' %}
+                                                <span class="label label-danger">{{ campaign.get_status}}</span>
                                             {% endif %}</td>
                                         </tr>
                                         </tbody>
