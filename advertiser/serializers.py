@@ -2,22 +2,17 @@
 from rest_framework import serializers
 from advertiser.models import Campaign, CampaignHoardings
 from hoarder.models import Hoarding
-from hoarder.serializers import HoardingSerializer
-from django.contrib.sites.models import Site
-
 
 class CampaignSerializer(serializers.HyperlinkedModelSerializer):
     # user = serializers.SlugRelatedField(read_only=True, slug_field='id')
     # hoardings = CampaignHoardingsSerializer(many=True)
+    resource = serializers.SerializerMethodField()
 
-
-    def to_representation(self, instance):
-        representation = super(CampaignSerializer, self).to_representation(instance)
+    def get_resource(self, instance):
         request = self.context.get('request')
         domain_name = request.scheme + "://" + request.META['HTTP_HOST']
         full_path = domain_name + instance.resource.name
-        representation['resource'] = full_path
-        return representation
+        return full_path
 
     class Meta:
         model = Campaign
@@ -32,11 +27,11 @@ class CampaignSerializer(serializers.HyperlinkedModelSerializer):
         return campaign
 
 class CampaignHoardingsSerializer(serializers.ModelSerializer):
-    hoarding = HoardingSerializer()
+    #hoarding = HoardingSerializer()
     campaign = CampaignSerializer()
     class Meta:
         model = CampaignHoardings
-        fields = ('hoarding', 'campaign')
+        fields = ('id', 'campaign',)
 
 class CampaignResourceSerializer(serializers.ModelSerializer):
     class Meta:

@@ -42,7 +42,7 @@ class Campaign(models.Model):
 
 class CampaignHoardings(models.Model):
     campaign = models.ForeignKey('Campaign', related_name='hoardings', on_delete=models.CASCADE)
-    hoarding = models.ForeignKey('hoarder.Hoarding')
+    hoarding = models.ForeignKey('hoarder.Hoarding', related_name='campaigns')
     STATUS_TYPE_CHOICES = (
         (0, 'Pending'),
         (1, 'Accepted'),

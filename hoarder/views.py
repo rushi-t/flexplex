@@ -35,7 +35,7 @@ class AllHoardingViewSet(ReadOnlyModelViewSet):
             # update heartbeat
             hoarding = Hoarding.objects.get(id=id)
             hoarding.last_heartbeat = datetime.now()
-            hoarding.save()
+            hoarding.save(last_update=False)
         return queryset
 
 
@@ -183,12 +183,14 @@ class CampaignRequests(View):
             campaign = CampaignHoardings.objects.get(id=id)
             campaign.status = 1
             campaign.save()
+            campaign.hoarding.save()
 
         elif request.POST.get('reject', False):
             id = int(request.POST['reject'])
             campaign = CampaignHoardings.objects.get(id=id)
             campaign.status = 2
             campaign.save()
+            campaign.hoarding.save()
         return render(request, 'hoarder/hoarding-detail.html')
 
 class IncrementCampaignImprssion(View):
