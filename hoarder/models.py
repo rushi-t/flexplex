@@ -40,7 +40,7 @@ class Hoarding(models.Model):
 
     def save(self, *args, **kwargs):
         self.last_update = datetime.now()
-        super(models.Model, self).save(*args, **kwargs)
+        super(Hoarding, self).save(*args, **kwargs)
 
     def get_resources(self):
         resources = HoardingResource.objects.filter(hoarding=self)
