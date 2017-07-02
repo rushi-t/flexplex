@@ -4,8 +4,8 @@ from django.db import models
 from datetime import datetime
 from datetime import date
 from django.db.models import Q
-from advertiser.models import Campaign, CampaignHoardings
-# Create your models here.
+from advertiser.models import Campaign, CampaignHoardings, CampaignImpressions
+from django.db.models import Avg
 
 class Hoarding(models.Model):
     #uuid = models.UUIDField(default=uuid.uuid4, unique=True)
@@ -77,6 +77,14 @@ class Hoarding(models.Model):
         campaigns = CampaignHoardings.objects.filter(hoarding=self, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0]).\
                     only('campaign').filter(campaign__from_date__gt=today)
         return campaigns
+
+    def get_avg_monthly_impressions(self):
+        try:
+            today = date.today()
+            avg_impression = int(CampaignImpressions.objects.filter(hoarding=self, date__month=today.month).aggregate(Avg('impression_count')).values()[0])
+            return avg_impression
+        except:
+            return 0
 
 
 class HoardingResource(models.Model):

@@ -1,5 +1,10 @@
 {% extends "advertiser/base.html" %}
 {% block content %}
+    <style>
+        .viewport-height {
+            height: 60vh;
+        }
+    </style>
     <script src="/static/gentelella/vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
     <!-- Smart Wizard -->
     <div class="">
@@ -26,7 +31,7 @@
                                     </a>
                                 </li>
                                 <li class="col-md-4" style="padding: 0px" onclick="resizeMap();">
-                                    <a id="step-anchor-2" href="#step-2" >
+                                    <a id="step-anchor-2" href="#step-2">
                                         <span class="step_no">2</span>
                                         <span class="step_descr">
                                               Select Screens<br/>
@@ -43,25 +48,46 @@
                                           </span>
                                     </a>
                                 </li>
+{#                                <li class="col-md-3" style="padding: 0px">#}
+{#                                    <a id="step-anchor-4" href="#step-4">#}
+{#                                        <span class="step_no">3</span>#}
+{#                                        <span class="step_descr">#}
+{#                                              Preview<br/>#}
+{#                                              <small></small>#}
+{#                                          </span>#}
+{#                                    </a>#}
+{#                                </li>#}
                             </ul>
-                            <form id="wizard-1" novalidate="novalidate" action="" method="post" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <div id="step-1">
-{#                                <h2 class="StepTitle" style="margin: 10px">Fill Campaign Details:</h2>#}
-                                {% include "advertiser/file-upload.html" %}
-                            </div>
-                            <div id="step-2">
-                                <h2 class="StepTitle" style="margin: 10px">Select Hoarding:</h2>
-                                {% include "advertiser/choose-hoarding.html" %}
-                            </div>
-                            <div id="step-3">
-                                <h2 class="StepTitle" style="margin: 10px">Publish:</h2>
-                                 <div style="margin-top: 180px;height: 330px; text-align: center">
-                                    <button type="submit" class="btn btn-primary" style="width: 150px">
-                                        <i class="fa fa-cloud-upload fa-4x" aria-hidden="true"></i> <br/>Publish
-                                    </button>
+                            <form id="wizard-1" novalidate="novalidate" action="" method="post"
+                                  enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div id="step-1" class="viewport-height">
+                                    {#                                <h2 class="StepTitle" style="margin: 10px">Fill Campaign Details:</h2>#}
+                                    {% include "advertiser/file-upload.html" %}
                                 </div>
-                            </div>
+                                <div id="step-2" class="viewport-height">
+                                    <h2 class="StepTitle" style="margin: 10px">Select Hoarding:</h2>
+                                    {% include "advertiser/choose-hoarding.html" %}
+                                </div>
+                                <div id="step-3" class="viewport-height">
+                                    <h2 class="StepTitle" style="margin: 10px">Publish:</h2>
+                                    <div style="margin-top: 180px;height: 330px; text-align: center">
+                                        <button type="submit" class="btn btn-primary" style="width: 150px">
+                                            <i class="fa fa-cloud-upload fa-4x" aria-hidden="true"></i> <br/>Publish
+                                        </button>
+                                    </div>
+                                </div>
+{#                                <div id="step-4" class="viewport-height">#}
+{#                                   <div class="col-md-4" style="text-align: -webkit-center">#}
+{#                                       <div style="width: 450px; height: 300px;border-style: solid;border-width: 5px;"></div>#}
+{#                                   </div>#}
+{#                                    <div class="col-md-4" style="text-align: -webkit-center">#}
+{#                                       <div style="width: 300px; height: 300px;border-style: solid;border-width: 5px;"></div>#}
+{#                                   </div>#}
+{#                                     <div class="col-md-4" style="text-align: -webkit-center">#}
+{#                                       <div style="width: 300px; height: 450px;border-style: solid;border-width: 5px;"></div>#}
+{#                                   </div>#}
+{#                                </div>#}
                             </form>
                         </div>
                         <!-- End SmartWizard Content -->

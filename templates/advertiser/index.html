@@ -9,27 +9,29 @@
         align-items: center;
     }
     </style>
+     <div class="clearfix"></div>
+        <div class="">
      {% if campaigns.count > 0 %}
-        <div class="container-fluid" style="margin-top: 10px; margin-left: 30px">
-            <h3 style="margin-bottom: 20px">Your Campaigns:</h3>
+                  {% for campaign in campaigns %}
+                <!-- Ad Card -->
+                    <div class="col-md-6 col-sm-6 col-xs-12 profile_details"
+                         onclick="location.href='/advertiser/campaign/{{ campaign.id }}';" style="cursor: pointer;">
+                        <div class="well profile_view" style="padding: 0px">
 
-            {% for campaign in campaigns %}
-                <div class="row" >
-                    <div class="col-md-8">
-                        <div class="panel panel-default" onclick="location.href='/advertiser/campaign/{{ campaign.id }}';" style="padding: 0px; cursor: pointer;">
-                            <div class="panel-body" style="padding: 0px" >
+
                                 <div class="col-md-4" style="padding: 0px;">
                                     {% if campaign.isVideo %}
-                                        <video width="100%" height="150px" controls>
+                                        <video width="100%" height="180px" controls>
                                             <source src="{{ campaign.resource }}" type="video/mp4">
                                         </video>
                                     {% else %}
-                                        <img  src="{{ campaign.resource }}" class="img" width="100%" height="150px">
+                                        <img  src="{{ campaign.resource }}" class="img" width="100%" height="180px">
                                     {% endif %}
                                 </div>
                                 <div class="col-md-8" style="cursor: pointer;">
-                                    <h4>{{ campaign.name }}</h4>
-                                    <hr style="margin-left: -15px; margin-right: -15px; margin-top: 0px; margin-bottom: 10px"/>
+                                    <div style="background: #F2F5F7; margin: -10px">
+                                        <h4 style="padding: 10px">{{ campaign.name }}</h4>
+                                    </div>
                                     <table data-toggle="table" data-striped="true">
                                         <thead>
                                         <tr>
@@ -65,12 +67,14 @@
 
 
                                 </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
+                 <!-- Ad Card -->
+                    {% if forloop.counter|divisibleby:2 %}
+                        <div class="clearfix"></div>
+                    {% endif %}
             {% endfor %}
-        </div>
     {% else %}
         <div class="container">
             <div class="vcenter">
@@ -80,12 +84,13 @@
                     {% else %}
                         <strong>You haven't created any Campaign.<br/>
                     {% endif %}
-                    <a href="/hoarder/add/hoarding">Create</a> your first Campaign.
+                    <a href="/hoarder/add/hoarding" class="green">Create your first Campaign.</a>
                     </strong>
                 </div>
             </div>
         </div>
     {% endif %}
+        </div>
     <link rel="stylesheet" href="https://cdn.plyr.io/2.0.12/plyr.css">
     <script src="https://cdn.plyr.io/2.0.12/plyr.js"></script>
     <script>plyr.setup();</script>

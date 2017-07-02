@@ -10,47 +10,48 @@
         }
     </style>
     <div class="">
-        {% if hoardings.count > 0 %}
-            <div class="row top_tiles">
-                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="tile-stats">
-                        <div class="icon"><i class="fa fa-youtube-play"></i></div>
-                        <div class="count">20</div>
-                        <h3>Total Running Ads</h3>
-                        <p>Represents live ads</p>
-                    </div>
-                </div>
-                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="tile-stats">
-                        <div class="icon"><i class="fa fa-clock-o"></i></div>
-                        <div class="count">45</div>
-                        <h3>Scheduled Ads</h3>
-                        <p>Scheduled ads for future</p>
-                    </div>
-                </div>
-                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="tile-stats">
-                        <div class="icon" style="padding-left: 50px"><i class="fa fa-inr"></i></div>
-                        <div class="count">1,20,000</div>
-                        <h3>Revenue</h3>
-                        <p>Total revenue of all Hoarding(s)</p>
-                    </div>
-                </div>
-                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="tile-stats">
-                        <div class="icon"><i class="fa fa-bell-o"></i></div>
-                        <div class="count">5</div>
-                        <h3>New Ad Requests</h3>
-                        <p>Ad requests by advertiser</p>
-                    </div>
-                </div>
+        {#        {% if hoardings.count > 0 %}#}
+        {#            <div class="row top_tiles">#}
+        {#                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">#}
+        {#                    <div class="tile-stats">#}
+        {#                        <div class="icon"><i class="fa fa-youtube-play"></i></div>#}
+        {#                        <div class="count">20</div>#}
+        {#                        <h3>Total Running Ads</h3>#}
+        {#                        <p>Represents live ads</p>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">#}
+        {#                    <div class="tile-stats">#}
+        {#                        <div class="icon"><i class="fa fa-clock-o"></i></div>#}
+        {#                        <div class="count">45</div>#}
+        {#                        <h3>Scheduled Ads</h3>#}
+        {#                        <p>Scheduled ads for future</p>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">#}
+        {#                    <div class="tile-stats">#}
+        {#                        <div class="icon" style="padding-left: 50px"><i class="fa fa-inr"></i></div>#}
+        {#                        <div class="count">1,20,000</div>#}
+        {#                        <h3>Revenue</h3>#}
+        {#                        <p>Total revenue of all Hoarding(s)</p>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#                <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">#}
+        {#                    <div class="tile-stats">#}
+        {#                        <div class="icon"><i class="fa fa-bell-o"></i></div>#}
+        {#                        <div class="count">5</div>#}
+        {#                        <h3>New Ad Requests</h3>#}
+        {#                        <p>Ad requests by advertiser</p>#}
+        {#                    </div>#}
+        {#                </div>#}
+        {#            </div>#}
+        {#        {% endif %}#}
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Your Hoardings</h3>
             </div>
-            <div class="page-title">
-                <div class="title_left">
-                    <h3>Your Hoardings</h3>
-                </div>
-            </div>
-        {% endif %}
+        </div>
+        <div class="clearfix"></div>
         <div class="">
             {% if hoardings.count > 0 %}
                 {% for hoarding in hoardings %}
@@ -129,7 +130,7 @@
                         </div>
                     </div>
                     <!-- Ad Card -->
-                     {% if forloop.counter|divisibleby:2 %}
+                    {% if forloop.counter|divisibleby:2 %}
                         <div class="clearfix"></div>
                     {% endif %}
                 {% endfor %}
@@ -142,8 +143,7 @@
                             {% else %}
                                 <strong>You haven't registered any Hoarding.<br/>
                             {% endif %}
-                            <a href="/hoarder/add/hoarding" class="btn btn-primary btn-xs">Register</a>your first
-                            Hoarding.
+                            <a href="/hoarder/add/hoarding" class="green">Registe your first Hoarding.</a>
                             </strong>
                         </div>
                     </div>

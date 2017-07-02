@@ -14,28 +14,64 @@
                         {% endif %}
                     </div>
                     <div class="col-md-7">
-                        <h4>{{ campaign.name }}</h4>
-                        <label>Total Hoardings:</label> {{ campaign.hoardings.count }} <br/>
-                        <label>Schedule:</label> {{ campaign.from_date }} to {{ campaign.to_date }}<br/>
-                        <label>Content Status:</label>
-                        {% if campaign.content_status == 2 %}
+                        <h3>{{ campaign.name }}</h3>
+                        <table data-toggle="table" data-striped="true">
+                            <thead>
+                            <tr>
+                                <td style="width: 150px"></td>
+                                <td style="width: 20px"></td>
+                                <td></td>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><label>Schedule</label></td>
+                                <td>:</td>
+                                <td>{{ campaign.from_date }} to {{ campaign.to_date }}</td>
+                            </tr>
+                            <tr>
+                                <td><label>Total Hoardings</label></td>
+                                <td>:</td>
+                                <td> {{ campaign.hoardings.count }} </td>
+                            </tr>
+                            <tr>
+                                <td><label>Campaign Status</label></td>
+                                <td>:</td>
+                                <td>{% if  campaign.get_status == 'Scheduled' %}
+                                    <span class="label label-primary">{{ campaign.get_status }}</span>
+                                {% elif campaign.get_status == 'Running' %}
+                                    <span class="label label-success">{{ campaign.get_status }}</span>
+                                {% elif campaign.get_status == 'Expired' %}
+                                    <span class="label label-danger">{{ campaign.get_status }}</span>
+                                {% endif %}</td>
+                            </tr>
+                             <tr>
+                                <td><label>Content Approval</label></td>
+                                <td>:</td>
+                                <td> {% if campaign.content_status == 2 %}
                             <span class="label label-danger">{{ campaign.get_content_status_display }}</span>
                         {% elif campaign.content_status == 1 %}
                             <span class="label label-success">{{ campaign.get_content_status_display }}</span>
                         {% else %}
                             <span class="label label-warning">{{ campaign.get_content_status_display }}</span>
-                        {% endif %}
+                        {% endif %}</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <br/>
+
                 <div class="row">
-                    <table class="table table-bordered">
+                    <h2>Hoardings List</h2>
+                    <table class="table table-striped jambo_table table-bordered">
                         <thead>
-                        <tr>
+                        <tr class="headings">
                             <th>Hoarding</th>
                             <th>Cost</th>
                             <th>Dimension</th>
-                            <th>Status</th>
+                            <th>Impressions</th>
+                            <th>Publisher Approval</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -44,6 +80,7 @@
                                 <td>{{ hoarding.hoarding.address.address }}, {{ hoarding.hoarding.address.city.name }}</td>
                                 <td>{{ hoarding.hoarding.cost }}</td>
                                 <td>{{ hoarding.hoarding.width }} x {{ hoarding.hoarding.height }} ft.</td>
+                                <td>{{ hoarding.get_total_impression_count }}</td>
                                 {% if hoarding.status == 2 %}
                                     <td><span class="label label-danger">{{ hoarding.get_status_display }}</span></td>
                                 {% elif hoarding.status == 1 %}
