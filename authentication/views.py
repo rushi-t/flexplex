@@ -48,7 +48,7 @@ class SigninView(LoginView):
             response = super(SigninView, self).post(request, *args, **kwargs)
             user = request.user
             profile = UserProfile.objects.get(user=user)
-            if profile.activation_status == UserProfile.ACTIVATION_STATUS_CHOICES[1][0]:
+            if profile is None or profile.activation_status == UserProfile.ACTIVATION_STATUS_CHOICES[1][0]:
                 if user.groups.filter(name='advertiser').exists():
                     return HttpResponseRedirect("../advertiser")
                 else:
