@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f9a8fbd-4c32-4ad8-a47c-c08b05f24bb4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/hoarding-icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/user_activation_pending.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hardware/pi_video_looper" afterPath="$PROJECT_DIR$/hardware/pi_video_looper" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hoarder/models.py" afterPath="$PROJECT_DIR$/hoarder/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/campaign-detail.html" afterPath="$PROJECT_DIR$/templates/advertiser/campaign-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/campaign-wizard.html" afterPath="$PROJECT_DIR$/templates/advertiser/campaign-wizard.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/choose-hoarding.html" afterPath="$PROJECT_DIR$/templates/advertiser/choose-hoarding.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/index.html" afterPath="$PROJECT_DIR$/templates/advertiser/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/inventory.html" afterPath="$PROJECT_DIR$/templates/advertiser/inventory.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/hoarder/hoarding-detail.html" afterPath="$PROJECT_DIR$/templates/hoarder/hoarding-detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/hoarder/index.html" afterPath="$PROJECT_DIR$/templates/hoarder/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/authentication/models.py" afterPath="$PROJECT_DIR$/authentication/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/authentication/urls.py" afterPath="$PROJECT_DIR$/authentication/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/authentication/views.py" afterPath="$PROJECT_DIR$/authentication/views.py" />
     </list>
     <ignored path="static/img/bg/1-old.jpg" />
     <ignored path="hardware/hoarding.json" />
@@ -49,81 +44,120 @@
     <favorites_list name="flexplex" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/advertiser/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="710">
-                  <caret line="65" column="44" lean-forward="true" selection-start-line="34" selection-start-column="36" selection-end-line="65" selection-end-column="44" />
-                  <folding>
-                    <element signature="e#755#775#0#HTML" expanded="true" />
-                    <element signature="e#833#854#0#HTML" expanded="true" />
-                    <element signature="e#1457#1481#0#HTML" expanded="true" />
-                    <element signature="e#1524#1566#0#HTML" expanded="true" />
-                    <element signature="e#1612#1633#0#HTML" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/hoarder/index.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="117" column="56" lean-forward="true" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="56" />
-                  <folding>
-                    <marker date="1498573414293" expanded="false" signature="1691:1709" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="campaign-detail.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/templates/advertiser/campaign-detail.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="468">
-                  <caret line="59" column="32" lean-forward="false" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="campaign-wizard.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/templates/advertiser/campaign-wizard.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="423">
-                  <caret line="41" column="51" lean-forward="false" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
-                  <folding>
-                    <marker date="1498980418578" expanded="false" signature="4797:4823" ph="..." />
-                    <marker date="1498980418578" expanded="false" signature="4881:4947" ph="..." />
-                    <marker date="1498980418578" expanded="false" signature="5071:5097" ph="..." />
-                    <marker date="1498980418578" expanded="false" signature="5155:5221" ph="..." />
-                    <marker date="1498980418578" expanded="false" signature="5346:5372" ph="..." />
-                    <marker date="1498980418578" expanded="false" signature="5430:5496" ph="..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="hoarding-detail.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/templates/hoarder/hoarding-detail.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="703">
-                  <caret line="151" column="84" lean-forward="false" selection-start-line="151" selection-start-column="58" selection-end-line="151" selection-end-column="84" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/advertiser/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" column="12" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="10" selection-end-column="12" />
+              <folding>
+                <element signature="e#755#775#0#HTML" expanded="true" />
+                <element signature="e#833#854#0#HTML" expanded="true" />
+                <element signature="e#1457#1481#0#HTML" expanded="true" />
+                <element signature="e#1524#1566#0#HTML" expanded="true" />
+                <element signature="e#1612#1633#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/authentication/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/rest_auth/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" column="1" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/authentication/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="334">
+              <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="header.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/advertiser/header.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="490">
+              <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_activation_pending.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/user_activation_pending.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="56" lean-forward="true" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
+              <folding>
+                <element signature="e#430#488#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/advertiser/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-62">
+              <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/auth.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="576">
+              <caret line="32" column="31" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="32" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/authentication/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serializers.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/authentication/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-394">
+              <caret line="34" column="71" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -135,22 +169,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>from</find>
-      <find>datatable</find>
-      <find>acceptAdRequest</find>
-      <find>showModal</find>
-      <find>path</find>
-      <find>create_file_reader</find>
-      <find>config</find>
-      <find>148.72.245.147</find>
-      <find>create_player</find>
-      <find>POLL_TIME</find>
-      <find>import_module</find>
-      <find>_player</find>
-      <find>h</find>
-      <find>ho</find>
-      <find>hoarderconsole</find>
-      <find>hoarder console</find>
       <find>user</find>
       <find>midd</find>
       <find>import Q</find>
@@ -165,6 +183,22 @@
       <find>Add ne</find>
       <find>g</find>
       <find>get_a</find>
+      <find>signin</find>
+      <find>request.user</find>
+      <find>l</find>
+      <find>logut</find>
+      <find>logu</find>
+      <find>log</find>
+      <find>logout</find>
+      <find>/</find>
+      <find>/logu</find>
+      <find>/log</find>
+      <find>/logo</find>
+      <find>/logou</find>
+      <find>/logout</find>
+      <find>/logout/</find>
+      <find>logout/</find>
+      <find>django_logout</find>
     </findStrings>
     <replaceStrings>
       <replace>'),('</replace>
@@ -203,9 +237,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/gentelella/production/index.html" />
-        <option value="$PROJECT_DIR$/templates/hoarder-old/hoarding-detail.html" />
-        <option value="$PROJECT_DIR$/static/gentelella/production/flex-add-hoarding.html" />
         <option value="$PROJECT_DIR$/templates/advertiser/sidebar.html" />
         <option value="$PROJECT_DIR$/templates/advertiser-old/file-upload.html" />
         <option value="$PROJECT_DIR$/templates/advertiser/base.html" />
@@ -231,7 +262,6 @@
         <option value="$PROJECT_DIR$/hardware/pi_video_looper/video_looper.conf" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/header.html" />
-        <option value="$PROJECT_DIR$/authentication/views.py" />
         <option value="$PROJECT_DIR$/authentication/middleware.py" />
         <option value="$PROJECT_DIR$/templates/advertiser/header.html" />
         <option value="$PROJECT_DIR$/templates/hoarder/header.html" />
@@ -254,6 +284,10 @@
         <option value="$PROJECT_DIR$/templates/hoarder/hoarding-detail.html" />
         <option value="$PROJECT_DIR$/templates/advertiser/campaign-detail.html" />
         <option value="$PROJECT_DIR$/templates/advertiser/campaign-wizard.html" />
+        <option value="$PROJECT_DIR$/authentication/urls.py" />
+        <option value="$PROJECT_DIR$/templates/user_activation_pending.html" />
+        <option value="$PROJECT_DIR$/authentication/models.py" />
+        <option value="$PROJECT_DIR$/authentication/views.py" />
       </list>
     </option>
   </component>
@@ -327,24 +361,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hoarder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flexplex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="flexplex" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="advertiser" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -359,7 +375,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="flexplex" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -373,11 +389,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="static" />
+              <option name="myItemId" value="authentication" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flexplex" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flexplex" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
+              <option name="myItemId" value="advertiser" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -397,19 +423,19 @@
     <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$/templates/hoarder" />
+      <recent name="$PROJECT_DIR$/hardware" />
+      <recent name="$PROJECT_DIR$/templates/advertiser" />
+      <recent name="$PROJECT_DIR$/templates/hoarder/css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates/hoarder" />
       <recent name="$PROJECT_DIR$/static/hoarder" />
       <recent name="$PROJECT_DIR$/templates/advertiser" />
       <recent name="$PROJECT_DIR$/static/uploads" />
       <recent name="$PROJECT_DIR$/main" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/templates/hoarder" />
-      <recent name="$PROJECT_DIR$/hardware" />
-      <recent name="$PROJECT_DIR$/templates/advertiser" />
-      <recent name="$PROJECT_DIR$/templates/hoarder/css" />
-      <recent name="$PROJECT_DIR$/templates/hoarder/js" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1020,7 +1046,14 @@
       <option name="project" value="LOCAL" />
       <updated>1498496775844</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="- Advertiser UI improvement, hoarding image added to map">
+      <created>1498982533179</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1498982533179</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1068,17 +1101,17 @@
     <frame x="1961" y="-4" width="1879" height="1084" extended-state="6" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3507307" sideWeight="0.37915984" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3507307" sideWeight="0.62084013" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4024768" sideWeight="0.56637865" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31732777" sideWeight="0.3818876" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31732777" sideWeight="0.6181124" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40187892" sideWeight="0.56192034" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.249226" sideWeight="0.6582875" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28482974" sideWeight="0.75255305" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28392485" sideWeight="0.7495908" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15111838" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.08978328" sideWeight="0.48468184" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19519833" sideWeight="0.48281506" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36951983" sideWeight="0.695581" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36951983" sideWeight="0.6928533" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1098,8 +1131,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Inventory added" />
-    <MESSAGE value="- Inventory layout changed to fluid" />
     <MESSAGE value="- added campaign status" />
     <MESSAGE value="- infowindow on marker click&#10;- user name in navbar after login&#10;- reverted bootstrap-4" />
     <MESSAGE value="- Media root added" />
@@ -1123,7 +1154,9 @@
     <MESSAGE value="- Corrected Hoarding save method" />
     <MESSAGE value="- Removed Authmiddleware &amp; added login_required decorator" />
     <MESSAGE value="- Campaign added in Hoarding serializer, Harware code modified accordingly&#10;- Hoarding last_update triggered in case of events related to Hoarding" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Campaign added in Hoarding serializer, Harware code modified accordingly&#10;- Hoarding last_update triggered in case of events related to Hoarding" />
+    <MESSAGE value="- Advertiser UI improvement, hoarding image added to map" />
+    <MESSAGE value="- User Activation implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="- User Activation implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1171,46 +1204,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="315" />
+      <option name="time" value="321" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hardware/pi_video_looper/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hardware/pi_video_looper/Adafruit_Video_Looper/model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="34" column="40" lean-forward="false" selection-start-line="34" selection-start-column="40" selection-end-line="34" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hardware/pi_video_looper/Adafruit_Video_Looper/directory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="820">
-          <caret line="41" column="22" lean-forward="false" selection-start-line="41" selection-start-column="4" selection-end-line="41" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hardware/pi_video_looper/get_campaign.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="38" lean-forward="false" selection-start-line="3" selection-start-column="15" selection-end-line="3" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hardware/pi_video_looper/install.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="2" lean-forward="false" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hardware/pi_video_looper/video_looper.conf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -1249,20 +1247,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/authentication/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="38" column="56" lean-forward="false" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1960">
-          <caret line="98" column="29" lean-forward="false" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/header.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="580">
@@ -1277,27 +1261,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/authentication/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#25#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/authentication/middleware.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/advertiser/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1316,28 +1283,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/flexplex/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/flexplex/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="166" column="0" lean-forward="false" selection-start-line="166" selection-start-column="2" selection-end-line="173" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/advertiser/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1393,14 +1342,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/rest_framework/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="473" column="0" lean-forward="false" selection-start-line="473" selection-start-column="0" selection-end-line="473" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1479,21 +1420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/authentication/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/advertiser/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1152">
-          <caret line="71" column="20" lean-forward="false" selection-start-line="71" selection-start-column="4" selection-end-line="71" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/advertiser/choose-hoarding.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -1523,7 +1449,7 @@
         <state relative-caret-position="509">
           <caret line="86" column="20" lean-forward="false" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="20" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1533,7 +1459,7 @@
         <state relative-caret-position="131">
           <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
-            <element signature="e#17#55#0" expanded="true" />
+            <element signature="e#17#55#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1541,18 +1467,10 @@
     <entry file="file://$PROJECT_DIR$/templates/hoarder/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
-          <caret line="117" column="56" lean-forward="true" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="56" />
+          <caret line="117" column="56" lean-forward="false" selection-start-line="117" selection-start-column="40" selection-end-line="117" selection-end-column="56" />
           <folding>
             <marker date="1498573414293" expanded="false" signature="1691:1709" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/hoarder/hoarding-detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="151" column="84" lean-forward="false" selection-start-line="151" selection-start-column="58" selection-end-line="151" selection-end-column="84" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1564,10 +1482,91 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/advertiser/campaign-wizard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+          <folding>
+            <marker date="1498980418578" expanded="false" signature="4797:4823" ph="..." />
+            <marker date="1498980418578" expanded="false" signature="4881:4947" ph="..." />
+            <marker date="1498980418578" expanded="false" signature="5071:5097" ph="..." />
+            <marker date="1498980418578" expanded="false" signature="5155:5221" ph="..." />
+            <marker date="1498980418578" expanded="false" signature="5346:5372" ph="..." />
+            <marker date="1498980418578" expanded="false" signature="5430:5496" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/advertiser/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="73" column="79" lean-forward="false" selection-start-line="73" selection-start-column="36" selection-end-line="73" selection-end-column="79" />
+          <folding>
+            <element signature="e#11#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1074">
+          <caret line="98" column="29" lean-forward="false" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/hoarder/hoarding-detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="151" column="84" lean-forward="false" selection-start-line="151" selection-start-column="58" selection-end-line="151" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/authentication/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-394">
+          <caret line="34" column="71" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/auth.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="32" column="31" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="32" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/rest_framework/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="475" column="0" lean-forward="false" selection-start-line="475" selection-start-column="0" selection-end-line="475" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flexplex/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/django/contrib/auth/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="132" column="4" lean-forward="false" selection-start-line="132" selection-start-column="4" selection-end-line="132" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/advertiser/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="710">
-          <caret line="65" column="44" lean-forward="true" selection-start-line="34" selection-start-column="36" selection-end-line="65" selection-end-column="44" />
+        <state relative-caret-position="180">
+          <caret line="10" column="12" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="10" selection-end-column="12" />
           <folding>
             <element signature="e#755#775#0#HTML" expanded="true" />
             <element signature="e#833#854#0#HTML" expanded="true" />
@@ -1578,17 +1577,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/advertiser/campaign-wizard.html">
+    <entry file="file://$PROJECT_DIR$/templates/user_activation_pending.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="41" column="51" lean-forward="false" selection-start-line="41" selection-start-column="51" selection-end-line="41" selection-end-column="51" />
+        <state relative-caret-position="108">
+          <caret line="6" column="56" lean-forward="true" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
           <folding>
-            <marker date="1498980418578" expanded="false" signature="4797:4823" ph="..." />
-            <marker date="1498980418578" expanded="false" signature="4881:4947" ph="..." />
-            <marker date="1498980418578" expanded="false" signature="5071:5097" ph="..." />
-            <marker date="1498980418578" expanded="false" signature="5155:5221" ph="..." />
-            <marker date="1498980418578" expanded="false" signature="5346:5372" ph="..." />
-            <marker date="1498980418578" expanded="false" signature="5430:5496" ph="..." />
+            <element signature="e#430#488#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/rest_auth/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/authentication/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/advertiser/header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="31" column="20" lean-forward="true" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/advertiser/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-62">
+          <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/authentication/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/authentication/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>

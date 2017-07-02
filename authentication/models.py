@@ -9,8 +9,10 @@ class UserProfile(models.Model):
     # custom fields for user
     phone = models.CharField(max_length=15)
 
-    # USER_TYPE_CHOICES = (
-    #     (1, 'Advertiser'),
-    #     (2, 'Hoarder'),
-    # )
-    # user_type = models.IntegerField(choices=USER_TYPE_CHOICES, default=2)
+    ACTIVATION_STATUS_CHOICES = (
+        (0, 'Pending'),
+        (1, 'Activated'),
+        (2, 'Deactivated'),
+
+    )
+    activation_status = models.IntegerField(choices=ACTIVATION_STATUS_CHOICES, default=ACTIVATION_STATUS_CHOICES[0][0])

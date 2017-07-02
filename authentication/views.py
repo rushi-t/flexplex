@@ -12,10 +12,16 @@ from django.http import HttpResponse
 from django.template import Context, loader
 from django.template import RequestContext
 from django.shortcuts import render
+from django.contrib.auth import (
+    login as django_login,
+    logout as django_logout
+)
 
 from rest_auth.views import LoginView
 from rest_auth.registration.views import RegisterView
 from forms import LoginForm, RegisterForm
+
+from models import UserProfile
 
 class HomeView(View):
     def get(self, request):
@@ -41,10 +47,20 @@ class SigninView(LoginView):
         else:
             response = super(SigninView, self).post(request, *args, **kwargs)
             user = request.user
-            if user.groups.filter(name='advertiser').exists():
-                return HttpResponseRedirect("../advertiser")
+            profile = UserProfile.objects.get(user=user)
+            if profile.activation_status == UserProfile.ACTIVATION_STATUS_CHOICES[1][0]:
+                if user.groups.filter(name='advertiser').exists():
+                    return HttpResponseRedirect("../advertiser")
+                else:
+                    return HttpResponseRedirect("../hoarder")
             else:
-                return HttpResponseRedirect("../hoarder")
+                try:
+                    request.user.auth_token.delete()
+                except:
+                    pass
+
+                django_logout(request)
+                return HttpResponseRedirect("/activation-pending/")
 
 class MyRegisterView(RegisterView):
 
@@ -63,3 +79,7 @@ class MyRegisterView(RegisterView):
                 return HttpResponseRedirect("/advertiser?first_login=true")
             else:
                 return HttpResponseRedirect("/hoarder?first_login=true")
+
+class UserActivationPendingView(View):
+    def get(self, request):
+        return render(request, 'user_activation_pending.html')
