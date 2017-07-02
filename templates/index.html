@@ -16,8 +16,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="google-site-verification" content="UpOYnMWV5TXgsPg-NvRIUftaO-sxfDRFm06_ZJbhLmE" />
-    <title>FlexPlex – Online Out of Home Advertising Platform</title>
+    <meta name="google-site-verification" content="UpOYnMWV5TXgsPg-NvRIUftaO-sxfDRFm06_ZJbhLmE"/>
+    <title>FlexPlex – Digital Advertising Network</title>
 
     <link rel="icon" href="{% static 'flexplex/img/favicon.png' %}">
 
@@ -25,7 +25,7 @@
     <link href="{% static 'flexplex/css/bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom Google Web Font -->
-    <link href="{% static 'flexplex/font-awesome/css/font-awesome.min.css' %}" rel='stylesheet' >
+    <link href="{% static 'flexplex/font-awesome/css/font-awesome.min.css' %}" rel='stylesheet'>
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic'
           rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Arvo:400,700' rel='stylesheet' type='text/css'>
@@ -74,14 +74,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <img src="{% static 'flexplex/img/logo-1.png' %}" alt="" height="40" style="margin-left: 15px;margin-top: 7px"/>
+            <img src="{% static 'flexplex/img/logo-1.png' %}" alt="" height="40"
+                 style="margin-left: 15px;margin-top: 7px"/>
         </div>
 
         <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                 <li class="menuItem"><a href="#whatis">Home</a></li>
                 <li class="menuItem"><a href="#advertisers">Adverisers</a></li>
-                <li class="menuItem"><a href="#hoarders">Hoarders</a></li>
+                <li class="menuItem"><a href="#Publishers">Publishers</a></li>
                 <li class="menuItem"><a href="#contact">Contact</a></li>
                 {% if user.is_authenticated %}
                     <li class="dropdown">
@@ -89,7 +90,7 @@
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a href="">My Profile</a></li>
-                            {% if user.is_superuser  %}
+                            {% if user.is_superuser %}
                                 <li><a href="/advertiser">Advertiser Console</a></li>
                                 <li><a href="/hoarder">Publisher Console</a></li>
                             {% endif %}
@@ -112,7 +113,7 @@
     <div class="intro-header-overlay">
         <div class="col-xs-12 text-center abcen1">
             <h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">FlexPlex</h1>
-            <h3 class="h3_home wow fadeIn" data-wow-delay="0.6s">Online Out of Home Advertising Network</h3>
+            <h3 class="h3_home wow fadeIn" data-wow-delay="0.6s">Digital OOH Advertising Network</h3>
             <ul class="list-inline intro-social-buttons" style="display: none">
                 <li><a href="https://twitter.com/galantiandrea" class="btn  btn-lg mybutton_cyano wow fadeIn"
                        data-wow-delay="0.8s"><span class="network-name">Twitter</span></a>
@@ -126,11 +127,12 @@
     <!-- /.container -->
     <div class="col-xs-12 text-center abcen wow fadeIn">
         <div class="button_down ">
-            <a class="imgcircle wow bounceInUp" data-wow-duration="1.5s"  href="#whatis"> <img class="img_scroll animated infinite bounce" src="{% static 'flexplex/img/icon/circle.png' %}" alt=""> </a>
+            <a class="imgcircle wow bounceInUp" data-wow-duration="1.5s" href="#whatis"> <img
+                    class="img_scroll animated infinite bounce" src="{% static 'flexplex/img/icon/circle.png' %}"
+                    alt=""> </a>
         </div>
     </div>
 </div>
-
 
 
 <!-- What is -->
@@ -139,7 +141,8 @@
 
         <div class="wrap_title">
             <h2>What is FlexPlex?</h2>
-            <p class="lead" style="text-align: left">FlexPlex is a Digital signage network where advertisers can deliver their dynamic content to
+            <p class="lead" style="text-align: left">FlexPlex is a Digital signage network where advertisers can deliver
+                their dynamic content to
                 the end users with the ability to reach in ways other mediums simply cannot. It is a unique platform
                 with features like cloud distribution, dynamic real-time content delivery, geo-targeting & performance
                 measurement.
@@ -153,22 +156,28 @@
     </div>
 </div>
 
-<!-- Use it -->
+<!-- Advertisers -->
 <div id="advertisers" class="content-section-a">
 
     <div class="container">
-
         <div class="row">
-
-            <div class="col-sm-6 pull-right wow fadeInRightBig">
-                <img class="img-responsive " src="{% static 'flexplex/img/test.png' %}" alt="">
+            <div class="col-sm-6 wow pull-left fadeInLeftBig" data-animation-delay="200">
+                <h2>Advertisers</h2>
+                <div class="lead3">Ad Distribution service</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 pull-right wow fadeInRightBig" style="margin-top: 30px">
+                <img class="img-responsive " src="../static/img/company_logos.jpg" alt="">
             </div>
 
-            <div class="col-sm-6 wow pull-left fadeInLeftBig" data-animation-delay="200" >
-                <h2 >Advertisers</h2>
-                <div class="lead3">Ad Distribution service</div>
+            <div class="col-sm-6 wow pull-left fadeInLeftBig" data-animation-delay="200">
+
+
                 <p class="lead" style="text-align: left">
-                    Currently advertisers need to search Digital hoardings manually or through Ad-Agencies. With FlexPlex network they can post their Ads to any hoarding within FlexPlex network in just a few clicks.
+                    Currently advertisers need to search Digital hoardings manually or through Ad-Agencies. With
+                    FlexPlex network they can post their Ads to any hoarding within FlexPlex network in just a few
+                    clicks.
                 </p>
                 <ul class="fa-ul">
                     <li><i class="fa-li fa fa-check-square"></i>Everything online</li>
@@ -187,18 +196,26 @@
     <!-- /.container -->
 </div>
 
+<!-- Publisher -->
 <div class="content-section-b">
 
     <div class="container">
+         <div class="row">
+            <div class="col-sm-6 pull-right wow fadeInRightBig" data-animation-delay="200">
+                <h2>Publishers</h2>
+                <div class="lead3">Digital ad subscription service</div>
+            </div>
+        </div>
         <div class="row">
-            <div class="col-sm-6  wow fadeInLeftBig">
-                <img class="img-responsive " src="../static/flexplex/img/hoarder.png" alt="">
+            <div class="col-sm-6  wow fadeInLeftBig" style="margin-top: 10px">
+                <img class="img-responsive " src="../static/img/billboard.png" alt="">
             </div>
             <div class="col-sm-6 pull-right wow fadeInRightBig" data-animation-delay="200">
-                <h2>Hoarders</h2>
-                <div class="lead3">Digital ad subscription service</div>
+
                 <p class="lead" style="text-align: left">
-                    Hoarders just need to install FlexPlex IOT hardware, that's it, the hoarding will be in Network. Hoarders can continue with their existing Ads, additionally they can generate more revenue by hosting more Ads from FlexPlex network.
+                    Publishers just need to install FlexPlex IOT hardware, that's it, the hoarding will be in Network.
+                    Publishers can continue with their existing Ads, additionally they can generate more revenue by
+                    hosting more Ads from FlexPlex network.
                 </p>
                 <ul class="fa-ul">
                     <li><i class="fa-li fa fa-check-square"></i>No need to search for advertisers or Ad-Agencies</li>
@@ -217,42 +234,71 @@
     </div>
 </div>
 
+
 <!-- Contact -->
 <div id="contact" class="content-section-a">
     <div class="container">
-        <div class="row">
 
+            <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center wrap_title">
                 <h2>Contact Us</h2>
                 <p class="lead" style="margin-top:0; display: none">Contact Us</p>
             </div>
-
+            </div>
+            <div class="row">
             <form role="form" action="" method="post">
-                <div class="col-md-6 pull-right ">
+                <div class="col-md-4"  style="padding-top: 20px">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <div class="col-md-11">
+                            <strong>Altus Software LLP.</strong><br/>
+                            B-203 Wateridge <br/>
+                            Opposite Atur Nagar <br/>
+                            Undri, Pune - 60
+                        </div>
+                    </div>
+                     <div class="row" style="margin-top: 10px">
+                        <div class="col-md-1">
+                            <i class="fa fa-mobile"></i>
+                        </div>
+                        <div class="col-md-11">
+                            +91 8308-8222-12
+                        </div>
+                    </div>
+                     <div class="row" style="margin-top: 10px">
+                        <div class="col-md-1">
+                            <i class="fa fa-envelope-o"></i>
+                        </div>
+                        <div class="col-md-11">
+                            sales@flexplex.in
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
                     <div class="form-group">
                         <label for="InputName">Your Name</label>
-                        <div class="input-group">
+                        <div class="input-group" style="width: 100%">
                             <input type="text" class="form-control" name="InputName" id="InputName"
                                    placeholder="Enter Name" required>
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="InputEmail">Your Email</label>
-                        <div class="input-group">
+                        <div class="input-group"  style="width: 100%">
                             <input type="email" class="form-control" id="InputEmail" name="InputEmail"
                                    placeholder="Enter Email" required>
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="InputMessage">Message</label>
-                        <div class="input-group">
-                            <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5"
+                        <div class="input-group"  style="width: 100%">
+                            <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" placeholder="Enter You Message"
                                       required></textarea>
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span>
                         </div>
                     </div>
 
@@ -289,14 +335,14 @@
     <div class="container hidden-xs">
         <div class="row">
             <div class="col-md-6 text-left">
-                © 2017 FlexPlex pvt Ltd
+                © 2017 Altus Software LLP
             </div>
         </div>
     </div>
     <div class="container visible-xs">
         <div class="row">
             <div class="col-md-4 text-center">
-                © 2017 FlexPlex pvt Ltd
+                © 2017 Altus Software LLP
             </div>
             <!--<div class="col-md-4 text-center">-->
             <!--<ul class="social-icons">-->
