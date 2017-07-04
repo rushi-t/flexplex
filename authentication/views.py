@@ -23,6 +23,14 @@ from forms import LoginForm, RegisterForm
 
 from models import UserProfile
 
+def logout(request):
+    try:
+        request.user.auth_token.delete()
+    except:
+        pass
+
+    django_logout(request)
+
 class HomeView(View):
     def get(self, request):
         user = request.user
@@ -48,18 +56,13 @@ class SigninView(LoginView):
             response = super(SigninView, self).post(request, *args, **kwargs)
             user = request.user
             profile = UserProfile.objects.get(user=user)
-            if profile is None or profile.activation_status == UserProfile.ACTIVATION_STATUS_CHOICES[1][0]:
+            if profile is None or profile.is_activated() is True:
                 if user.groups.filter(name='advertiser').exists():
                     return HttpResponseRedirect("../advertiser")
                 else:
                     return HttpResponseRedirect("../hoarder")
             else:
-                try:
-                    request.user.auth_token.delete()
-                except:
-                    pass
-
-                django_logout(request)
+                logout(request)
                 return HttpResponseRedirect("/activation-pending/")
 
 class MyRegisterView(RegisterView):
@@ -74,12 +77,18 @@ class MyRegisterView(RegisterView):
             return render(request, 'auth.html', {'register_form': form})
         else:
             response = super(MyRegisterView, self).post(request, *args, **kwargs)
-            user = request.user
-            if user.groups.filter(name='advertiser').exists():
-                return HttpResponseRedirect("/advertiser?first_login=true")
-            else:
-                return HttpResponseRedirect("/hoarder?first_login=true")
+            logout(request)
+            return HttpResponseRedirect("/register/success")
+            # user = request.user
+            # if user.groups.filter(name='advertiser').exists():
+            #     return HttpResponseRedirect("/advertiser?first_login=true")
+            # else:
+            #     return HttpResponseRedirect("/hoarder?first_login=true")
 
 class UserActivationPendingView(View):
     def get(self, request):
         return render(request, 'user_activation_pending.html')
+
+class PostRegistrationView(View):
+    def get(self, request):
+        return render(request, 'post_registration_page.html')

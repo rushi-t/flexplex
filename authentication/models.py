@@ -16,3 +16,8 @@ class UserProfile(models.Model):
 
     )
     activation_status = models.IntegerField(choices=ACTIVATION_STATUS_CHOICES, default=ACTIVATION_STATUS_CHOICES[0][0])
+
+    def is_activated(self):
+        if self.activation_status == self.ACTIVATION_STATUS_CHOICES[1][0]:
+            return True
+        return False
