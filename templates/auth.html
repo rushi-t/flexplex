@@ -8,6 +8,7 @@
         }
     </style>
     <!-- CSS -->
+
     <link rel="stylesheet" href="../static/login/css/form-elements-1.0.css">
     <link rel="stylesheet" href="../static/login/css/style-1.0.css">
 
@@ -24,20 +25,29 @@
     <style type="text/css">
 
         .intro-header-overlay {
-            height: 100%;
+            min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+            min-height: 100vh; /* These two lines are counted as one :-)       */
+            width: 100%;
+            display: flex;
+            align-items: center;
             background-color: rgba(0, 0, 0, 0.7);
             background-size: cover;
             text-align: center;
+        }
+        .vcenter {
+            min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+            min-height: 100vh; /* These two lines are counted as one :-)       */
+            width: 100%;
+            display: flex;
+            align-items: center;
         }
     </style>
     {% include "header.html" %}
 
     <!-- Top content -->
-    <div class="top-content">
+    <div >
         <div class="intro-header-overlay">
-
-            <div class="inner-bg">
-                <div class="container">
+                <div class="container" style="text-align: center; margin-top: -10vh">
 
                     <div class="row">
                         <div class="col-md-5">
@@ -46,7 +56,7 @@
                                 <div class="form-top">
                                     <div class="form-top-left">
                                         <h3>Login</h3>
-                                        <p>Enter email and password to Log on</p>
+                                        <div class="lead3">Enter email and password to Log on</div>
                                     </div>
                                     <div class="form-top-right">
                                         <i class="fa fa-key"></i>
@@ -80,7 +90,7 @@
                             </div>
 
                             <div class="social-login">
-                                <h3>or login with:</h3>
+                                <h3>or Login with</h3>
                                 <div class="social-login-buttons">
                                     <a class="btn btn-link-1 btn-link-1-facebook" href="#">
                                         <i class="fa fa-facebook"></i> Facebook
@@ -96,8 +106,9 @@
 
                         </div>
 
-                        <div class="col-sm-1 middle-border"></div>
-                        <div class="col-sm-1"></div>
+                        <div class="col-md-1 middle-border visible-lg">
+                        </div>
+                        <div class="col-md-1 hidden-sm"></div>
 
                         <div class="col-md-5">
 
@@ -105,7 +116,7 @@
                                 <div class="form-top">
                                     <div class="form-top-left">
                                         <h3>Register</h3>
-                                        <p>Fill in the form below to get instant access:</p>
+                                        <div class="lead3">Fill in the form below to get instant access:</div>
                                     </div>
                                     <div class="form-top-right">
                                         <i class="fa fa-pencil"></i>
@@ -180,7 +191,6 @@
                     </div>
 
                 </div>
-            </div>
         </div>
     </div>
 

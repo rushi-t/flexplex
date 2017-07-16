@@ -6,7 +6,7 @@ from rest_framework.parsers import FormParser, MultiPartParser
 from rest_framework.viewsets import ModelViewSet
 from advertiser.models import Campaign, CampaignHoardings
 from advertiser.serializers import CampaignSerializer, CampaignResourceSerializer, CampaignHoardingsSerializer
-from hoarder.models import Hoarding
+from hoarder.models import Hoarding, get_active_hoardings
 from django.shortcuts import render
 from rest_framework.generics import GenericAPIView
 from django.http import HttpResponseRedirect
@@ -18,6 +18,9 @@ from rest_auth.views import APIView
 from datetime import datetime
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+
 
 class CampaignResourceViewSet(ModelViewSet):
     # queryset = Campaign.objects.all()
@@ -67,6 +70,8 @@ class AdvertiserHome(APIView):
         #     hoardings = CampaignHoardings.objects.filter(campaign=campaign)
         #     campaign.hoardings['hoardings'] = hoardings
 
+        # email = EmailMessage('Subject', 'Body', to=['rushikesh.talokar@gmail.com'])
+        # email.send()
         return render(request, 'advertiser/index.html',
                       {'campaigns': campaigns})
 
@@ -105,7 +110,7 @@ def create_campaign(request, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0])
 
 class CreateCampaignView(View):
     def get(self, request):
-        queryset = Hoarding.objects.all()
+        queryset = get_active_hoardings()
         return render(request, 'advertiser/campaign-wizard.html', {'hoardings': queryset})
 
     def post(self, request, *args, **kwargs):
@@ -121,5 +126,5 @@ class CampaignDetail(View):
 
 class Inventory(GenericAPIView):
     def get(self, request):
-        queryset = Hoarding.objects.all()
+        queryset = get_active_hoardings()
         return render(request, 'advertiser/inventory.html', {'hoardings': queryset})

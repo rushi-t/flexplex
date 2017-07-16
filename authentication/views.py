@@ -20,7 +20,7 @@ from django.contrib.auth import (
 from rest_auth.views import LoginView
 from rest_auth.registration.views import RegisterView
 from forms import LoginForm, RegisterForm
-
+from hoarder.models import Hoarding, get_active_hoardings
 from models import UserProfile
 
 def logout(request):
@@ -41,7 +41,8 @@ class HomeView(View):
         #         return HttpResponseRedirect("../hoarder")
         # else:
         #     return render(request, 'index.html')
-        return render(request, 'index.html')
+        queryset = get_active_hoardings()
+        return render(request, 'index.html', {'hoardings': queryset})
 
 class SigninView(LoginView):
 

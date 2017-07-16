@@ -26,7 +26,7 @@ SECRET_KEY = '!2#s4z6!m%v^o0ggnvseqt1m3f%^zyxvm0(k3xbh#0mho-t6i='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['flexplex.in', '148.72.245.147', 'localhost', '0.0.0.0', '192.168.0.107']
+ALLOWED_HOSTS = ['flexplex.in', 'www.flexplex.in', '148.72.245.147', 'localhost', '0.0.0.0', '192.168.0.107']
 
 
 # Application definition
@@ -136,7 +136,6 @@ REST_FRAMEWORK = {
 }
 
 #This is required otherwise it asks for email server
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # ACCOUNT_EMAIL_REQUIRED = True
 # AUTHENTICATION_METHOD = 'EMAIL'
 # ACCOUNT_EMAIL_VERIFICATION = 'optional'
@@ -154,8 +153,18 @@ AUTHENTICATION_BACKENDS = (
  "allauth.account.auth_backends.AuthenticationBackend",
 )
 
-if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+# if DEBUG:
+#     EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+# else:
+#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'admin@flexplex.in'
+EMAIL_HOST_PASSWORD = 'Rushi_123'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 STATIC_URL = '/static/'
 

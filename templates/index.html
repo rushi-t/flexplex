@@ -54,7 +54,21 @@
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <![endif]-->
+    <style>
+        #gray-bg {
+            background-color: #eeeeee;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
 
+        #gray-bg .fun-fact {
+            border-right: 1px solid #ddd;
+        }
+
+        #gray-bg .col-md-6:last-child .fun-fact {
+            border-right: 0px solid #ddd;
+        }
+    </style>
 </head>
 
 <body id="home">
@@ -112,8 +126,8 @@
 <div class="intro-header">
     <div class="intro-header-overlay">
         <div class="col-xs-12 text-center abcen1">
-            <h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">FlexPlex</h1>
-            <h3 class="h3_home wow fadeIn" data-wow-delay="0.6s">Digital OOH Advertising Network</h3>
+            {#            <h1 class="h1_home wow fadeIn" data-wow-delay="0.4s">FlexPlex</h1>#}
+            {#            <h3 class="h3_home wow fadeIn" data-wow-delay="0.6s">Digital OOH Advertising Network</h3>#}
             <ul class="list-inline intro-social-buttons" style="display: none">
                 <li><a href="https://twitter.com/galantiandrea" class="btn  btn-lg mybutton_cyano wow fadeIn"
                        data-wow-delay="0.8s"><span class="network-name">Twitter</span></a>
@@ -134,7 +148,51 @@
     </div>
 </div>
 
+<div id="inventory-list" style="display: none">
+    {% for hoarding in hoardings %}
+        <div id="hoarding-{{ forloop.counter0 }}">
 
+            <div class="" style="padding: 0px">
+                <div class="col-md-5" style="padding: 0px; height: 220px">
+                    {% if hoarding.get_resources.count > 0 %}
+                        <img src="{{ hoarding.get_resources.0.resource }}" width="100%" height="100%">
+                    {% else %}
+                        <img src="/static/img/hoarding.png" width="100%" height="100%">
+                    {% endif %}
+                </div>
+                <div class="col-md-6" style="cursor: pointer; padding: 0px">
+                    <h4 style="margin-left: 10px">{{ hoarding.address.address }}</h4>
+                    <hr style="margin-bottom: 10px"/>
+                    <table data-toggle="table" data-striped="true" style="margin-left: 10px">
+                        <thead>
+                        <tr>
+                            <td style="width: 100px"></td>
+                            <td></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><label>Dimension:</label></td>
+                            <td>{{ hoarding.width }} x {{ hoarding.height }} ft.</td>
+                        </tr>
+                        <tr>
+                            <td><label>Rate:</label></td>
+                            <td> &#8377; {{ hoarding.rate }} </td>
+                        </tr>
+                        <tr>
+                            <td><label>Billing Cycle:</label></td>
+                            <td>{{ hoarding.get_cost_cycle_display }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    {#                        <label>Dimension:</label> {{ hoarding.width }} x {{ hoarding.height }} ft. <br/>#}
+                    {#                        <label>Rate:</label> &#8377; {{ hoarding.cost }} <br/>#}
+                    {#                        <label>Billing Cycle:</label>{{ hoarding.get_cost_cycle_display }} <br/>#}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
 <!-- What is -->
 <div id="whatis" class="content-section-b" style="border-top: 0">
     <div class="container">
@@ -158,7 +216,6 @@
 
 <!-- Advertisers -->
 <div id="advertisers" class="content-section-a">
-
     <div class="container">
         <div class="row">
             <div class="col-sm-6 wow pull-left fadeInLeftBig" data-animation-delay="200">
@@ -189,7 +246,7 @@
                     <li><i class="fa-li fa fa-check-square"></i>Hyperlocal advertisers can take advantage</li>
                     <li><i class="fa-li fa fa-check-square"></i>Measure Ad performance</li>
                 </ul>
-                <p><a class="btn btn-embossed btn-primary" href="location.html" role="button">View Locations</a>
+                <p><a class="btn btn-embossed btn-primary" href="/signin" role="button">Sign Up</a>
             </div>
         </div>
     </div>
@@ -198,10 +255,9 @@
 
 <!-- Publisher -->
 <div class="content-section-b">
-
     <div class="container">
-         <div class="row">
-            <div class="col-sm-12 pull-right wow fadeInRightBig" data-animation-delay="200">
+        <div class="row">
+            <div class="col-sm-12 wow fadeInLeftBig" data-animation-delay="200">
                 <h2>Publishers</h2>
                 <div class="lead3">Digital ad subscription service</div>
             </div>
@@ -227,10 +283,48 @@
                     <li><i class="fa-li fa fa-check-square"></i>No downtime</li>
                     <li><i class="fa-li fa fa-check-square"></i>More transparency</li>
                 </ul>
-                <p><a class="btn btn-embossed btn-primary" href="" role="button">View Details</a>
+                <p><a class="btn btn-embossed btn-primary" href="/signin" role="button">Sign Up</a>
             </div>
 
         </div>
+    </div>
+</div>
+
+
+<div>
+    {#    <div class="row">#}
+    {#        <div class="container" data-animation-delay="200">#}
+    {#            <h2>Inventory</h2>#}
+    {#            <div class="lead3">Screens registered with us</div>#}
+    {#        </div>#}
+    {#    </div>#}
+    <div id="gray-bg">
+        <div class="container">
+            {#        <div class="row">#}
+            {#            <div class="col-sm-12 wow fadeInLeftBig" data-animation-delay="200">#}
+            {#                <h2>Inventory</h2>#}
+            {#                <div class="lead3">Registered hoarding</div>#}
+            {#            </div>#}
+            {#        </div>#}
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="fun-fact text-center">
+                        <h2><i class="fa"></i> <span class="st-counter">15</span></h2>
+                        <h3 style="margin-top: 10px">Outdoor Screens</h3>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="fun-fact text-center">
+                        <h2><i class="fa"></i> <span class="st-counter">64</span></h2>
+                        <h3 style="margin-top: 10px">Indoor Screens</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div>
+        <div id="map-canvas" class="viewport-height"></div>
     </div>
 </div>
 
@@ -239,15 +333,15 @@
 <div id="contact" class="content-section-a">
     <div class="container">
 
-            <div class="row">
+        <div class="row">
             <div class="col-md-6 col-md-offset-3 text-center wrap_title">
                 <h2>Contact Us</h2>
                 <p class="lead" style="margin-top:0; display: none">Contact Us</p>
             </div>
-            </div>
-            <div class="row">
+        </div>
+        <div class="row">
             <form role="form" action="" method="post">
-                <div class="col-md-4"  style="padding-top: 20px">
+                <div class="col-md-4" style="padding-top: 20px">
                     <div class="row">
                         <div class="col-md-1">
                             <i class="fa fa-map-marker"></i>
@@ -259,7 +353,7 @@
                             Undri, Pune - 60
                         </div>
                     </div>
-                     <div class="row" style="margin-top: 10px">
+                    <div class="row" style="margin-top: 10px">
                         <div class="col-md-1">
                             <i class="fa fa-mobile"></i>
                         </div>
@@ -267,7 +361,7 @@
                             +91 8308-8222-12
                         </div>
                     </div>
-                     <div class="row" style="margin-top: 10px">
+                    <div class="row" style="margin-top: 10px">
                         <div class="col-md-1">
                             <i class="fa fa-envelope-o"></i>
                         </div>
@@ -288,7 +382,7 @@
 
                     <div class="form-group">
                         <label for="InputEmail">Your Email</label>
-                        <div class="input-group"  style="width: 100%">
+                        <div class="input-group" style="width: 100%">
                             <input type="email" class="form-control" id="InputEmail" name="InputEmail"
                                    placeholder="Enter Email" required>
                         </div>
@@ -296,8 +390,9 @@
 
                     <div class="form-group">
                         <label for="InputMessage">Message</label>
-                        <div class="input-group"  style="width: 100%">
-                            <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" placeholder="Enter You Message"
+                        <div class="input-group" style="width: 100%">
+                            <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5"
+                                      placeholder="Enter You Message"
                                       required></textarea>
                         </div>
                     </div>
@@ -357,6 +452,53 @@
     </div>
 </footer>
 
+
+<div id="inventory-list" style="display: none">
+    {% for hoarding in hoardings %}
+        <div id="hoarding-{{ forloop.counter0 }}">
+
+            <div class="" style="padding: 0px">
+                <div class="col-md-5" style="padding: 0px; height: 220px">
+                    {% if hoarding.get_resources.count > 0 %}
+                        <img src="{{ hoarding.get_resources.0.resource }}" width="100%" height="100%">
+                    {% else %}
+                        <img src="/static/img/hoarding.png" width="100%" height="100%">
+                    {% endif %}
+                </div>
+                <div class="col-md-6" style="cursor: pointer; padding: 0px">
+                    <h4 style="margin-left: 10px">{{ hoarding.address.address }}</h4>
+                    <hr style="margin-bottom: 10px"/>
+                    <table data-toggle="table" data-striped="true" style="margin-left: 10px">
+                        <thead>
+                        <tr>
+                            <td style="width: 100px"></td>
+                            <td></td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><label>Dimension:</label></td>
+                            <td>{{ hoarding.width }} x {{ hoarding.height }} ft.</td>
+                        </tr>
+                        <tr>
+                            <td><label>Rate:</label></td>
+                            <td> &#8377; {{ hoarding.rate }} </td>
+                        </tr>
+                        <tr>
+                            <td><label>Billing Cycle:</label></td>
+                            <td>{{ hoarding.get_cost_cycle_display }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    {#                        <label>Dimension:</label> {{ hoarding.width }} x {{ hoarding.height }} ft. <br/>#}
+                    {#                        <label>Rate:</label> &#8377; {{ hoarding.cost }} <br/>#}
+                    {#                        <label>Billing Cycle:</label>{{ hoarding.get_cost_cycle_display }} <br/>#}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
 <!-- JavaScript -->
 <script src="{% static 'flexplex/js/analytics.js' %}"></script>
 <script src="{% static 'flexplex/js/jquery-1.10.2.js' %}"></script>
@@ -384,6 +526,109 @@
 <script src="{% static 'flexplex/js/uiMorphingButton_inflow.js' %}"></script>
 <!-- Magnific Popup core JS file -->
 <script src="{% static 'flexplex/js/jquery.magnific-popup.js' %}"></script>
+
+<!-- ###################################################################### MAP ############################################################################ -->
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyAT10vV8xt9FuH_GNXSN1Xoi-rTEi530fo"></script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<style>
+    .viewport-height {
+        height: 60vh;
+    }
+
+    .list-group {
+        overflow-y: scroll;
+    }
+
+    #map-canvas {
+        position: relative;
+        bottom: 0;
+        overflow: hidden;
+    }
+
+</style>
+<script>
+    var map;
+    var arrMarkers = [];
+    var infowindow = new google.maps.InfoWindow();
+    var locations;
+    var center = new google.maps.LatLng(18.5164222, 73.8539146);
+    /* google maps -----------------------------------------------------*/
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    function initialize() {
+
+        locations = [
+            //['Sarag Baug', 18.499797, 73.853990, 4],
+            {% for hoarding in hoardings %}
+                ['{{ hoarding.address.address }}', {{ hoarding.address.geo_location }}, {{ forloop.counter0 }}],
+            {% endfor %}
+        ];
+
+        map = new google.maps.Map(document.getElementById('map-canvas'), {
+            zoom: 12,
+            center: center,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            scrollwheel: false,
+        });
+
+        var marker;
+
+        var pinIcon = new google.maps.MarkerImage(null, null, null, new google.maps.Size(15, 28)
+        );
+
+        var pinIcon1 = {
+            url: "/static/img/hoarding-icon.png", // url
+            scaledSize: new google.maps.Size(35, 35), // scaled size
+            origin: new google.maps.Point(0, 0), // origin
+            anchor: new google.maps.Point(0, 0) // anchor
+        };
+
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map,
+                icon: pinIcon1
+            });
+            marker.set("id", locations[i][3]);
+            arrMarkers[i] = marker;
+
+            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                return function () {
+                    handleListItemClicked(locations[i][3])
+                }
+            })(marker, i));
+        }
+
+        var clusterStyles = [
+            {
+                textColor: 'white',
+                url: '/static/img/cluster1.png',
+                height: 40,
+                width: 40
+            }
+        ];
+        var mcOptions = {gridSize: 10, styles: clusterStyles};
+        var markerCluster = new MarkerClusterer(map, arrMarkers,
+            mcOptions);
+
+    };
+
+    function handleListItemClicked(id) {
+        var content = $("#hoarding-" + id).clone().html();
+        infowindow.setContent(content);
+        infowindow.open(map, arrMarkers[id]);
+    }
+
+    function resizeMap() {
+        //google.maps.event.trigger(map, 'resize');
+        setTimeout(function () {
+            google.maps.event.trigger(map, 'resize');
+            map.setCenter(center);
+        }, 1000);
+    }
+
+</script>
+<!-- ###################################################################### MAP ############################################################################ -->
 </body>
 
 </html>

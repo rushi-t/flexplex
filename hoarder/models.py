@@ -11,32 +11,35 @@ class Hoarding(models.Model):
     #uuid = models.UUIDField(default=uuid.uuid4, unique=True)
     user = models.ForeignKey('auth.User')
     address = models.ForeignKey('common.Address', default=None)
+
+    DISPLAY_TYPE_CHOICES = ( (1, 'Indoor'), (2, 'OutDoor'),)
+    display_type = models.IntegerField(choices=DISPLAY_TYPE_CHOICES, default=2)
+
     width = models.PositiveIntegerField(default=0)
     height = models.PositiveIntegerField(default=0)
+
+    DIMENSION_UNIT_CHOICES = ( (1, 'inch'), (2, 'feet'), )
+    dimension_unit = models.IntegerField(choices=DIMENSION_UNIT_CHOICES, default=2)
+
+    PIXEL_PITCH_CHOICES = ( (3, 'P3'), (4, 'P4'), (5, 'P5'), (6, 'P6'), (7, 'P7'), (8, 'P8'), (9, 'P9'), (10, 'P10'), (12, 'P12'), (14, 'P14'), (16, 'P16'), )
+    pixel_pitch = models.IntegerField(choices=PIXEL_PITCH_CHOICES, default=2)
+
     h_res = models.PositiveIntegerField(default=0)
     v_res = models.PositiveIntegerField(default=0)
 
-    DISPLAY_TYPE_CHOICES = (
-        (1, 'Indoor'),
-        (2, 'OutDoor'),
-    )
-    display_type = models.IntegerField(choices=DISPLAY_TYPE_CHOICES, default=2)
+    # COST_CYCLE_CHOICES = ( (1, 'Daily'), (2, 'Weekly'), (3, 'Monthly'), )
+    # cost_cycle = models.IntegerField(choices=COST_CYCLE_CHOICES, default=3)
 
-    COST_CYCLE_CHOICES = (
-        (1, 'Daily'),
-        (2, 'Weekly'),
-        (3, 'Monthly'),
-    )
+    rate = models.FloatField(default=0)
 
     start_time = models.TimeField(default='00:00 AM')
     stop_time = models.TimeField(default='00:00 AM')
 
-    cost_cycle = models.IntegerField(choices=COST_CYCLE_CHOICES, default=3)
-    cost = models.FloatField(default=0)
-
     creation_date = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(default=datetime.now())
     last_heartbeat = models.DateTimeField(default=datetime.now())
+
+    active_status = models.BooleanField(default=False)
 
     def save(self, last_update=True, *args, **kwargs):
         if last_update is True:
@@ -86,6 +89,8 @@ class Hoarding(models.Model):
         except:
             return 0
 
+def get_active_hoardings():
+    return Hoarding.objects.filter(active_status=True)
 
 class HoardingResource(models.Model):
     hoarding = models.ForeignKey('Hoarding', default=None)
