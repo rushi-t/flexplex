@@ -22,7 +22,7 @@ class Hoarding(models.Model):
     dimension_unit = models.IntegerField(choices=DIMENSION_UNIT_CHOICES, default=2)
 
     PIXEL_PITCH_CHOICES = ( (3, 'P3'), (4, 'P4'), (5, 'P5'), (6, 'P6'), (7, 'P7'), (8, 'P8'), (9, 'P9'), (10, 'P10'), (12, 'P12'), (14, 'P14'), (16, 'P16'), )
-    pixel_pitch = models.IntegerField(choices=PIXEL_PITCH_CHOICES, default=2)
+    pixel_pitch = models.IntegerField(choices=PIXEL_PITCH_CHOICES, default=0)
 
     h_res = models.PositiveIntegerField(default=0)
     v_res = models.PositiveIntegerField(default=0)
