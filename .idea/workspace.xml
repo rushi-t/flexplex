@@ -2,27 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f9a8fbd-4c32-4ad8-a47c-c08b05f24bb4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/bg/bg-black.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/bg/bg-white.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/bg/cover-bg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/cluster1.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hardware/pi_video_looper" afterPath="$PROJECT_DIR$/hardware/pi_video_looper" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/advertiser/views.py" afterPath="$PROJECT_DIR$/advertiser/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/authentication/views.py" afterPath="$PROJECT_DIR$/authentication/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/flexplex/settings.py" afterPath="$PROJECT_DIR$/flexplex/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hoarder/models.py" afterPath="$PROJECT_DIR$/hoarder/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/flexplex/css/general.css" afterPath="$PROJECT_DIR$/static/flexplex/css/general.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/flexplex/css/style-1.0.css" afterPath="$PROJECT_DIR$/static/flexplex/css/style-1.0.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/hoarder/css/map-style.css" afterPath="$PROJECT_DIR$/static/hoarder/css/map-style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/hoarder/js/map.js" afterPath="$PROJECT_DIR$/static/hoarder/js/map.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/login/css/form-elements-1.0.css" afterPath="$PROJECT_DIR$/static/login/css/form-elements-1.0.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/login/css/style-1.0.css" afterPath="$PROJECT_DIR$/static/login/css/style-1.0.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/login/js/scripts.js" afterPath="$PROJECT_DIR$/static/login/js/scripts.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/choose-hoarding.html" afterPath="$PROJECT_DIR$/templates/advertiser/choose-hoarding.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/auth.html" afterPath="$PROJECT_DIR$/templates/auth.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="$PROJECT_DIR$/templates/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
     </list>
     <ignored path="static/img/bg/1-old.jpg" />
     <ignored path="hardware/hoarding.json" />
@@ -64,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1383">
-              <caret line="602" column="13" lean-forward="true" selection-start-line="602" selection-start-column="13" selection-end-line="602" selection-end-column="13" />
+              <caret line="602" column="13" lean-forward="false" selection-start-line="602" selection-start-column="13" selection-end-line="602" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -106,7 +87,7 @@
         <entry file="file://$PROJECT_DIR$/hoarder/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
-              <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+              <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -116,7 +97,7 @@
         <entry file="file://$PROJECT_DIR$/flexplex/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="283">
-              <caret line="153" column="1" lean-forward="true" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
+              <caret line="153" column="1" lean-forward="false" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -126,7 +107,7 @@
         <entry file="file://$PROJECT_DIR$/templates/advertiser/choose-hoarding.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1195">
-              <caret line="82" column="23" lean-forward="true" selection-start-line="81" selection-start-column="7" selection-end-line="82" selection-end-column="23" />
+              <caret line="82" column="23" lean-forward="false" selection-start-line="81" selection-start-column="7" selection-end-line="82" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -1125,7 +1106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1499188523876</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="- Home page improvement&#10;- Google map cluster&#10;- Email smtp setting added">
+      <created>1500180136101</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1500180136101</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1224,7 +1212,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="-  File upload widget in create campaign." />
     <MESSAGE value="- homepage bg size reduced" />
     <MESSAGE value="- test" />
     <MESSAGE value="- static site image size reduced" />
@@ -1249,7 +1236,8 @@
     <MESSAGE value="- minor UI bug fix" />
     <MESSAGE value="- Landing page improvement" />
     <MESSAGE value="- Post Registration screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Post Registration screen" />
+    <MESSAGE value="- Home page improvement&#10;- Google map cluster&#10;- Email smtp setting added" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Home page improvement&#10;- Google map cluster&#10;- Email smtp setting added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1555,6 +1543,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2124">
           <caret line="118" column="84" lean-forward="false" selection-start-line="118" selection-start-column="84" selection-end-line="118" selection-end-column="84" />
+          <folding>
+            <element signature="e#1708#1753#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1620,7 +1611,7 @@
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1383">
-          <caret line="602" column="13" lean-forward="true" selection-start-line="602" selection-start-column="13" selection-end-line="602" selection-end-column="13" />
+          <caret line="602" column="13" lean-forward="false" selection-start-line="602" selection-start-column="13" selection-end-line="602" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1628,7 +1619,7 @@
     <entry file="file://$PROJECT_DIR$/templates/advertiser/choose-hoarding.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1195">
-          <caret line="82" column="23" lean-forward="true" selection-start-line="81" selection-start-column="7" selection-end-line="82" selection-end-column="23" />
+          <caret line="82" column="23" lean-forward="false" selection-start-line="81" selection-start-column="7" selection-end-line="82" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1654,7 +1645,7 @@
     <entry file="file://$PROJECT_DIR$/hoarder/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <caret line="47" column="0" lean-forward="false" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1662,7 +1653,7 @@
     <entry file="file://$PROJECT_DIR$/flexplex/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
-          <caret line="153" column="1" lean-forward="true" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
+          <caret line="153" column="1" lean-forward="false" selection-start-line="153" selection-start-column="1" selection-end-line="153" selection-end-column="1" />
           <folding />
         </state>
       </provider>
