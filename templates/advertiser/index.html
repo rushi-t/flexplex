@@ -22,16 +22,16 @@
                 <div class="col-md-6 col-sm-6 col-xs-12 profile_details"
                      onclick="location.href='/advertiser/campaign/{{ campaign.id }}';" style="cursor: pointer;">
                     <div class="well profile_view" style="padding: 0px">
-                        <div class="col-md-4" style="padding: 0px;">
+                        <div class="col-md-5" style="padding: 0px;">
                             {% if campaign.isVideo %}
-                                <video width="100%" height="180px" controls>
+                                <video width="100%" height="150px" controls>
                                     <source src="{{ campaign.resource }}" type="video/mp4">
                                 </video>
                             {% else %}
-                                <img src="{{ campaign.resource }}" class="img" width="100%" height="180px">
+                                <img src="{{ campaign.resource }}" class="img" width="100%" height="150px">
                             {% endif %}
                         </div>
-                        <div class="col-md-8" style="cursor: pointer;">
+                        <div class="col-md-7" style="cursor: pointer;">
                             <div style="background: #F2F5F7; margin: -10px">
                                 <h4 style="padding: 10px">{{ campaign.name }}</h4>
                             </div>
@@ -93,8 +93,8 @@
         {% endif %}
     </div>
     <div class="clearfix"></div>
-    <link rel="stylesheet" href="https://cdn.plyr.io/2.0.12/plyr.css">
-    <script src="https://cdn.plyr.io/2.0.12/plyr.js"></script>
+    <link rel="stylesheet" href="/static/gentelella/vendors/plyr/plyr.css">
+    <script src="/static/gentelella/vendors/plyr/plyr.js"></script>
     <script>plyr.setup();</script>
     <style>
         .plyr--stopped .plyr__controls {

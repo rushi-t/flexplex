@@ -148,51 +148,6 @@
     </div>
 </div>
 
-<div id="inventory-list" style="display: none">
-    {% for hoarding in hoardings %}
-        <div id="hoarding-{{ forloop.counter0 }}">
-
-            <div class="" style="padding: 0px">
-                <div class="col-md-5" style="padding: 0px; height: 220px">
-                    {% if hoarding.get_resources.count > 0 %}
-                        <img src="{{ hoarding.get_resources.0.resource }}" width="100%" height="100%">
-                    {% else %}
-                        <img src="/static/img/hoarding.png" width="100%" height="100%">
-                    {% endif %}
-                </div>
-                <div class="col-md-6" style="cursor: pointer; padding: 0px">
-                    <h4 style="margin-left: 10px">{{ hoarding.address.address }}</h4>
-                    <hr style="margin-bottom: 10px"/>
-                    <table data-toggle="table" data-striped="true" style="margin-left: 10px">
-                        <thead>
-                        <tr>
-                            <td style="width: 100px"></td>
-                            <td></td>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td><label>Dimension:</label></td>
-                            <td>{{ hoarding.width }} x {{ hoarding.height }} ft.</td>
-                        </tr>
-                        <tr>
-                            <td><label>Rate:</label></td>
-                            <td> &#8377; {{ hoarding.rate }} </td>
-                        </tr>
-                        <tr>
-                            <td><label>Billing Cycle:</label></td>
-                            <td>{{ hoarding.get_cost_cycle_display }}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    {#                        <label>Dimension:</label> {{ hoarding.width }} x {{ hoarding.height }} ft. <br/>#}
-                    {#                        <label>Rate:</label> &#8377; {{ hoarding.cost }} <br/>#}
-                    {#                        <label>Billing Cycle:</label>{{ hoarding.get_cost_cycle_display }} <br/>#}
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-</div>
 <!-- What is -->
 <div id="whatis" class="content-section-b" style="border-top: 0">
     <div class="container">
@@ -462,16 +417,16 @@
                     {% if hoarding.get_resources.count > 0 %}
                         <img src="{{ hoarding.get_resources.0.resource }}" width="100%" height="100%">
                     {% else %}
-                        <img src="/static/img/hoarding.png" width="100%" height="100%">
+                        <img src="/static/img/billboard.png" width="100%" height="100%">
                     {% endif %}
                 </div>
                 <div class="col-md-6" style="cursor: pointer; padding: 0px">
                     <h4 style="margin-left: 10px">{{ hoarding.address.address }}</h4>
-                    <hr style="margin-bottom: 10px"/>
+                    <hr style="margin-top: 0px; margin-bottom: 10px"/>
                     <table data-toggle="table" data-striped="true" style="margin-left: 10px">
                         <thead>
                         <tr>
-                            <td style="width: 100px"></td>
+                            <td style="width: 150px"></td>
                             <td></td>
                         </tr>
                         </thead>
@@ -485,8 +440,16 @@
                             <td> &#8377; {{ hoarding.rate }} </td>
                         </tr>
                         <tr>
-                            <td><label>Billing Cycle:</label></td>
-                            <td>{{ hoarding.get_cost_cycle_display }}</td>
+                            <td><label>Availability:</label></td>
+                            <td>Available</td>
+                        </tr>
+                        <tr>
+                            <td><label>Min Ad Duration:</label></td>
+                            <td>10 sec</td>
+                        </tr>
+                        <tr>
+                            <td><label>Avg Daily Impressions</label></td>
+                            <td>200 ~ 300</td>
                         </tr>
                         </tbody>
                     </table>

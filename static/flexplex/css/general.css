@@ -230,7 +230,7 @@ color: #ECEBEB;
 }
 
 .intro-header {
-	height: 70%; /* Full PAge */
+	height: 100%; /* Full PAge */
 	color: #f8f8f8;
 	background: url(/static/img/bg/cover-bg.jpg) no-repeat center center;
 	background-size: cover;
@@ -241,7 +241,7 @@ color: #ECEBEB;
 	height: 100%; /* Full PAge */
 	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
 	padding-bottom: 50px;
-	background-color: rgba(0,0,0,0.1);
+	background-color: rgba(0,0,0,0.3);
 	background-size: cover;
 	text-align: center;
 }
