@@ -3,5 +3,3 @@ find . -path "*/migrations/*.pyc"  -delete
 
 python manage.py makemigrations
 python manage.py migrate
-
-SET PASSWORD FOR 'root'@'localhost' = PASSWORD('Rushi_123');
