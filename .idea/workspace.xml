@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f9a8fbd-4c32-4ad8-a47c-c08b05f24bb4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/gentelella/vendors/plyr/plyr.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/gentelella/vendors/plyr/plyr.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hardware/pi_video_looper" afterPath="$PROJECT_DIR$/hardware/pi_video_looper" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/advertiser/views.py" afterPath="$PROJECT_DIR$/advertiser/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/flexplex/css/general.css" afterPath="$PROJECT_DIR$/static/flexplex/css/general.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/flexplex/css/style-1.0.css" afterPath="$PROJECT_DIR$/static/flexplex/css/style-1.0.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/advertiser/index.html" afterPath="$PROJECT_DIR$/templates/advertiser/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/gentelella/build/css/custom.css" afterPath="$PROJECT_DIR$/static/gentelella/build/css/custom.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
     </list>
     <ignored path="static/img/bg/1-old.jpg" />
@@ -51,14 +46,44 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2466">
-              <caret line="146" column="14" lean-forward="true" selection-start-line="146" selection-start-column="14" selection-end-line="146" selection-end-column="14" />
+            <state relative-caret-position="252">
+              <caret line="71" column="9" lean-forward="false" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#h4#0;n#div#1;n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#hr#0;n#div#1;n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#0;n#thead#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/advertiser/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="71" column="24" lean-forward="false" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="custom.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/gentelella/build/css/custom.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-124">
+              <caret line="351" column="24" lean-forward="false" selection-start-line="351" selection-start-column="24" selection-end-line="351" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebar.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/advertiser/sidebar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" column="70" lean-forward="true" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="70" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,10 +110,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="general.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="general.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/flexplex/css/general.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
+            <state relative-caret-position="4374">
               <caret line="243" column="36" lean-forward="false" selection-start-line="243" selection-start-column="36" selection-end-line="243" selection-end-column="36" />
               <folding />
             </state>
@@ -122,7 +147,7 @@
       <file leaf-file-name="plyr.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/gentelella/vendors/plyr/plyr.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
+            <state relative-caret-position="0">
               <caret line="0" column="517" lean-forward="false" selection-start-line="0" selection-start-column="517" selection-end-line="0" selection-end-column="517" />
               <folding />
             </state>
@@ -210,8 +235,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/gentelella/production/index2.html" />
-        <option value="$PROJECT_DIR$/templates/hoarder/campaign-requests.html" />
         <option value="$PROJECT_DIR$/hardware/pi_video_looper/Adafruit_Video_Looper/hello_video.py" />
         <option value="$PROJECT_DIR$/hardware/pi_video_looper/build/lib.linux-armv7l-2.7/Adafruit_Video_Looper/omxplayer.py" />
         <option value="$PROJECT_DIR$/hardware/pi_video_looper/Adafruit_Video_Looper/hoarding_info.py" />
@@ -259,8 +282,10 @@
         <option value="$PROJECT_DIR$/advertiser/views.py" />
         <option value="$PROJECT_DIR$/static/gentelella/vendors/plyr/plyr.css" />
         <option value="$PROJECT_DIR$/templates/advertiser/index.html" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/static/flexplex/css/general.css" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/templates/advertiser/sidebar.html" />
+        <option value="$PROJECT_DIR$/static/gentelella/build/css/custom.css" />
       </list>
     </option>
   </component>
@@ -1068,7 +1093,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500218058663</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="- plyr script, css added&#10;- homepage cover size changed">
+      <created>1500223484718</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1500223484718</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1119,7 +1151,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31732777" sideWeight="0.3846154" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5" sideWeight="0.61538464" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23684211" sideWeight="0.61538464" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40187892" sideWeight="0.56192034" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.249226" sideWeight="0.6582875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1167,7 +1199,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- test" />
     <MESSAGE value="- static site image size reduced" />
     <MESSAGE value="- non-working resource links corrected in Advertisers&#10;- Hardware script initial commit" />
     <MESSAGE value="- removed django filters" />
@@ -1192,7 +1223,8 @@
     <MESSAGE value="- Post Registration screen" />
     <MESSAGE value="- Home page improvement&#10;- Google map cluster&#10;- Email smtp setting added" />
     <MESSAGE value="- fresh db migrations" />
-    <option name="LAST_COMMIT_MESSAGE" value="- fresh db migrations" />
+    <MESSAGE value="- plyr script, css added&#10;- homepage cover size changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="- plyr script, css added&#10;- homepage cover size changed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1245,21 +1277,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.local/lib/python2.7/site-packages/rest_auth/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="1" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/advertiser/header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="31" column="20" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///media/rtalokar/01CF3511D3C7DA40/Stuff/projects/t2t/index.php" />
     <entry file="file://$PROJECT_DIR$/static/flexplex/css/custom.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1134">
@@ -1597,7 +1614,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/gentelella/vendors/plyr/plyr.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
+        <state relative-caret-position="0">
           <caret line="0" column="517" lean-forward="false" selection-start-line="0" selection-start-column="517" selection-end-line="0" selection-end-column="517" />
           <folding />
         </state>
@@ -1615,10 +1632,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/flexplex/css/general.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4374">
+          <caret line="243" column="36" lean-forward="false" selection-start-line="243" selection-start-column="36" selection-end-line="243" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2466">
-          <caret line="146" column="14" lean-forward="true" selection-start-line="146" selection-start-column="14" selection-end-line="146" selection-end-column="14" />
+        <state relative-caret-position="252">
+          <caret line="71" column="9" lean-forward="false" selection-start-line="71" selection-start-column="9" selection-end-line="71" selection-end-column="9" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#h4#0;n#div#1;n#div#0;n#div#0;n#div#7;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1628,10 +1653,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/flexplex/css/general.css">
+    <entry file="file://$PROJECT_DIR$/templates/advertiser/sidebar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="243" column="36" lean-forward="false" selection-start-line="243" selection-start-column="36" selection-end-line="243" selection-end-column="36" />
+        <state relative-caret-position="36">
+          <caret line="2" column="70" lean-forward="true" selection-start-line="2" selection-start-column="63" selection-end-line="2" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/advertiser/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="71" column="24" lean-forward="false" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/gentelella/build/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-124">
+          <caret line="351" column="24" lean-forward="false" selection-start-line="351" selection-start-column="24" selection-end-line="351" selection-end-column="24" />
           <folding />
         </state>
       </provider>

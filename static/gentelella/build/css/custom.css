@@ -351,7 +351,8 @@ body .container.body .right_col {
 }
 .nav-md .container.body .right_col {
     padding: 10px 20px 0;
-    margin-left: 230px
+    margin-left: 230px;
+    min-height: 92.5vh;
 }
 .nav_title {
     width: 230px;
@@ -1698,7 +1699,8 @@ span.right {
 }
 @media (min-width: 992px) {
     footer {
-        margin-left: 230px
+        margin-left: 230px;
+        background-color: #ededed;
     }
 }
 @media (min-width: 992px) {
