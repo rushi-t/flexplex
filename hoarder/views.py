@@ -140,8 +140,8 @@ class AddHoardingView(View):
                             width=request.POST['width'],
                             height=request.POST['height'],
                             display_type=request.POST['display_type'],
-                            cost_cycle=request.POST['cost_cycle'],
-                            cost=request.POST['cost'],
+                            #cost_cycle=request.POST['cost_cycle'],
+                            rate=request.POST['cost'],
                             start_time=datetime.strptime(request.POST['start_time'], '%I:%M %p').time(),
                             stop_time=datetime.strptime(request.POST['stop_time'], '%I:%M %p').time())
 
