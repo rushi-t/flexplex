@@ -670,13 +670,6 @@
       <option name="presentableId" value="Default" />
       <updated>1490535612696</updated>
     </task>
-    <task id="LOCAL-00003" summary="login, registration separated into authentication app">
-      <created>1490973292302</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1490973292302</updated>
-    </task>
     <task id="LOCAL-00004" summary="- Login, Registration, Static website integration(Non Stable)">
       <created>1491847036729</created>
       <option name="number" value="00004" />
@@ -1013,7 +1006,14 @@
       <option name="project" value="LOCAL" />
       <updated>1500313473088</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="- Home page theme color">
+      <created>1500313833647</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1500313833648</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1112,7 +1112,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- uncommented media url" />
     <MESSAGE value="- Home page redirect disabled&#10;- Inventory id mismatch bug resolved" />
     <MESSAGE value="- Adevertiser/Hoarder console links added to navbar" />
     <MESSAGE value="- Login/Registration Validation, Redirection&#10;- Hoarder/Advertiser home page messages" />
@@ -1137,7 +1136,8 @@
     <MESSAGE value="- minimum height to console pages" />
     <MESSAGE value="- Register hoarding bug resolved" />
     <MESSAGE value="- Home page Jquery Count-up added" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Home page Jquery Count-up added" />
+    <MESSAGE value="- Home page theme color" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Home page theme color" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
