@@ -29,7 +29,7 @@ class HoardingSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Hoarding
-        fields = ('id', 'width', 'height', 'h_res', 'v_res', 'display_type', 'cost_cycle', 'cost', 'display_type', 'address', 'last_update', 'campaigns', )
+        fields = ('id', 'width', 'height', 'h_res', 'v_res', 'display_type','rate', 'address', 'last_update', 'campaigns', )
 
     def create(self, validated_data):
         address_data = validated_data.pop('address')

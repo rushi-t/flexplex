@@ -83,14 +83,14 @@ def create_campaign(request, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0])
     if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
         outFileName = os.path.splitext(filename)[0] + '.mp4'
 
-        # ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -loop 1 -i ' \
-        #             + fs.location + "/" + filename + ' -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1280:720 ' \
-        #             + fs.location + "/" + outFileName
-        # local
-
-        ffmpegCmd = 'ffmpeg -loop 1 -i ' \
+        ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -loop 1 -i ' \
                     + fs.location + "/" + filename + ' -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1280:720 ' \
                     + fs.location + "/" + outFileName
+        # local
+
+        # ffmpegCmd = 'ffmpeg -loop 1 -i ' \
+        #             + fs.location + "/" + filename + ' -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1280:720 ' \
+        #             + fs.location + "/" + outFileName
         process = call(ffmpegCmd, shell=True)
         # process.wait()
         filename = outFileName
