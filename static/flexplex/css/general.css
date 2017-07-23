@@ -115,7 +115,7 @@ filter: alpha(opacity=95) !important;
 	position:absolute;
 	left:50%; /* centers the loading animation horizontally one the screen */
 	top:50%; /* centers the loading animation vertically one the screen */
-	background-image:url(../img/status.gif); /* path to your loading animation */
+	background-image:url(../img/Ellipsis.gif); /* path to your loading animation */
 	background-repeat:no-repeat;
 	background-position:center;
 	margin:-100px 0 0 -100px; /* is width and height divided by two */
@@ -241,7 +241,7 @@ color: #ECEBEB;
 	height: 100%; /* Full PAge */
 	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
 	padding-bottom: 50px;
-	background-color: rgba(0,0,0,0.3);
+	background-color: rgba(0,0,0,0.1);
 	background-size: cover;
 	text-align: center;
 }

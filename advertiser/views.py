@@ -92,6 +92,14 @@ def create_campaign(request, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0])
         #             + fs.location + "/" + filename + ' -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1280:720 ' \
         #             + fs.location + "/" + outFileName
         process = call(ffmpegCmd, shell=True)
+
+        ##AVI File
+        aviFileName = os.path.splitext(filename)[0] + '.avi'
+        ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -i ' \
+                    + fs.location + "/" + outFileName + ' -vcodec mpeg4 ' \
+                    + fs.location + "/" + aviFileName
+        process = call(ffmpegCmd, shell=True)
+
         # process.wait()
         filename = outFileName
 

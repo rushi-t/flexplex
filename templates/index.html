@@ -16,7 +16,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="theme-color" content="#eeeeee" />
+    <meta name="theme-color" content="#eeeeee"/>
     <title>FlexPlex – Digital Advertising Network</title>
 
     <link rel="icon" href="{% static 'flexplex/img/favicon.png' %}">
@@ -68,6 +68,7 @@
         #gray-bg .col-md-6:last-child .fun-fact {
             border-right: 0px solid #ddd;
         }
+
         .fa-li {
             top: .4em;
         }
@@ -172,23 +173,25 @@
     </div>
 </div>
 
+
 <!-- Advertisers -->
-<div id="advertisers" class="content-section-a">
+<div class="content-section-b">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 wow pull-left fadeInLeftBig" data-animation-delay="200">
-                <h2>Advertisers</h2>
+            <div class="col-sm-12 wow fadeInLeftBig" data-animation-delay="200">
+                 <h2>Advertisers</h2>
                 <div class="lead3">Ad Distribution service</div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 pull-right wow fadeInRightBig" style="margin-top: 30px">
-                <img class="img-responsive " src="../static/img/company_logos.jpg" alt="">
+            <div class="col-sm-6  wow fadeInLeftBig" style="margin-top: 20px">
+{#                <img class="img-responsive " src="../static/img/company_logos.jpg" alt="">#}
+                 <div style="position: relative;width: 100%;height: 0;padding-bottom: 56.25%;">
+                    <iframe style="position: absolute;width: 100%;height: 100%;"
+                            src="https://www.youtube.com/embed/20n1KugN0Aw?rel=0"></iframe>
+                </div>
             </div>
-
-            <div class="col-sm-6 wow pull-left fadeInLeftBig" data-animation-delay="200">
-
-
+            <div class="col-sm-6 pull-right wow fadeInRightBig" data-animation-delay="200">
                 <p class="lead" style="text-align: left">
                     Currently advertisers need to search Digital hoardings manually or through Ad-Agencies. With
                     FlexPlex network they can post their Ads to any hoarding within FlexPlex network in just a few
@@ -205,27 +208,29 @@
                     <li><i class="fa-li fa fa-check-square"></i>Measure Ad performance</li>
                 </ul>
                 <p><a class="btn btn-embossed btn-primary" href="/signin" role="button">Sign Up</a>
+
+
             </div>
+
         </div>
     </div>
-    <!-- /.container -->
 </div>
 
 <!-- Publisher -->
-<div class="content-section-b">
+<div id="advertisers" class="content-section-a">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12 wow fadeInLeftBig" data-animation-delay="200">
+            <div class="col-sm-6 wow pull-left fadeInLeftBig" data-animation-delay="200">
                 <h2>Publishers</h2>
                 <div class="lead3">Digital ad subscription service</div>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6  wow fadeInLeftBig" style="margin-top: 10px">
+            <div class="col-sm-6 pull-right wow fadeInRightBig" style="margin-top: 30px">
                 <img class="img-responsive " src="../static/img/billboard.png" alt="">
             </div>
-            <div class="col-sm-6 pull-right wow fadeInRightBig" data-animation-delay="200">
 
+            <div class="col-sm-6 wow pull-left fadeInLeftBig" data-animation-delay="200">
                 <p class="lead" style="text-align: left">
                     Publishers just need to install FlexPlex IOT hardware, that's it, the hoarding will be in Network.
                     Publishers can continue with their existing Ads, additionally they can generate more revenue by
@@ -243,11 +248,10 @@
                 </ul>
                 <p><a class="btn btn-embossed btn-primary" href="/signin" role="button">Sign Up</a>
             </div>
-
         </div>
     </div>
+    <!-- /.container -->
 </div>
-
 
 <div>
     {#    <div class="row">#}
@@ -305,10 +309,10 @@
                             <i class="fa fa-map-marker"></i>
                         </div>
                         <div class="col-md-11">
-                            <strong>Altus Software LLP.</strong><br/>
-                            B-203 Wateridge <br/>
-                            Opposite Atur Nagar <br/>
-                            Undri, Pune - 60
+                            <strong>Altus Software</strong><br/>
+                            Taware Colony,<br/>
+                            Sahakarnagar,<br/>
+                            Pune-09 <br/>
                         </div>
                     </div>
                     <div class="row" style="margin-top: 10px">
@@ -388,14 +392,14 @@
     <div class="container hidden-xs">
         <div class="row">
             <div class="col-md-6 text-left">
-                © 2017 Altus Software LLP
+                © 2017 Altus Software
             </div>
         </div>
     </div>
     <div class="container visible-xs">
         <div class="row">
             <div class="col-md-4 text-center">
-                © 2017 Altus Software LLP
+                © 2017 Altus Software
             </div>
             <!--<div class="col-md-4 text-center">-->
             <!--<ul class="social-icons">-->
@@ -599,10 +603,10 @@
 <script src="/static/gentelella/vendors/count-up/jquery.counterup.min.js"></script>
 <script>
 
-        $('.counter').counterUp({
-            delay: 10,
-            time: 1000
-        });
+    $('.counter').counterUp({
+        delay: 10,
+        time: 1000
+    });
 </script>
 </body>
 
