@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5f9a8fbd-4c32-4ad8-a47c-c08b05f24bb4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/authentication/views.py" afterPath="$PROJECT_DIR$/authentication/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
     </list>
     <ignored path="static/img/bg/1-old.jpg" />
@@ -42,7 +41,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/authentication/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -54,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="273" column="92" lean-forward="false" selection-start-line="273" selection-start-column="92" selection-end-line="273" selection-end-column="92" />
+            <state relative-caret-position="140">
+              <caret line="155" column="41" lean-forward="true" selection-start-line="155" selection-start-column="41" selection-end-line="155" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -214,8 +213,8 @@
         <option value="$PROJECT_DIR$/static/flexplex/css/general.css" />
         <option value="$PROJECT_DIR$/advertiser/views.py" />
         <option value="$PROJECT_DIR$/hoarder/models.py" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/authentication/views.py" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
       </list>
     </option>
   </component>
@@ -704,13 +703,6 @@
       <option name="presentableId" value="Default" />
       <updated>1490535612696</updated>
     </task>
-    <task id="LOCAL-00006" summary="- Advertiser(create campaign, list campaign)&#10;- Hoarder(add hoarding, list hoarding)">
-      <created>1492364105411</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1492364105411</updated>
-    </task>
     <task id="LOCAL-00007" summary="- Advertiser(create campaign, list campaign)&#10;- Hoarder(add hoarding, list hoarding)">
       <created>1492842222220</created>
       <option name="number" value="00007" />
@@ -1047,7 +1039,14 @@
       <option name="project" value="LOCAL" />
       <updated>1501000105795</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="- Code for actual hoarding count on home page">
+      <created>1501002004872</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1501002004872</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1096,7 +1095,7 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972136" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23684211" sideWeight="0.38858482" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24458204" sideWeight="0.61141515" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24458204" sideWeight="0.61141515" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40187892" sideWeight="0.56192034" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.249226" sideWeight="0.6582875" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22755417" sideWeight="0.7495908" order="9" side_tool="false" content_ui="tabs" />
@@ -1147,7 +1146,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Login/Registration Validation, Redirection&#10;- Hoarder/Advertiser home page messages" />
     <MESSAGE value="- Admin menu items added in Navbar" />
     <MESSAGE value="- Add hoarding layout changed.&#10;- Global font size for Hoarder/Advertiser console" />
     <MESSAGE value="- Admin menu on Home page" />
@@ -1172,7 +1170,8 @@
     <MESSAGE value="- Home page theme color" />
     <MESSAGE value="- Demo video, loading gif" />
     <MESSAGE value="- Hoarder model updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Hoarder model updated" />
+    <MESSAGE value="- Code for actual hoarding count on home page" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Code for actual hoarding count on home page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1514,14 +1513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="273" column="92" lean-forward="false" selection-start-line="273" selection-start-column="92" selection-end-line="273" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/authentication/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1529,6 +1520,14 @@
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="155" column="41" lean-forward="true" selection-start-line="155" selection-start-column="41" selection-end-line="155" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
