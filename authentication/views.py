@@ -42,7 +42,12 @@ class HomeView(View):
         # else:
         #     return render(request, 'index.html')
         queryset = get_active_hoardings()
-        return render(request, 'index.html', {'hoardings': queryset})
+        indoor_hoarding_cnt = queryset.filter(display_type=Hoarding.DISPLAY_TYPE_CHOICES[0][0]).count()
+        outdoor_hoarding_cnt = queryset.filter(display_type=Hoarding.DISPLAY_TYPE_CHOICES[1][0]).count()
+        return render(request, 'index.html',
+                      {'hoardings': queryset,
+                       'indoor_hoarding_cnt': indoor_hoarding_cnt,
+                       'outdoor_hoarding_cnt': outdoor_hoarding_cnt})
 
 class SigninView(LoginView):
 
