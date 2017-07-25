@@ -530,7 +530,7 @@
         locations = [
             //['Sarag Baug', 18.499797, 73.853990, 4],
             {% for hoarding in hoardings %}
-                ['{{ hoarding.address.address }}', {{ hoarding.address.geo_location }}, {{ forloop.counter0 }}],
+                ['{{ hoarding.address.address }}', {{ hoarding.address.geo_location }}, {{ forloop.counter0 }}, {{ hoarding.display_type }}],
             {% endfor %}
         ];
 
@@ -553,11 +553,18 @@
             anchor: new google.maps.Point(0, 0) // anchor
         };
 
+        var pinIcon2 = {
+            url: "/static/img/indoor-hoarding.png", // url
+            scaledSize: new google.maps.Size(35, 35), // scaled size
+            origin: new google.maps.Point(0, 0), // origin
+            anchor: new google.maps.Point(0, 0) // anchor
+        };
+
         for (i = 0; i < locations.length; i++) {
             marker = new google.maps.Marker({
                 position: new google.maps.LatLng(locations[i][1], locations[i][2]),
                 map: map,
-                icon: pinIcon1
+                icon: (locations[i][4] == 1) ? pinIcon2 : pinIcon1
             });
             marker.set("id", locations[i][3]);
             arrMarkers[i] = marker;

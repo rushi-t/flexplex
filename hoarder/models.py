@@ -11,12 +11,15 @@ class Hoarding(models.Model):
     #uuid = models.UUIDField(default=uuid.uuid4, unique=True)
     user = models.ForeignKey('auth.User')
     address = models.ForeignKey('common.Address', default=None)
+    description = models.CharField(max_length=100, default='')
 
-    DISPLAY_TYPE_CHOICES = ( (1, 'Indoor'), (2, 'OutDoor'),)
+    DISPLAY_TYPE_CHOICES = ( (1, 'Indoor'), (2, 'OutDoor'), (3, 'CinemaHall'))
     display_type = models.IntegerField(choices=DISPLAY_TYPE_CHOICES, default=2)
-
+    # For Outdoor Display
     width = models.PositiveIntegerField(default=0)
     height = models.PositiveIntegerField(default=0)
+    # For Indoor Display
+    diagonal_size = models.PositiveIntegerField(default=0)
 
     DIMENSION_UNIT_CHOICES = ( (1, 'inch'), (2, 'feet'), )
     dimension_unit = models.IntegerField(choices=DIMENSION_UNIT_CHOICES, default=2)
@@ -31,9 +34,10 @@ class Hoarding(models.Model):
     # cost_cycle = models.IntegerField(choices=COST_CYCLE_CHOICES, default=3)
 
     rate = models.FloatField(default=0)
+    min_duration = models.PositiveIntegerField(default=15)
 
-    start_time = models.TimeField(default='00:00 AM')
-    stop_time = models.TimeField(default='00:00 AM')
+    start_time = models.TimeField(default='08:00 AM')
+    stop_time = models.TimeField(default='12:00 PM')
 
     creation_date = models.DateTimeField(auto_now_add=True)
     last_update = models.DateTimeField(default=datetime.now())
