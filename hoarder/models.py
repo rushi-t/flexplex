@@ -6,6 +6,7 @@ from datetime import date
 from django.db.models import Q
 from advertiser.models import Campaign, CampaignHoardings, CampaignImpressions
 from django.db.models import Avg
+import random
 
 class Hoarding(models.Model):
     #uuid = models.UUIDField(default=uuid.uuid4, unique=True)
@@ -45,6 +46,19 @@ class Hoarding(models.Model):
 
     active_status = models.BooleanField(default=False)
 
+    def get_rate(self):
+        return ('%f' % self.rate).rstrip('0').rstrip('.')
+
+    def get_display_dimension(self):
+        display_str = ''
+        if self.display_type == self.DISPLAY_TYPE_CHOICES[1][0]:
+            display_str = str(self.width) + " x " + str(self.height) \
+
+        else:
+            display_str = str(self.diagonal_size)
+        display_str = display_str + " " + self.DIMENSION_UNIT_CHOICES[self.dimension_unit-1][1]
+        return display_str
+
     def save(self, last_update=True, *args, **kwargs):
         if last_update is True:
             self.last_update = datetime.now()
@@ -55,7 +69,7 @@ class Hoarding(models.Model):
         return resources
 
     def get_hardware_status(self):
-        diff = (datetime.now() - self.last_heartbeat.replace(tzinfo=None)).total_seconds() / 60.0
+        diff = abs(datetime.now() - self.last_heartbeat.replace(tzinfo=None)).total_seconds() / 60.0
         if diff > 5:
             return 0
         else:
@@ -92,6 +106,9 @@ class Hoarding(models.Model):
             return avg_impression
         except:
             return 0
+
+    def get_revenue(self):
+        return random.randint(0,9)
 
 def get_active_hoardings():
     return Hoarding.objects.filter(active_status=True)

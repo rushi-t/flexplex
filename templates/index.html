@@ -439,23 +439,23 @@
                         </thead>
                         <tbody>
                         <tr>
-                            <td><label>Dimension:</label></td>
-                            <td>{{ hoarding.width }} x {{ hoarding.height }} ft.</td>
+                            <td><label>Size:</label></td>
+                            <td>{{ hoarding.get_display_dimension }}</td>
                         </tr>
-                        <tr>
-                            <td><label>Rate:</label></td>
-                            <td> &#8377; {{ hoarding.rate }} </td>
-                        </tr>
-                        <tr>
+                         <tr>
                             <td><label>Availability:</label></td>
                             <td>Available</td>
                         </tr>
                         <tr>
-                            <td><label>Min Ad Duration:</label></td>
-                            <td>10 sec</td>
+                            <td><label>Rate:</label></td>
+                            <td> &#8377; {{ hoarding.rate }} / sec</td>
                         </tr>
                         <tr>
-                            <td><label>Avg Daily Impressions</label></td>
+                            <td><label>Min. Ad Duration:</label></td>
+                            <td>{{ hoarding.min_duration }} sec</td>
+                        </tr>
+                        <tr>
+                            <td><label>Avg. Daily Impressions</label></td>
                             <td>200 ~ 300</td>
                         </tr>
                         </tbody>
