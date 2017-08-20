@@ -98,3 +98,7 @@ class UserActivationPendingView(View):
 class PostRegistrationView(View):
     def get(self, request):
         return render(request, 'post_registration_page.html')
+
+class EmailView(View):
+    def get(self, request):
+        return render(request, 'email/cerberus-responsive.html')

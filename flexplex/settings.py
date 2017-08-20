@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!2#s4z6!m%v^o0ggnvseqt1m3f%^zyxvm0(k3xbh#0mho-t6i='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['flexplex.in', 'www.flexplex.in', '148.72.245.147', 'localhost', '0.0.0.0', '192.168.0.107']
 
@@ -158,17 +158,12 @@ AUTHENTICATION_BACKENDS = (
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'admin@flexplex.in'
-EMAIL_HOST_PASSWORD = 'Rushi_123'
+EMAIL_HOST_PASSWORD = 'Flex_123'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-STATIC_URL = '/static/'
 
-# Add these new lines
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
 
 # MIDDLEWARE= (
 #     'django.middleware.security.SecurityMiddleware',
@@ -179,10 +174,18 @@ STATICFILES_DIRS = (
 #     #'authentication.middleware.LoginRequiredMiddleware',
 # )
 
+STATIC_URL = '/static/'
+
+# Add these new lines
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/var/www/media/flexplex/'
-MEDIA_ROOT = '/home/rtalokar/flexplex/static/uploads'
+MEDIA_URL = '/media/'
+# MEDIA_ROOT = '/home/rtalokar/flexplex/staticfiles/uploads'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/uploads')
 
 LOGIN_URL = '/signin/'
 

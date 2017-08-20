@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^activation-pending/$', views.UserActivationPendingView.as_view()),
     url(r'^register/$', views.MyRegisterView.as_view()),
     url(r'^register/success$', views.PostRegistrationView.as_view()),
+    url(r'^email/test$', views.EmailView.as_view()),
     # url(r'^logout/$', 'logout',
     #                       {'next_page': '/successfully_logged_out/'}),
     # url(r'/', TemplateView.as_view(template_name='index.html')),

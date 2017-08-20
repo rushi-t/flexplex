@@ -20,7 +20,9 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
-
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 class CampaignResourceViewSet(ModelViewSet):
     # queryset = Campaign.objects.all()
@@ -70,8 +72,19 @@ class AdvertiserHome(APIView):
         #     hoardings = CampaignHoardings.objects.filter(campaign=campaign)
         #     campaign.hoardings['hoardings'] = hoardings
 
-        # email = EmailMessage('Subject', 'Body', to=['rushikesh.talokar@gmail.com'])
-        # email.send()
+        email = EmailMessage('Subject', 'Body', to=['rushikesh.talokar@gmail.com'])
+        email.send()
+
+        # subject, from_email, to = 'Html Test', 'admin@flexplex.in ', 'rushikesh.talokar@gmail.com'
+        #
+        # html_content = render_to_string('email/cerberus-responsive.html', {'varname': 'value'})  # ...
+        # text_content = strip_tags(html_content)  # this strips the html, so people will have the text as well.
+        #
+        # # create the email, and attach the HTML version as well.
+        # msg = EmailMultiAlternatives(subject=subject, body=text_content, from_email=from_email, to=[to])
+        # msg.attach_alternative(html_content, "text/html")
+        # msg.send()
+
         return render(request, 'advertiser/index.html',
                       {'campaigns': campaigns})
 
@@ -83,7 +96,8 @@ def create_campaign(request, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0])
     if filename.lower().endswith(('.png', '.jpg', '.jpeg')):
         outFileName = os.path.splitext(filename)[0] + '.mp4'
 
-        ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -loop 1 -i ' \
+
+        ffmpegCmd = 'ffmpeg -loop 1 -i ' \
                     + fs.location + "/" + filename + ' -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1280:720 ' \
                     + fs.location + "/" + outFileName
         # local
@@ -95,7 +109,7 @@ def create_campaign(request, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0])
 
         ##AVI File
         aviFileName = os.path.splitext(filename)[0] + '.avi'
-        ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -i ' \
+        ffmpegCmd = 'ffmpeg -i ' \
                     + fs.location + "/" + outFileName + ' -vcodec mpeg4 ' \
                     + fs.location + "/" + aviFileName
         process = call(ffmpegCmd, shell=True)
