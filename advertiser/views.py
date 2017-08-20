@@ -72,8 +72,8 @@ class AdvertiserHome(APIView):
         #     hoardings = CampaignHoardings.objects.filter(campaign=campaign)
         #     campaign.hoardings['hoardings'] = hoardings
 
-        email = EmailMessage('Subject', 'Body', to=['rushikesh.talokar@gmail.com'])
-        email.send()
+        # email = EmailMessage('Subject', 'Body', to=['rushikesh.talokar@gmail.com'])
+        # email.send()
 
         # subject, from_email, to = 'Html Test', 'admin@flexplex.in ', 'rushikesh.talokar@gmail.com'
         #
