@@ -23,6 +23,7 @@ from django.core.mail import EmailMessage
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+from emailcampaign.cron import email_scheduled_job
 
 class CampaignResourceViewSet(ModelViewSet):
     # queryset = Campaign.objects.all()
@@ -64,7 +65,7 @@ class CampaignHoardingsViewSet(ModelViewSet):
         return CampaignHoardings.objects.all()
 
 
-class AdvertiserHome(APIView):
+class AdvertiserHome(View):
     @method_decorator(login_required)
     def get(self, request):
         campaigns = Campaign.objects.filter(user=self.request.user).order_by('-to_date')
@@ -84,6 +85,7 @@ class AdvertiserHome(APIView):
         # msg = EmailMultiAlternatives(subject=subject, body=text_content, from_email=from_email, to=[to])
         # msg.attach_alternative(html_content, "text/html")
         # msg.send()
+        # email_scheduled_job(request)
 
         return render(request, 'advertiser/index.html',
                       {'campaigns': campaigns})

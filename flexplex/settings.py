@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 import common
+import flexplex
+
+HOST_NAME = "http://flexplex.in"
+#HOST_NAME = "http://localhost:8000"
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -48,10 +52,13 @@ INSTALLED_APPS = [
     'allauth.account',
     'rest_auth.registration',
 
+    'django_crontab',
+
     'authentication',
     'common',
     'hoarder',
     'advertiser',
+    'emailcampaign'
 ]
 
 
@@ -225,3 +232,6 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+CRONJOBS = [
+    ('*/1 * * * *', 'emailcampaign.cron.email_scheduled_job')
+]

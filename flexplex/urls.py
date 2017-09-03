@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'advertiser', include('advertiser.urls')),
     url(r'hoarder', include('hoarder.urls')),
     url(r'', include('authentication.urls')),
+    url(r'', include('emailcampaign.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
