@@ -192,7 +192,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = '/media/'
 # MEDIA_ROOT = '/home/rtalokar/flexplex/staticfiles/uploads'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/uploads')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/uploads')
 
 LOGIN_URL = '/signin/'
 
