@@ -10,6 +10,7 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.contrib.sites.models import Site
 from flexplex import settings
+import time
 
 def email_scheduled_job():
     campaign = Campaign()
@@ -19,7 +20,7 @@ def email_scheduled_job():
         campaign_user = CampaignUser(user=user, campaign=campaign)
         campaign_user.save()
 
-        subject, from_email, to = 'Flexplex: Digital OOH Network', 'admin@flexplex.in ', 'rushikesh.talokar@gmail.com'
+        subject, from_email, to = 'Digital OOH Network', 'FlexPlex<info@flexplex.in>', 'rushikesh.talokar@gmail.com'
         html_content = render_to_string('email/cerberus-responsive.html',
                                         {'host': settings.HOST_NAME,
                                          'campaign_user': campaign_user}
@@ -32,6 +33,7 @@ def email_scheduled_job():
                                      to=[campaign_user.user.email])
         msg.attach_alternative(html_content, "text/html")
         msg.send()
+        time.sleep(0.1)
 
         # email = EmailMessage('Subject', 'Body', to=[user.email])
         # email.send()
