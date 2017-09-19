@@ -94,7 +94,7 @@ class HoarderHome(GenericAPIView):
     @method_decorator(login_required)
     def get(self, request):
         hoardings = Hoarding.objects.filter(user=self.request.user)
-        email_scheduled_job()
+        #email_scheduled_job()
         return render(request, 'hoarder/index.html', {'hoardings': hoardings})
 
 

@@ -20,7 +20,7 @@ def email_scheduled_job():
         campaign_user = CampaignUser(user=user, campaign=campaign)
         campaign_user.save()
 
-        subject, from_email, to = 'Digital OOH Network', 'FlexPlex<info@flexplex.in>', 'rushikesh.talokar@gmail.com'
+        subject, from_email, to = 'Digital OOH Advertising Network', 'FlexPlex<info@flexplex.in>', 'rushikesh.talokar@gmail.com'
         html_content = render_to_string('email/cerberus-responsive.html',
                                         {'host': settings.HOST_NAME,
                                          'campaign_user': campaign_user}
