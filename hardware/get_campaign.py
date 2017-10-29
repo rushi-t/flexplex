@@ -11,13 +11,13 @@ import os.path
 import sys
 
 POLL_TIME = 1 * 30 #5 mins
-# BASE_URL = 'http://148.72.245.147/'
-BASE_URL = 'http://localhost:8000/'
-# PATH = '/home/pi/work/hardware/'
-PATH = '/mnt/sda4/work/django/flexplex/hardware/'
+BASE_URL = 'http://flexplex.in/'
+#BASE_URL = 'http://localhost:8000/'
+PATH = '/home/pi/work/hardware/'
+#PATH = '/mnt/sda4/work/django/flexplex/hardware/'
 RESOURCE_DIR = PATH + 'videos'
 HOARDING_JSON = PATH + 'hoarding.json'
-HOARDING_ID = str(5)
+HOARDING_ID = str(33)
 HOARDING_URL = BASE_URL +'hoarder/api/all/hoardings/' + HOARDING_ID
 
 def pollHoarding():

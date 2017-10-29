@@ -1,0 +1,7 @@
+#search network devices
+sudo nmap -sP 192.168.0.0/24
+
+#supervisord
+service supervisor restart
+service supervisor start
+service supervisor stop
