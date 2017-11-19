@@ -443,10 +443,12 @@ leverage Flexplex network. Publishers can continue with their existing Ads, addi
                             <td><label>Availability:</label></td>
                             <td>Available</td>
                         </tr>
+                        {% if user.is_authenticated %}
                         <tr>
                             <td><label>Rate:</label></td>
                             <td> &#8377; {{ hoarding.rate }} / sec</td>
                         </tr>
+                        {% endif %}
                         <tr>
                             <td><label>Min. Ad Duration:</label></td>
                             <td>{{ hoarding.min_duration }} sec</td>
