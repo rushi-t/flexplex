@@ -94,6 +94,11 @@ class HoarderHome(GenericAPIView):
     @method_decorator(login_required)
     def get(self, request):
         hoardings = Hoarding.objects.filter(user=self.request.user)
+        if self.request.user.is_superuser:
+            hoardings = Hoarding.objects.all()
+        else:
+            hoardings = Hoarding.objects.filter(user=self.request.user)
+
         #email_scheduled_job()
         return render(request, 'hoarder/index.html', {'hoardings': hoardings})
 
@@ -101,6 +106,12 @@ class HoarderHome(GenericAPIView):
 class HoardingDetail(View):
     def get(self, request, id):
         hoarding = Hoarding.objects.get(user=self.request.user, id=id)
+
+        if self.request.user.is_superuser:
+            hoarding = Hoarding.objects.get(id=id)
+        else:
+            hoarding = Hoarding.objects.get(user=self.request.user, id=id)
+
         campaigns = CampaignHoardings.objects.filter(hoarding=hoarding)
         return render(request, 'hoarder/hoarding-detail.html', {'hoarding': hoarding, 'campaigns': campaigns})
 
