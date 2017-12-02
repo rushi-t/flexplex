@@ -58,9 +58,9 @@
 
                     <!-- Ad Card -->
                     <div class="col-md-6 col-sm-6 col-xs-12 profile_details"
-                         onclick="location.href='/hoarder/hoarding/{{ hoarding.id }}';" style="cursor: pointer;">
-                        <div class="well profile_view">
-                            <div class="col-sm-12">
+                         style="cursor: pointer;">
+                        <div class="well profile_view" >
+                            <div class="col-sm-12" onclick="location.href='/hoarder/hoarding/{{ hoarding.id }}';" >
                                 <h4 class="brief"><i>{{ hoarding.address.address }}</i></h4>
                                 <div class="left col-xs-7">
                                     <!-- <h2>Nicole Pearson</h2> -->
@@ -115,14 +115,25 @@
 
                                 </div>
                             </div>
-                            <div class="col-xs-12 bottom text-center" style="margin-top: 15px">
+                            <div class="col-xs-12 bottom" style="margin-top: 15px">
                                 <div class="col-xs-12 col-sm-8 emphasis">
-                                    <p class="ratings">
-                                        <strong>Revenue: </strong>₹ 10,000
-                                    </p>
+{#                                    <p class="ratings">#}
+{#                                        <strong>Revenue: </strong>₹ 10,000#}
+{#                                    </p>#}
+                                    {% if user.is_superuser  %}
+                                        {% if hoarding.active_status is True %}
+                                             <a href="/hoarder/hoarding/{{ hoarding.id }}/deactivate" style="margin-left: 5px">
+                                                Deactivate
+                                             </a>
+                                        {% else %}
+                                             <a href="/hoarder/hoarding/{{ hoarding.id }}/activate" style="margin-left: 5px">
+                                                Activate
+                                             </a>
+                                        {% endif %}
+                                    {% endif %}
                                 </div>
                                 <div class="col-xs-12 col-sm-4 emphasis">
-                                    <button type="button" class="btn btn-primary btn-xs pull-right">
+                                    <button type="button" class="btn btn-primary btn-xs pull-right" onclick="location.href='/hoarder/hoarding/{{ hoarding.id }}';">
                                         View Details
                                     </button>
                                 </div>

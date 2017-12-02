@@ -121,6 +121,21 @@ class HoardingDetail(View):
 
         return render(request, 'hoarder/hoarding-detail.html')
 
+class ActivateHoarding(View):
+    def get(self, request, id):
+        if self.request.user.is_superuser:
+            hoarding = Hoarding.objects.get(id=id)
+            hoarding.active_status = True
+            hoarding.save()
+            return HttpResponseRedirect('/hoarder')
+
+class DeactivateHoarding(View):
+    def get(self, request, id):
+        if self.request.user.is_superuser:
+            hoarding = Hoarding.objects.get(id=id)
+            hoarding.active_status = False
+            hoarding.save()
+            return HttpResponseRedirect('/hoarder')
 
 class AddHoardingView(View):
     def get(self, request):
@@ -147,12 +162,13 @@ class AddHoardingView(View):
                             start_time=datetime.strptime(request.POST['start_time'], '%I:%M %p').time(),
                             stop_time=datetime.strptime(request.POST['stop_time'], '%I:%M %p').time())
 
+        if self.request.user.is_superuser:
+            hoarding.active_status = True;
+
         hoarding.save()
 
-
-        myfile = request.FILES['resource']
-
-        if myfile != None:
+        if request.FILES.get('resource') is not None:
+            myfile = request.FILES['resource']
             fs = FileSystemStorage()
             filename = fs.save(myfile.name, myfile)
             uploaded_file_url = fs.url(filename)

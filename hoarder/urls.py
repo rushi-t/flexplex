@@ -5,7 +5,8 @@ from django.conf.urls import include
 from rest_framework import routers
 from django.views.generic import TemplateView
 from views import AllHoardingViewSet,MyHoardingViewSet, \
-    HoarderHome, HoardingDetail, AddHoardingView, CampaignHoardingsView, AddCampaign, IncrementCampaignImprssion, CampaignRequests
+    HoarderHome, HoardingDetail, AddHoardingView, CampaignHoardingsView, AddCampaign, \
+    IncrementCampaignImprssion, CampaignRequests, ActivateHoarding, DeactivateHoarding
 
 router = routers.DefaultRouter()
 router.register(r'all/hoardings', AllHoardingViewSet, base_name="Hoarding")
@@ -15,11 +16,13 @@ urlpatterns = router.urls
 
 urlpatterns = [
 
-    url(r'/add/hoarding$', AddHoardingView.as_view()),
-    url(r'/hoarding/(?P<id>\d+)/$', HoardingDetail.as_view()),
-    url(r'/hoarding/(?P<id>\d+)/add/campaign', AddCampaign.as_view()),
-    url(r'/hoarding/(?P<hoarding_id>\d+)/increment/campaign/(?P<campaign_id>\d+)', IncrementCampaignImprssion.as_view()),
-    url(r'/campaign/requests$', CampaignRequests.as_view()),
+    url(r'add/hoarding/$', AddHoardingView.as_view()),
+    url(r'hoarding/(?P<id>\d+)/$', HoardingDetail.as_view()),
+    url(r'hoarding/(?P<id>\d+)/add/campaign', AddCampaign.as_view()),
+    url(r'hoarding/(?P<id>\d+)/activate', ActivateHoarding.as_view()),
+    url(r'hoarding/(?P<id>\d+)/deactivate', DeactivateHoarding.as_view()),
+    url(r'hoarding/(?P<hoarding_id>\d+)/increment/campaign/(?P<campaign_id>\d+)', IncrementCampaignImprssion.as_view()),
+    url(r'campaign/requests$', CampaignRequests.as_view()),
     url(r'/api/hoarding/(?P<id>\d+)/campaigns', CampaignHoardingsView.as_view()),
 
 
@@ -28,5 +31,6 @@ urlpatterns = [
     # url(r'location/', TemplateView.as_view(template_name='location.html')),
     url(r'/api/', include(router.urls)),
     url(r'/$', HoarderHome.as_view()),
+
 
 ]
