@@ -45,6 +45,7 @@ class Hoarding(models.Model):
     last_heartbeat = models.DateTimeField(default=datetime.now())
 
     active_status = models.BooleanField(default=False)
+    hidden = models.BooleanField(default=False)
 
     def get_rate(self):
         return ('%f' % self.rate).rstrip('0').rstrip('.')

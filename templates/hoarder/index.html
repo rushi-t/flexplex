@@ -122,14 +122,12 @@
 {#                                    </p>#}
                                     {% if user.is_superuser  %}
                                         {% if hoarding.active_status is True %}
-                                             <a href="/hoarder/hoarding/{{ hoarding.id }}/deactivate" style="margin-left: 5px">
-                                                Deactivate
-                                             </a>
+                                             <a href="/hoarder/hoarding/{{ hoarding.id }}/deactivate" style="margin-left: 5px">Deactivate</a>
                                         {% else %}
-                                             <a href="/hoarder/hoarding/{{ hoarding.id }}/activate" style="margin-left: 5px">
-                                                Activate
-                                             </a>
+                                             <a href="/hoarder/hoarding/{{ hoarding.id }}/activate" style="margin-left: 5px">Activate</a>
                                         {% endif %}
+                                         <a href="/hoarder/edit/hoarding/{{ hoarding.id }}" >/ Edit</a>
+                                         <a href="/hoarder/delete/hoarding/{{ hoarding.id }}">/ Delete</a>
                                     {% endif %}
                                 </div>
                                 <div class="col-xs-12 col-sm-4 emphasis">

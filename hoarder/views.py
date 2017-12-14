@@ -1,3 +1,4 @@
+import os
 from rest_framework import generics
 from hoarder.models import Hoarding, HoardingResource
 from hoarder.serializers import HoardingSerializer
@@ -93,9 +94,9 @@ class CampaignHoardingsView(generics.ListAPIView):
 class HoarderHome(GenericAPIView):
     @method_decorator(login_required)
     def get(self, request):
-        hoardings = Hoarding.objects.filter(user=self.request.user)
+        hoardings = None
         if self.request.user.is_superuser:
-            hoardings = Hoarding.objects.all()
+            hoardings = Hoarding.objects.filter(hidden=False)
         else:
             hoardings = Hoarding.objects.filter(user=self.request.user)
 
@@ -148,44 +149,86 @@ class DeactivateHoarding(View):
             hoarding.save()
             return HttpResponseRedirect('/hoarder')
 
-class AddHoardingView(View):
-    def get(self, request):
-        queryset = Hoarding.objects.all()
-        return render(request, 'hoarder/add-hoarding.html', {'hoardings': queryset})
-
-    def post(self, request, *args, **kwargs):
-
-        address = Address(city=City.objects.get(id=request.POST['city']),
-                          state=State.objects.get(id=request.POST['state']),
-                          country=Country.objects.get(id=request.POST['country']),
-                          address=request.POST['address'],
-                          geo_location=request.POST['geo_location'])
-
-        address.save()
-
-        hoarding = Hoarding(user=self.request.user,
-                            address=address,
-                            width=request.POST['width'],
-                            height=request.POST['height'],
-                            display_type=request.POST['display_type'],
-                            #cost_cycle=request.POST['cost_cycle'],
-                            rate=request.POST['cost'],
-                            start_time=datetime.strptime(request.POST['start_time'], '%I:%M %p').time(),
-                            stop_time=datetime.strptime(request.POST['stop_time'], '%I:%M %p').time())
-
+class HideHoarding(View):
+    def get(self, request, id):
         if self.request.user.is_superuser:
-            hoarding.active_status = True;
+            hoarding = Hoarding.objects.get(id=id)
+            hoarding.hidden = True
+            hoarding.save()
+            return HttpResponseRedirect('/hoarder')
 
-        hoarding.save()
+class AddHoardingView(View):
+    def get(self, request, id=-1):
+        if id != -1:
+            hoarding = Hoarding.objects.get(id=id)
+            hoarding_resource = HoardingResource.objects.filter(hoarding=hoarding).first()
+            return render(request, 'hoarder/add-hoarding.html', {'country_list': Country.objects.all(),
+                                                                 'state_list': State.objects.all(),
+                                                                 'city_list': City.objects.all(),
+                                                                 'display_types': hoarding.DISPLAY_TYPE_CHOICES,
+                                                                 'hoarding': hoarding,
+                                                                 'hoarding_resource': hoarding_resource} )
+        return render(request, 'hoarder/add-hoarding.html',  {'country_list': Country.objects.all(),
+                                                                 'state_list': State.objects.all(),
+                                                                 'city_list': City.objects.all(),
+                                                                 'display_types': Hoarding.DISPLAY_TYPE_CHOICES})
+
+    def post(self, request, id=-1):
+        hoarding = None
+        if id != -1:
+            hoarding = Hoarding.objects.get(id=id)
+            hoarding.address.city = City.objects.get(id=request.POST['city'])
+            hoarding.address.state=State.objects.get(id=request.POST['state'])
+            hoarding.address.country=Country.objects.get(id=request.POST['country'])
+            hoarding.address.address=request.POST['address']
+            hoarding.address.geo_location=request.POST['geo_location']
+            hoarding.address.save()
+
+            hoarding.width = request.POST['width']
+            hoarding.height = request.POST['height']
+            hoarding.display_type = request.POST['display_type']
+            # cost_cycle=request.POST['cost_cycle']
+            hoarding.rate = request.POST['cost']
+            hoarding.start_time = datetime.strptime(request.POST['start_time'], '%I:%M %p').time()
+            hoarding.stop_time = datetime.strptime(request.POST['stop_time'], '%I:%M %p').time()
+            hoarding.save()
+        else:
+            address = Address(city=City.objects.get(id=request.POST['city']),
+                              state=State.objects.get(id=request.POST['state']),
+                              country=Country.objects.get(id=request.POST['country']),
+                              address=request.POST['address'],
+                              geo_location=request.POST['geo_location'])
+            address.save()
+            hoarding = Hoarding(user=self.request.user,
+                                address=address,
+                                width=request.POST['width'],
+                                height=request.POST['height'],
+                                display_type=request.POST['display_type'],
+                                #cost_cycle=request.POST['cost_cycle'],
+                                rate=request.POST['cost'],
+                                start_time=datetime.strptime(request.POST['start_time'], '%I:%M %p').time(),
+                                stop_time=datetime.strptime(request.POST['stop_time'], '%I:%M %p').time())
+
+            if self.request.user.is_superuser:
+                hoarding.active_status = True;
+
+            hoarding.save()
 
         if request.FILES.get('resource') is not None:
-            myfile = request.FILES['resource']
             fs = FileSystemStorage()
+            myfile = request.FILES['resource']
             filename = fs.save(myfile.name, myfile)
             uploaded_file_url = fs.url(filename)
 
-            hoardingResource = HoardingResource(hoarding=hoarding, resource=uploaded_file_url)
-            hoardingResource.save()
+            if id != -1:
+                hoardingResource = HoardingResource.objects.filter(hoarding=hoarding).first()
+                if hoardingResource != None:
+                    os.remove( fs.base_location + "/" + os.path.basename(str(hoardingResource.resource)))
+                hoardingResource.resource = uploaded_file_url
+                hoardingResource.save()
+            else:
+                hoardingResource = HoardingResource(hoarding=hoarding, resource=uploaded_file_url)
+                hoardingResource.save()
 
         return HttpResponseRedirect('../')
 

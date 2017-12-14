@@ -3,61 +3,8 @@
 {% block content %}
     <script src="../../static/js/jquery.cookie.js"></script>
     <script type = "text/javascript">
-        //Populate city
-        $.getJSON( "/common/city", function() {
-            console.log( "success" );
-        }).done(function(json) {
-            $('#city').empty();
-            $('#city').append($('<option value="" selected disabled>').text("City"));
-            $.each(json, function(i, obj){
-                $('#city').append($('<option>').text(obj.name).attr('value', obj.id));
-            });
-        }).fail(function() {
-            console.log( "error" );
-        });
 
-        //Populate State
-        $.getJSON( "/common/state", function() {
-            console.log( "success" );
-        }).done(function(json) {
-            $('#state').empty();
-            $('#state').append($('<option value="" selected disabled>').text("State"));
-            $.each(json, function(i, obj){
-                $('#state').append($('<option>').text(obj.name).attr('value', obj.id));
-            });
-        }).fail(function() {
-            console.log( "error" );
-        });
-
-        //Populate State
-        $.getJSON( "/common/country", function() {
-            console.log( "success" );
-        }).done(function(json) {
-            $('#country').empty();
-            $('#country').append($('<option value="" selected disabled>').text("Country"));
-            $.each(json, function(i, obj){
-                $('#country').append($('<option>').text(obj.name).attr('value', obj.id));
-            });
-        }).fail(function() {
-            console.log( "error" );
-        });
-
-        // {
-        //     "address": {
-        //         "address": "",
-        //         "geo_location": "",
-        //         "city": null,
-        //         "state": null,
-        //         "country": null
-        //     },
-        //     "width": null,
-        //     "height": null,
-        //     "display_type": null,
-        //     "cost_cycle": null,
-        //     "cost": null
-        // }
-
-        var csrftoken = $.cookie('csrftoken');
+{#        var csrftoken = $.cookie('csrftoken');#}
 
         function csrfSafeMethod(method) {
             // these HTTP methods do not require CSRF protection
@@ -72,52 +19,6 @@
             }
         });
 
-        function onSubmit( form ){
-            //jsonObj = [];
-
-            item = {}
-            item ["width"] = $('#width').val();
-            item ["height"] = $('#height').val();
-            item ["display_type"] = $('#display_type').val();
-            item ["cost_cycle"] = $('#cost_cycle').val();
-            item ["cost"] = $('#cost').val();
-
-            addressItem = {}
-            addressItem ["city"] = $('#city').val();
-            addressItem ["state"] = $('#state').val();
-            addressItem ["country"] = $('#country').val();
-            addressItem ["geo_location"] = $('#geo_location').val();
-            addressItem ["address"] = $('#address').val();
-            item ["address"] = addressItem;
-
-            //jsonObj.push(item);
-
-            jsonString = JSON.stringify(item);
-            console.log(jsonString);
-
-            try {
-                {#                $.post("../my/hoardings/", jsonString, function(result){#}
-                {#                    alert(result);#}
-                {#                });#}
-
-                $.ajax({
-                    type: 'POST',
-                    url: "../my/hoardings/",
-                    data: jsonString,
-                    error: function(e) {
-                        console.log(e);
-                    },
-                    dataType: "json",
-                    contentType: "application/json"
-                });
-            }
-            catch(err) {
-                alert(err.message);
-            }
-
-
-            return false; //don't submit
-        }
 
         // File Input
         $("document").ready(function(){
@@ -240,22 +141,25 @@
 
                                     <select class="form-control input-group" name="display_type">
                                         <option value="" selected disabled>Display Type</option>
-                                        <option value="2">OutDoor</option>
-                                        <option value="1">Indoor</option>
+                                        {% for display_type in display_types %}
+                                             <option value="{{ display_type.0 }}" {% if hoarding is not None and hoarding.display_type == display_type.0 %}selected{% endif %}>{{ display_type.1 }}
+                                             </option>
+                                        {% endfor %}
+
                                     </select>
 
                                     <div class="input-group">
-                                        <input class="form-control" type="number" placeholder="Width" name="width">
+                                        <input class="form-control" type="number" placeholder="Width" name="width" value="{{ hoarding.width }}">
                                         <span class="input-group-addon">feet</span>
                                     </div>
                                     <div class="input-group">
-                                        <input class="form-control" type="number" placeholder="Height" name="height">
+                                        <input class="form-control" type="number" placeholder="Height" name="height" value="{{ hoarding.height }}">
                                         <span class="input-group-addon">feet</span>
                                     </div>
                                     <br/>
                                     <h2>Billing</h2>
                                     <div class="input-group">
-                                        <input name="cost" class="form-control" type="text" placeholder="Rate">
+                                        <input name="cost" class="form-control" type="text" placeholder="Rate" value="{{ hoarding.rate }}">
                                         <span class="input-group-btn">
                                           <select class="btn"
                                                   style="border-color: #ccc; margin-top: 0px; margin-bottom: 0px; padding-top: 7px; padding-bottom: 7px; margin-right: 0px" name="cost_duration">
@@ -279,12 +183,26 @@
                                     <div class="form-group has-feedback">
                                         <select id="country" name="country" class="form-control ">
                                             <option value="" selected disabled>Country</option>
+                                            {% for country in country_list %}
+                                                {% if hoarding is not None and hoarding.address.country == country %}
+                                                    <option value="{{ country.id }}" selected>{{ country.name }}</option>
+                                                {% else %}
+                                                    <option value="{{ country.id }}">{{ country.name }}</option>
+                                                {% endif %}
+                                            {% endfor %}
                                         </select>
 {#                                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>#}
                                     </div>
                                     <div class="form-group  has-feedback">
                                         <select id="state" name="state" class="form-control">
                                             <option value="" selected disabled>State</option>
+                                            {% for state in state_list %}
+                                                {% if hoarding is not None and hoarding.address.state == state %}
+                                                    <option value="{{ state.id }}" selected>{{ state.name }}</option>
+                                                {% else %}
+                                                    <option value="{{ state.id }}">{{ state.name }}</option>
+                                                {% endif %}
+                                            {% endfor %}
                                         </select>
 {#                                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"#}
 {#                                              style="padding-left: -10px"></span>#}
@@ -292,12 +210,19 @@
                                     <div class="form-group  has-feedback">
                                         <select id="city" name="city" class="form-control">
                                             <option value="" selected disabled>City</option>
+                                            {% for city in city_list %}
+                                                {% if hoarding is not None and hoarding.address.city == city %}
+                                                    <option value="{{ city.id }}" selected>{{ city.name }}</option>
+                                                {% else %}
+                                                    <option value="{{ city.id }}">{{ city.name }}</option>
+                                                {% endif %}
+                                            {% endfor %}
                                         </select>
 {#                                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>#}
                                     </div>
                                     <div class="form-group">
                                         <textarea rows="3" name="address" class="form-control" type="text"
-                                                  placeholder="Detail Address"></textarea>
+                                                  placeholder="Detail Address">{% if hoarding %}{{hoarding.address.address}}{% endif %}</textarea>
                                     </div>
 
                                 </div>
@@ -307,12 +232,21 @@
                                     <div class="input-group">
                                         <label class="input-group-addon"><i class="glyphicon glyphicon-time"></i> Start
                                             Time</label>
-                                        <input id="timepicker1" type="text" class="form-control input-small" name="start_time" value="8:00 AM">
+                                        {% if hoarding is not None %}
+                                            <input id="timepicker1" type="text" class="form-control input-small" name="start_time" value="{{ hoarding.start_time }}">
+                                        {% else %}
+                                            <input id="timepicker1" type="text" class="form-control input-small" name="start_time" value="8:00 AM">
+                                        {% endif %}
                                     </div>
                                     <div class="input-group">
                                         <label class="input-group-addon"><i class="glyphicon glyphicon-time"></i> Stop
                                             Time </label>
-                                        <input id="timepicker2" type="text" class="form-control input-small" name="stop_time" value="10:00 PM">
+
+                                         {% if hoarding is not None %}
+                                           <input id="timepicker2" type="text" class="form-control input-small" name="stop_time" value="{{ hoarding.stop_time }}">
+                                        {% else %}
+                                            <input id="timepicker2" type="text" class="form-control input-small" name="stop_time" value="10:00 PM">
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -323,7 +257,7 @@
                                     <h2>Hoarding Image</h2>
                                     <div class="image-box" style="width: 100%; height: 300px">
                                         <input type="file" name="resource" id="resource" class="inputfile inputfile-4">
-                                        <label id="drop-label" for="resource">
+                                        <label id="drop-label" for="resource" style="{% if hoarding_resource is not None %}display: none;{% endif %}">
                                             <figure>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17"
                                                      viewBox="0 0 20 17">
@@ -332,9 +266,9 @@
                                             </figure>
                                             <span> Choose Hoarding Image</span>
                                         </label>
-                                        <div id="media" class="img-wrap" style="display: none; overflow: visible">
-                                            <img id="preview-img" src="" width="100%" height="270px"
-                                                 style="display: none; margin: -3.25rem"/>
+                                        <div id="media" class="img-wrap" style="{% if hoarding_resource is None %}display: none;{% endif %} overflow: visible">
+                                            <img id="preview-img" width="100%" height="270px"
+                                                 style="margin: -3.25rem" {% if hoarding_resource is not None %} src="{{ hoarding_resource.resource }}"{% endif %}/>
                                             <i id="close" class="close fa fa-times-circle fa-2x "
                                                aria-hidden="true"></i>
                                         </div>
@@ -404,6 +338,9 @@
                 // Browser doesn't support Geolocation
                 handleLocationError(false, infoWindow, map.getCenter());
             }
+            {% if hoarding.address.geo_location %}
+                addMarker(new google.maps.LatLng({{ hoarding.address.geo_location }}));
+            {% endif %}
 
         }
 
