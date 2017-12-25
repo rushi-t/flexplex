@@ -224,6 +224,8 @@ class AddHoardingView(View):
                 hoardingResource = HoardingResource.objects.filter(hoarding=hoarding).first()
                 if hoardingResource != None:
                     os.remove( fs.base_location + "/" + os.path.basename(str(hoardingResource.resource)))
+                else:
+                    hoardingResource = HoardingResource(hoarding=hoarding, resource=uploaded_file_url)
                 hoardingResource.resource = uploaded_file_url
                 hoardingResource.save()
             else:
