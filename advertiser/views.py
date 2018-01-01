@@ -99,7 +99,7 @@ def create_campaign(request, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0])
         outFileName = os.path.splitext(filename)[0] + '.mp4'
 
         if not filename.lower().endswith(('.mp4')):
-            ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -loop 1 -i ' \
+            ffmpegCmd = 'ffmpeg -loop 1 -i ' \
                         + fs.location + "/" + filename + ' -c:v libx264 -t 10 -pix_fmt yuv420p -vf scale=1280:720 ' \
                         + fs.location + "/" + outFileName
 
@@ -112,7 +112,7 @@ def create_campaign(request, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0])
 
         ##AVI File
         aviFileName = os.path.splitext(filename)[0] + '.avi'
-        ffmpegCmd = '/home/rtalokar/work/ffmpeg/ffmpeg -i ' \
+        ffmpegCmd = 'ffmpeg -i ' \
                     + fs.location + "/" + outFileName + ' -vcodec mpeg4 ' \
                     + fs.location + "/" + aviFileName
         process = call(ffmpegCmd, shell=True)
