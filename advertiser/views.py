@@ -94,6 +94,8 @@ class AdvertiserHome(View):
 def create_campaign(request, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0]):
     myfile = request.FILES['resource']
     fs = FileSystemStorage()
+    fs.location += '/campaigns'
+    fs.base_url += 'campaigns'
     filename = fs.save(myfile.name, myfile)
     if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.mp4')):
         outFileName = os.path.splitext(filename)[0] + '.mp4'
@@ -120,7 +122,7 @@ def create_campaign(request, status=CampaignHoardings.STATUS_TYPE_CHOICES[0][0])
         # process.wait()
         filename = outFileName
 
-    uploaded_file_url = fs.url(filename)
+    uploaded_file_url = fs.base_url + "/" + filename
 
     campaign = Campaign(user=request.user,
                         name=request.POST['name'],
